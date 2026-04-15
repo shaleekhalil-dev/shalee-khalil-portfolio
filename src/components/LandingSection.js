@@ -11,33 +11,34 @@ const LandingSection = () => {
       justifyContent="center"
       alignItems="center"
       isDarkBackground
-      backgroundColor="#1a2a6c"
-      backgroundImage="linear-gradient(to bottom right, #1a2a6c, #b21f1f, #fdbb2d)"
+      backgroundColor="#2c3e50"
+      backgroundImage="linear-gradient(135deg, #2c3e50 0%, #34495e 100%)"
     >
       <Box
         p={10}
         borderRadius="3xl"
-        bg="rgba(255, 255, 255, 0.1)"
-        backdropFilter="blur(15px)"
-        border="1px solid rgba(255, 255, 255, 0.2)"
-        boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+        bg="rgba(255, 255, 255, 0.08)"
+        backdropFilter="blur(20px)"
+        border="1px solid rgba(255, 255, 255, 0.15)"
+        boxShadow="0 20px 50px rgba(0, 0, 0, 0.3)"
       >
         <VStack spacing={6}>
           <Avatar
             size="2xl"
             name="Shalee Khalil"
-            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Shalee"
-            border="4px solid rgba(255, 255, 255, 0.3)"
+            src="https://media.licdn.com/dms/image/v2/D4D03AQFe7fJazFVxAQ/profile-displayphoto-scale_400_400/B4DZj_UhVKGQAk-/0/1756630227562?e=1778112000&v=beta&t=lnJdAbndOdJlaMbkzC32_5aZ-rtBOajv-QlxxJyJa8o"
+            border="4px solid rgba(255, 255, 255, 0.2)"
+            boxShadow="xl"
           />
           <VStack spacing={2}>
-            <Heading as="h1" size="2xl" color="white" textShadow="2px 2px 4px rgba(0,0,0,0.3)">
+            <Heading as="h1" size="2xl" color="white" textShadow="0 2px 10px rgba(0,0,0,0.5)">
               Shalee Khalil
             </Heading>
-            <Text fontSize="xl" fontWeight="semibold" color="blue.100" textAlign="center">
+            <Text fontSize="xl" fontWeight="semibold" color="blue.50" textAlign="center">
               {t("hero_subtitle")}
             </Text>
           </VStack>
-          <Text fontSize="lg" color="whiteAlpha.900" textAlign="center" maxW="500px">
+          <Text fontSize="lg" color="whiteAlpha.900" textAlign="center" maxW="500px" lineHeight="tall">
             {t("card_bio_text")}
           </Text>
         </VStack>
