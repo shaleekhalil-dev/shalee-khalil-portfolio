@@ -6,13 +6,9 @@
   "nav_vault": "رحلة التعليم المستمر",
   "library_title": "المكتبة الرقمية (28 إصداراً)",
   "learning_journey_title": "رحلة التعليم المستمر والاعتمادات الدولية",
-  "hero_subtitle": "Teacher, Author, Coach, Trainer & Professional Development Consultant",
+  "hero_subtitle": "Teacher, Author of 28 Books, Full Stack Developer, Coach & Strategic Consultant",
   "card_bio_title": "ملف التعريف الرقمي",
   "card_bio_text": "قائد استراتيجي هجين يدمج إدارة الموارد البشرية مع علم النفس والبرمجة لأنسنة بيئات العمل وتطوير رأس المال النفسي.",
-  "card_links_title": "روابط الوصول السريع",
-  "link_canva_name": "ملف الهوية الرقمية (Canva)",
-  "link_teacher_name": "ملف إنجاز المعلم (Google Sites)",
-  "link_coach_name": "ملف الكوتشينج (Life Coach)",
   "card_stores_title": "الوصول إلى مؤلفاتي الأدبية والنفسية",
   "btn_amazon": "متجر أمازون",
   "btn_google_books": "جوجل للكتب",
@@ -27,5 +23,6 @@
   "comment_min_length": "يجب أن تكون الرسالة 10 رموز على الأقل",
   "type_dev": "تطوير برمجيات",
   "type_coaching": "كوتشينج وتوجيه",
-  "type_literary": "استشارة أدبية"
+  "type_literary": "توجيه كتابة إبداعية (Mentorship)",
+  "type_edu": "استشارة تعليمية وتدريبية"
 }
