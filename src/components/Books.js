@@ -2,96 +2,92 @@ import React, { useState } from "react";
 import {
   Box, Heading, VStack, Button, SimpleGrid, Container, Image, Text,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter,
-  ModalCloseButton, useDisclosure, UnorderedList, ListItem, HStack, Divider
+  ModalCloseButton, useDisclosure, ListItem, HStack, UnorderedList, Badge
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
+// دالة لتحويل رابط درايف إلى رابط عرض مباشر
+const getDriveUrl = (id) => `https://lh3.googleusercontent.com/u/0/d/${id}`;
+
 const groups = [
   {
-    title: "مجموعة: دوائر الذاكرة المحرمة (4 لغات)",
-    image: "https://via.placeholder.com/400x500?text=Circles+of+Memory",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: دوائر الذاكرة المحرمة (وتشمل النسخة الكاملة)." },
-      { flag: "🇺🇸", text: "الإنجليزية: Circles of Forbidden Memory." },
-      { flag: "🇫🇷", text: "الفرنسية: Cercles de la mémoire interdite." },
-      { flag: "🇪🇸", text: "الإسبانية: Círculos de Memoria Prohibida." }
-    ]
-  },
-  {
-    title: "مجموعة: هندسة الأصداء (شروخ في جدار الصمت)",
-    image: "https://via.placeholder.com/400x500?text=Architecture+of+Echoes",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: شروخ في جدار الصمت: الأب القاسي." },
-      { flag: "🇺🇸", text: "الإنجليزية: The Architecture of Echoes." },
-      { flag: "🇫🇷", text: "الفرنسية: L'Architecture des Échos." }
-    ]
-  },
-  {
-    title: "مجموعة: دورة الظلال (Cycle of Shadows)",
-    image: "https://via.placeholder.com/400x500?text=Cycle+of+Shadows",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: دورة الظلال." },
-      { flag: "🇺🇸", text: "الإنجليزية: The Cycle of Shadows (وتشمل النسخة الكاملة)." },
-      { flag: "🇫🇷", text: "الفرنسية: Le Cycle des Ombres." }
-    ]
-  },
-  {
+    id: "01",
     title: "مجموعة: الرقصة الأخيرة",
-    image: "https://via.placeholder.com/400x500?text=The+Last+Dance",
+    image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: الرقصة الأخيرة: هروب نحو الحياة." },
-      { flag: "🇺🇸", text: "الإنجليزية: The Last Dance of the Escape." },
-      { flag: "🇫🇷", text: "الفرنسية: La Dernière Danse de l'Échappée." }
+      { flag: "🇵🇸", text: "العربية: الرقصة الأخيرة: هروب نحو الحياة" },
+      { flag: "🇺🇸", text: "الإنجليزية: The Last Dance of the Escape" },
+      { flag: "🇫🇷", text: "الفرنسية: La Dernière Danse de l'Échappée" }
     ]
   },
   {
-    title: "مجموعة: طائر الفينيق",
-    image: "https://via.placeholder.com/400x500?text=The+Phoenix",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: طائر الفينيق." },
-      { flag: "🇺🇸", text: "الإنجليزية: The Phoenix: Mastering the Sovereignty of the Healer." }
-    ]
-  },
-  {
+    id: "02",
     title: "مجموعة: هل جربت أن تحلم",
-    image: "https://via.placeholder.com/400x500?text=Tried+to+Dream",
+    image: getDriveUrl("1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: هل جربت أن تحلم: اصنع من حياتك الحياة التي تحلم بها." },
-      { flag: "🇺🇸", text: "الإنجليزية: Have You Ever Tried To Dreamed." }
+      { flag: "🇵🇸", text: "العربية: هل جربت أن تحلم: اصنع من حياتك الحياة التي تحلم بها" },
+      { flag: "🇺🇸", text: "الإنجليزية: Have You Ever Tried To Dreamed" }
     ]
   },
   {
+    id: "03",
+    title: "مجموعة: تركت (مذكرات سارة)",
+    image: getDriveUrl("1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V"),
+    editions: [
+      { flag: "🇵🇸", text: "العربية: تركت: مذكرات ساره" },
+      { flag: "🇺🇸", text: "الإنجليزية: Left" }
+    ]
+  },
+  {
+    id: "04",
+    title: "مجموعة: طائر الفينيق",
+    image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
+    editions: [
+      { flag: "🇵🇸", text: "العربية: طائر الفينيق" },
+      { flag: "🇺🇸", text: "الإنجليزية: The Phoenix: Mastering the Sovereignty of the Healer" }
+    ]
+  },
+  {
+    id: "05",
+    title: "مجموعة: مرآة الروح / بوابة النور",
+    image: getDriveUrl("188RKTdEapP0FveGYn192Bm63eJ9VTEuR"),
+    editions: [
+      { flag: "🇵🇸", text: "العربية: بوابة النور: استيقاظ كون" },
+      { flag: "🇺🇸", text: "الإنجليزية: The Mirror of the Soul: Kon's Awakening" }
+    ]
+  },
+  {
+    id: "06",
+    title: "مجموعة: هندسة الأصداء (Architecture of Echoes)",
+    image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
+    editions: [
+      { flag: "🇵🇸", text: "العربية: شروخ في جدار الصمت: الأب القاسي" },
+      { flag: "🇺🇸", text: "الإنجليزية: The Architecture of Echoes" },
+      { flag: "🇫🇷", text: "الفرنسية: L'Architecture des Échos" }
+    ]
+  },
+  {
+    id: "07",
+    title: "مجموعة: دوائر الذاكرة المحرمة",
+    image: getDriveUrl("1c0EgObxLwJxhKfu6KY1cA4NCSoQq-nPj"),
+    editions: [
+      { flag: "🇵🇸", text: "العربية: دوائر الذاكرة المحرمة" },
+      { flag: "🇵🇸", text: "العربية (النسخة الكاملة): دوائر الذاكرة المحرمة: القصة الكاملة" },
+      { flag: "🇪🇸", text: "الإسبانية: Círculos de Memoria Prohibida" },
+      { flag: "🇺🇸", text: "الإنجليزية: The Cycle of Shadows" },
+      { flag: "🇫🇷", text: "الفرنسية: Le Cycle des Ombres" },
+      { flag: "🇺🇸", text: "الإنجليزية (النسخة الكاملة): The Cycle of Shadows: The Complete Edition" }
+    ]
+  },
+  {
+    id: "08",
     title: "مجموعة: عبير وشادي",
-    image: "https://via.placeholder.com/400x500?text=Shadi+and+Abeer",
+    image: getDriveUrl("1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: شادي وعبير: ترانيم الحب." },
-      { flag: "🇺🇸", text: "الإنجليزية: Shadi & Abeer." },
-      { flag: "🇫🇷", text: "الفرنسية: Abeer et Shady: Hymnes d'amour et parfum de jasmin." },
-      { flag: "🇪🇸", text: "الإسبانية: Abeer y Shady: Himnos de amor y fragancia de jazmín." }
-    ]
-  },
-  {
-    title: "مجموعة: مذكرات سارة",
-    image: "https://via.placeholder.com/400x500?text=Sara+Memoirs",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: تركت: مذكرات سارة (وتشمل إصدارات: فنجان قهوة، وأسرار القهوة)." },
-      { flag: "🇺🇸", text: "الإنجليزية: Left." }
-    ]
-  },
-  {
-    title: "مجموعة: مرآة الروح / رحلة كون",
-    image: "https://via.placeholder.com/400x500?text=Mirror+of+Soul",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: بوابة النور: استيقاظ كون (رحلة كون / صدى الوعي)." },
-      { flag: "🇺🇸", text: "الإنجليزية: The Mirror of the Soul: Kon's Awakening." }
-    ]
-  },
-  {
-    title: "أعمال أخرى (بالعربية والإنجليزية)",
-    image: "https://via.placeholder.com/400x500?text=Other+Works",
-    editions: [
-      { flag: "🇵🇸", text: "العربية: خيار القلب: سلوى." },
-      { flag: "🇺🇸", text: "الإنجليزية: The Gate (البوابة)." }
+      { flag: "🇵🇸", text: "العربية: شادي وعبير: ترانيم الحب" },
+      { flag: "🇺🇸", text: "الإنجليزية: Shadi & Abeer" },
+      { flag: "🇫🇷", text: "الفرنسية: Abeer et Shady: Hymnes d'amour et parfum de jasmin" },
+      { flag: "🇪🇸", text: "الإسبانية: Abeer y Shady: Himnos de amor y fragancia de jazmín" }
     ]
   }
 ];
@@ -110,23 +106,30 @@ const Books = () => {
     <Box py={20} backgroundColor="white">
       <Container maxW="container.xl">
         <VStack spacing={16}>
-          <Heading as="h1" color="black" size="2xl" textAlign="center">{t("library_title")}</Heading>
+          <Heading as="h1" color="black" size="2xl">{t("library_title")}</Heading>
           
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} w="full">
-            {groups.map((group, index) => (
+            {groups.map((group) => (
               <Box 
-                key={index} 
+                key={group.id} 
                 onClick={() => handleGroupClick(group)}
                 cursor="pointer"
+                position="relative"
                 transition="all 0.3s"
                 _hover={{ transform: "translateY(-10px)" }}
               >
-                <Box borderRadius="2xl" overflow="hidden" boxShadow="xl" bg="gray.50">
-                  <Image src={group.image} alt={group.title} w="full" h="400px" objectFit="cover" />
+                <Badge 
+                  position="absolute" top={4} left={4} zIndex={1} 
+                  colorScheme="blue" borderRadius="md" px={3} py={1}
+                >
+                  NO. {group.id}
+                </Badge>
+                <Box borderRadius="2xl" overflow="hidden" boxShadow="2xl" bg="gray.50">
+                  <Image src={group.image} alt={group.title} w="full" h="450px" objectFit="cover" fallbackSrc="https://via.placeholder.com/400x500?text=Loading+Book..." />
                 </Box>
                 <VStack mt={4} align="center">
                   <Heading size="md" textAlign="center" color="gray.700" px={2}>{group.title}</Heading>
-                  <Text color="blue.600" fontWeight="bold">رؤية الإصدارات</Text>
+                  <Text color="blue.600" fontWeight="bold">استعرض المجموعة</Text>
                 </VStack>
               </Box>
             ))}
@@ -144,27 +147,22 @@ const Books = () => {
 
       <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered scrollBehavior="inside">
         <ModalOverlay backdropFilter="blur(15px)" bg="blackAlpha.800" />
-        <ModalContent borderRadius="3xl" p={0} overflow="hidden">
-          <ModalHeader bg="gray.50" py={6} textAlign="center" fontSize="xl" color="blue.900" borderBottom="1px solid" borderColor="gray.100">
-            {selectedGroup?.title}
+        <ModalContent borderRadius="3xl" overflow="hidden">
+          <ModalHeader bg="gray.50" py={6} textAlign="center" fontSize="xl" color="blue.900">
+            <Badge colorScheme="blue" mb={2}>COLLECTION {selectedGroup?.id}</Badge>
+            <Box>{selectedGroup?.title}</Box>
           </ModalHeader>
           <ModalCloseButton mt={4} />
           <ModalBody p={6}>
             <VStack spacing={8} align="stretch">
-              <Image src={selectedGroup?.image} borderRadius="2xl" w="full" h="320px" objectFit="cover" boxShadow="lg" />
-              
+              <Image src={selectedGroup?.image} borderRadius="2xl" w="full" h="auto" objectFit="contain" boxShadow="lg" />
               <Box>
-                <Text fontWeight="bold" mb={4} color="gray.400" fontSize="xs" letterSpacing="widest" textTransform="uppercase">
-                  قائمة الإصدارات الكاملة
-                </Text>
                 <UnorderedList spacing={5} listStyleType="none" ml={0}>
                   {selectedGroup?.editions.map((item, idx) => (
                     <ListItem key={idx} p={4} bg="blue.50" borderRadius="xl">
                       <HStack spacing={4} align="start">
                         <Text fontSize="xl">{item.flag}</Text>
-                        <Text fontSize="md" fontWeight="medium" color="gray.800" lineHeight="1.6">
-                          {item.text}
-                        </Text>
+                        <Text fontSize="md" fontWeight="medium" color="gray.800" lineHeight="1.6">{item.text}</Text>
                       </HStack>
                     </ListItem>
                   ))}
@@ -173,9 +171,7 @@ const Books = () => {
             </VStack>
           </ModalBody>
           <ModalFooter bg="gray.50">
-            <Button colorScheme="blue" variant="solid" onClick={onClose} borderRadius="xl" px={8}>
-              إغلاق
-            </Button>
+            <Button colorScheme="blue" onClick={onClose} borderRadius="xl" px={8}>إغلاق</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
