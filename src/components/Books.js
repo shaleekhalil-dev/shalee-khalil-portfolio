@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
-// تعديل المحرك لاستخدام رابط Google المباشر والأكثر استقراراً
+// تصحيح الدالة: تم تغيير 1{id} إلى ${id} لضمان عمل الرابط برمجياً
 const getDriveUrl = (id) => `https://lh3.googleusercontent.com/d/${id}`;
 
 const Books = () => {
