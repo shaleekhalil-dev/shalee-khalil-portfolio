@@ -6,8 +6,7 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
-// دالة لتحويل رابط درايف إلى رابط عرض مباشر
-const getDriveUrl = (id) => `https://lh3.googleusercontent.com/u/0/d/${id}`;
+const getDriveUrl = (id) => `https://lh3.googleusercontent.com/u/0/d/${id}=w1000`;
 
 const groups = [
   {
@@ -15,9 +14,9 @@ const groups = [
     title: "مجموعة: الرقصة الأخيرة",
     image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: الرقصة الأخيرة: هروب نحو الحياة" },
-      { flag: "🇺🇸", text: "الإنجليزية: The Last Dance of the Escape" },
-      { flag: "🇫🇷", text: "الفرنسية: La Dernière Danse de l'Échappée" }
+      { flag: "🇸🇦", text: "الرقصة الأخيرة: هروب نحو الحياة" },
+      { flag: "🇺🇸", text: "The Last Dance of the Escape" },
+      { flag: "🇫🇷", text: "La Dernière Danse de l'Échappée" }
     ]
   },
   {
@@ -25,8 +24,8 @@ const groups = [
     title: "مجموعة: هل جربت أن تحلم",
     image: getDriveUrl("1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: هل جربت أن تحلم: اصنع من حياتك الحياة التي تحلم بها" },
-      { flag: "🇺🇸", text: "الإنجليزية: Have You Ever Tried To Dreamed" }
+      { flag: "🇸🇦", text: "هل جربت أن تحلم: اصنع من حياتك الحياة التي تحلم بها" },
+      { flag: "🇺🇸", text: "Have You Ever Tried To Dreamed" }
     ]
   },
   {
@@ -34,8 +33,8 @@ const groups = [
     title: "مجموعة: تركت (مذكرات سارة)",
     image: getDriveUrl("1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: تركت: مذكرات ساره" },
-      { flag: "🇺🇸", text: "الإنجليزية: Left" }
+      { flag: "🇸🇦", text: "تركت: مذكرات ساره" },
+      { flag: "🇺🇸", text: "Left" }
     ]
   },
   {
@@ -43,8 +42,8 @@ const groups = [
     title: "مجموعة: طائر الفينيق",
     image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: طائر الفينيق" },
-      { flag: "🇺🇸", text: "الإنجليزية: The Phoenix: Mastering the Sovereignty of the Healer" }
+      { flag: "🇸🇦", text: "طائر الفينيق" },
+      { flag: "🇺🇸", text: "The Phoenix: Mastering the Sovereignty of the Healer" }
     ]
   },
   {
@@ -52,8 +51,8 @@ const groups = [
     title: "مجموعة: مرآة الروح / بوابة النور",
     image: getDriveUrl("188RKTdEapP0FveGYn192Bm63eJ9VTEuR"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: بوابة النور: استيقاظ كون" },
-      { flag: "🇺🇸", text: "الإنجليزية: The Mirror of the Soul: Kon's Awakening" }
+      { flag: "🇸🇦", text: "بوابة النور: استيقاظ كون" },
+      { flag: "🇺🇸", text: "The Mirror of the Soul: Kon's Awakening" }
     ]
   },
   {
@@ -61,9 +60,9 @@ const groups = [
     title: "مجموعة: هندسة الأصداء (Architecture of Echoes)",
     image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: شروخ في جدار الصمت: الأب القاسي" },
-      { flag: "🇺🇸", text: "الإنجليزية: The Architecture of Echoes" },
-      { flag: "🇫🇷", text: "الفرنسية: L'Architecture des Échos" }
+      { flag: "🇸🇦", text: "شروخ في جدار الصمت: الأب القاسي" },
+      { flag: "🇺🇸", text: "The Architecture of Echoes" },
+      { flag: "🇫🇷", text: "L'Architecture des Échos" }
     ]
   },
   {
@@ -71,12 +70,12 @@ const groups = [
     title: "مجموعة: دوائر الذاكرة المحرمة",
     image: getDriveUrl("1c0EgObxLwJxhKfu6KY1cA4NCSoQq-nPj"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: دوائر الذاكرة المحرمة" },
-      { flag: "🇵🇸", text: "العربية (النسخة الكاملة): دوائر الذاكرة المحرمة: القصة الكاملة" },
-      { flag: "🇪🇸", text: "الإسبانية: Círculos de Memoria Prohibida" },
-      { flag: "🇺🇸", text: "الإنجليزية: The Cycle of Shadows" },
-      { flag: "🇫🇷", text: "الفرنسية: Le Cycle des Ombres" },
-      { flag: "🇺🇸", text: "الإنجليزية (النسخة الكاملة): The Cycle of Shadows: The Complete Edition" }
+      { flag: "🇸🇦", text: "دوائر الذاكرة المحرمة" },
+      { flag: "🇸🇦", text: "دوائر الذاكرة المحرمة: القصة الكاملة (النسخة الكاملة)" },
+      { flag: "🇺🇸", text: "The Cycle of Shadows" },
+      { flag: "🇺🇸", text: "The Cycle of Shadows: The Complete Edition (النسخة الكاملة)" },
+      { flag: "🇫🇷", text: "Le Cycle des Ombres" },
+      { flag: "🇪🇸", text: "Círculos de Memoria Prohibida" }
     ]
   },
   {
@@ -84,10 +83,10 @@ const groups = [
     title: "مجموعة: عبير وشادي",
     image: getDriveUrl("1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw"),
     editions: [
-      { flag: "🇵🇸", text: "العربية: شادي وعبير: ترانيم الحب" },
-      { flag: "🇺🇸", text: "الإنجليزية: Shadi & Abeer" },
-      { flag: "🇫🇷", text: "الفرنسية: Abeer et Shady: Hymnes d'amour et parfum de jasmin" },
-      { flag: "🇪🇸", text: "الإسبانية: Abeer y Shady: Himnos de amor y fragancia de jazmín" }
+      { flag: "🇸🇦", text: "شادي وعبير: ترانيم الحب" },
+      { flag: "🇺🇸", text: "Shadi & Abeer" },
+      { flag: "🇫🇷", text: "Abeer et Shady: Hymnes d'amour et parfum de jasmin" },
+      { flag: "🇪🇸", text: "Abeer y Shady: Himnos de amor y fragancia de jazمين" }
     ]
   }
 ];
@@ -125,7 +124,14 @@ const Books = () => {
                   NO. {group.id}
                 </Badge>
                 <Box borderRadius="2xl" overflow="hidden" boxShadow="2xl" bg="gray.50">
-                  <Image src={group.image} alt={group.title} w="full" h="450px" objectFit="cover" fallbackSrc="https://via.placeholder.com/400x500?text=Loading+Book..." />
+                  <Image 
+                    src={group.image} 
+                    alt={group.title} 
+                    w="full" 
+                    h="450px" 
+                    objectFit="cover" 
+                    fallbackSrc="https://via.placeholder.com/400x500?text=Loading+Book..." 
+                  />
                 </Box>
                 <VStack mt={4} align="center">
                   <Heading size="md" textAlign="center" color="gray.700" px={2}>{group.title}</Heading>
@@ -138,8 +144,12 @@ const Books = () => {
           <Box p={10} bg="#f9dcc4" borderRadius="3xl" w="full" textAlign="center">
             <Heading size="md" mb={6} color="black">{t("card_stores_title")}</Heading>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
-              <Button as="a" href="https://www.amazon.com/author/shaleekhalil" target="_blank" bg="black" color="white" h="70px">{t("btn_amazon")}</Button>
-              <Button as="a" href="https://play.google.com/store/search?q=shalee%20khalil&c=books" target="_blank" bg="black" color="white" h="70px">{t("btn_google_books")}</Button>
+              <Button as="a" href="https://www.amazon.com/author/shaleekhalil" target="_blank" bg="black" color="white" h="70px">
+                {t("btn_amazon")}
+              </Button>
+              <Button as="a" href="https://play.google.com/store/search?q=shalee%20khalil&c=books" target="_blank" bg="black" color="white" h="70px">
+                {t("btn_google_books")}
+              </Button>
             </SimpleGrid>
           </Box>
         </VStack>
@@ -155,13 +165,20 @@ const Books = () => {
           <ModalCloseButton mt={4} />
           <ModalBody p={6}>
             <VStack spacing={8} align="stretch">
-              <Image src={selectedGroup?.image} borderRadius="2xl" w="full" h="auto" objectFit="contain" boxShadow="lg" />
+              <Image 
+                src={selectedGroup?.image} 
+                borderRadius="2xl" 
+                w="full" 
+                h="auto" 
+                objectFit="contain" 
+                boxShadow="lg" 
+              />
               <Box>
                 <UnorderedList spacing={5} listStyleType="none" ml={0}>
                   {selectedGroup?.editions.map((item, idx) => (
                     <ListItem key={idx} p={4} bg="blue.50" borderRadius="xl">
-                      <HStack spacing={4} align="start">
-                        <Text fontSize="xl">{item.flag}</Text>
+                      <HStack spacing={4} align="center">
+                        <Text fontSize="2xl" mb={1}>{item.flag}</Text>
                         <Text fontSize="md" fontWeight="medium" color="gray.800" lineHeight="1.6">{item.text}</Text>
                       </HStack>
                     </ListItem>
