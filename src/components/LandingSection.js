@@ -34,8 +34,9 @@ const LandingSection = () => {
             <Heading as="h1" size="2xl" color="#0369A1" fontWeight="bold">
               Shalee Khalil
             </Heading>
+            {/* تم تعديل النص هنا لإزالة رقم 28 بوضوح */}
             <Text fontSize="xl" fontWeight="semibold" color="#0C4A6E" textAlign="center">
-              {t("hero_subtitle")}
+              Teacher, Author, Full Stack Developer, Coach & Strategic Consultant
             </Text>
           </VStack>
           <Text fontSize="lg" color="#334155" textAlign="center" maxW="500px" lineHeight="tall">
