@@ -1,28 +1,36 @@
-{
-  "nav_projects": "Technical Projects",
-  "nav_contact": "Contact Me",
-  "nav_home": "Home",
-  "nav_books": "Editions",
-  "nav_vault": "Learning Journey",
-  "library_title": "Digital Library (28 Editions)",
-  "learning_journey_title": "Continuous Learning Journey & Global Credentials",
-  "hero_subtitle": "Teacher, Author of 28 Books, Full Stack Developer, Coach & Strategic Consultant",
-  "card_bio_title": "Digital Identity Profile",
-  "card_bio_text": "A Hybrid Strategic Leader integrating HR management with Psychology and Full Stack development to humanize workspaces and develop psychological capital.",
-  "card_stores_title": "Access My Literary & Psychological Works",
-  "btn_amazon": "Amazon Store",
-  "btn_google_books": "Google Books",
-  "form_name": "Full Name",
-  "form_email": "Email Address",
-  "form_type": "Enquiry Type",
-  "form_message": "Your Message",
-  "form_submit": "Submit Request",
-  "form_success_msg": "Message received successfully,",
-  "required_field": "This field is required",
-  "invalid_email": "Invalid email address",
-  "comment_min_length": "Must be at least 10 characters",
-  "type_dev": "Software Development",
-  "type_coaching": "Coaching & Mentoring",
-  "type_literary": "Creative Writing Mentorship",
-  "type_edu": "Educational & Training Consultation"
-}
+import React from "react";
+import { Avatar, Heading, VStack, Text } from "@chakra-ui/react";
+import FullScreenSection from "./FullScreenSection";
+import { useTranslation } from "react-i18next";
+
+const LandingSection = () => {
+  const { t } = useTranslation();
+
+  return (
+    <FullScreenSection
+      justifyContent="center"
+      alignItems="center"
+      isDarkBackground
+      backgroundColor="#2A4365"
+    >
+      <VStack spacing={4}>
+        <Avatar
+          size="2xl"
+          name="Shalee Khalil"
+          src="https://i.pravatar.cc/150?u=shaleekhalil" // استبدلها برابط صورتك الشخصية لاحقاً
+        />
+        <Heading as="h1" size="xl" noOfLines={1}>
+          Shalee Khalil
+        </Heading>
+        <Text fontSize="lg" fontWeight="bold" textAlign="center">
+          {t("hero_subtitle")}
+        </Text>
+        <Text fontSize="md" textAlign="center" maxW="600px">
+          {t("card_bio_text")}
+        </Text>
+      </VStack>
+    </FullScreenSection>
+  );
+};
+
+export default LandingSection;
