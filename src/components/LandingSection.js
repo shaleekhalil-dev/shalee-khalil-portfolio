@@ -11,13 +11,15 @@ const LandingSection = () => {
       justifyContent="center"
       alignItems="center"
       isDarkBackground
-      backgroundColor="#2A4365"
+      // 1. هنا يمكنك تغيير لون الخلفية (مثلاً "black" أو أي كود لون آخر)
+      backgroundColor="#2A4365" 
     >
       <VStack spacing={4}>
         <Avatar
           size="2xl"
           name="Shalee Khalil"
-          src="https://i.pravatar.cc/150?u=shaleekhalil" // استبدلها برابط صورتك الشخصية لاحقاً
+          // 2. هنا ضع رابط صورتك الشخصية المباشر
+          src="رابط_صورتك_هنا" 
         />
         <Heading as="h1" size="xl" noOfLines={1}>
           Shalee Khalil
