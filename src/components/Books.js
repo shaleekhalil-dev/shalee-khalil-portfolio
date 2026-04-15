@@ -6,8 +6,8 @@ import {
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
-// محرك الروابط المباشرة لصور جوجل درايف
-const getDirectDriveUrl = (id) => `https://lh3.googleusercontent.com/u/0/d/${id}`;
+// الدالة المحدثة لضمان جلب الصورة الصحيحة لكل ID
+const getDriveUrl = (id) => `https://lh3.googleusercontent.com/d/${id}`;
 
 const Books = () => {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ const Books = () => {
     {
       id: "01",
       titleKey: "group_01_title",
-      image: getDirectDriveUrl("1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF"), // الرقصة الأخيرة
+      image: getDriveUrl("1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF"), // الرقصة الأخيرة - تم تحديث الـ ID
       editions: [
         { flag: "🇸🇦", textKey: "g1_ed1" },
         { flag: "🇺🇸", text: "The Last Dance of the Escape" },
@@ -28,7 +28,7 @@ const Books = () => {
     {
       id: "02",
       titleKey: "group_02_title",
-      image: getDirectDriveUrl("1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah"), // هل جربت أن تحلم
+      image: getDriveUrl("1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah"), // هل جربت أن تحلم
       editions: [
         { flag: "🇸🇦", textKey: "g2_ed1" },
         { flag: "🇺🇸", text: "Have You Ever Tried To Dreamed" }
@@ -37,7 +37,7 @@ const Books = () => {
     {
       id: "03",
       titleKey: "group_03_title",
-      image: getDirectDriveUrl("1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V"), // مذكرات سارة
+      image: getDriveUrl("1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V"), // تركت (مذكرات سارة)
       editions: [
         { flag: "🇸🇦", textKey: "g3_ed1" },
         { flag: "🇺🇸", text: "Left" }
@@ -46,7 +46,7 @@ const Books = () => {
     {
       id: "04",
       titleKey: "group_04_title",
-      image: getDirectDriveUrl("1WcDemkg50UHetNAY7pHsdc6vjX92on_9"), // طائر الفينيق
+      image: getDriveUrl("1WcDemkg50UHetNAY7pHsdc6vjX92on_9"), // طائر الفينيق
       editions: [
         { flag: "🇸🇦", textKey: "g4_ed1" },
         { flag: "🇺🇸", text: "The Phoenix: Mastering the Sovereignty of the Healer" }
@@ -55,7 +55,7 @@ const Books = () => {
     {
       id: "05",
       titleKey: "group_05_title",
-      image: getDirectDriveUrl("188RKTdEapP0FveGYn192Bm63eJ9VTEuR"), // مرآة الروح
+      image: getDriveUrl("188RKTdEapP0FveGYn192Bm63eJ9VTEuR"), // مرآة الروح
       editions: [
         { flag: "🇸🇦", textKey: "g5_ed1" },
         { flag: "🇺🇸", text: "The Mirror of the Soul: Kon's Awakening" }
@@ -64,7 +64,7 @@ const Books = () => {
     {
       id: "06",
       titleKey: "group_06_title",
-      image: getDirectDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"), // هندسة الأصداء
+      image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"), // هندسة الأصداء - الرابط الأصلي
       editions: [
         { flag: "🇸🇦", textKey: "g6_ed1" },
         { flag: "🇺🇸", text: "The Architecture of Echoes" },
@@ -74,7 +74,7 @@ const Books = () => {
     {
       id: "07",
       titleKey: "group_07_title",
-      image: getDirectDriveUrl("1k83W3foPlgOX-GiHG3tEkO73obDmjdk0"), // دوائر الذاكرة المحرمة
+      image: getDriveUrl("1k83W3foPlgOX-GiHG3tEkO73obDmjdk0"), // دوائر الذاكرة المحرمة
       editions: [
         { flag: "🇸🇦", textKey: "g7_ed1" },
         { flag: "🇸🇦", textKey: "g7_ed2" },
@@ -87,12 +87,12 @@ const Books = () => {
     {
       id: "08",
       titleKey: "group_08_title",
-      image: getDirectDriveUrl("1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw"), // عبير وشادي
+      image: getDriveUrl("1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw"), // عبير وشادي
       editions: [
         { flag: "🇸🇦", textKey: "g8_ed1" },
         { flag: "🇺🇸", text: "Shadi & Abeer" },
-        { flag: "🇫🇷", text: "Abeer et Shady: Hymnes d'amour et parfum de jasmin" },
-        { flag: "🇪🇸", text: "Abeer y Shady: Himnos de amor y fragancia de jazmín" }
+        { flag: "🇫🇷", text: "Abeer et Shady: Hymnes d'amour" },
+        { flag: "🇪🇸", text: "Abeer y Shady: Himnos de amor" }
       ]
     }
   ];
@@ -106,10 +106,7 @@ const Books = () => {
     <Box py={20} backgroundColor="white">
       <Container maxW="container.xl">
         <VStack spacing={16}>
-          <Heading as="h1" color="black" size="2xl" textAlign="center">
-            {t("library_title")}
-          </Heading>
-          
+          <Heading as="h1" color="black" size="2xl">{t("library_title")}</Heading>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} w="full">
             {groups.map((group) => (
               <Box 
@@ -129,7 +126,7 @@ const Books = () => {
                     alt={t(group.titleKey)} 
                     w="full" h="450px" 
                     objectFit="cover" 
-                    fallbackSrc="https://via.placeholder.com/400x500?text=جاري+التحميل" 
+                    fallbackSrc="https://via.placeholder.com/400x500?text=Loading..." 
                   />
                 </Box>
                 <VStack mt={4} align="center">
@@ -152,26 +149,21 @@ const Books = () => {
           <ModalCloseButton mt={4} />
           <ModalBody p={6}>
             <VStack spacing={8} align="stretch">
-              <Image 
-                src={selectedGroup?.image} 
-                borderRadius="2xl" 
-                w="full" 
-                h="auto" 
-                objectFit="contain" 
-                boxShadow="lg" 
-              />
-              <UnorderedList spacing={5} listStyleType="none" ml={0}>
-                {selectedGroup?.editions.map((item, idx) => (
-                  <ListItem key={idx} p={4} bg="blue.50" borderRadius="xl">
-                    <HStack spacing={4} align="center">
-                      <Text fontSize="2xl">{item.flag}</Text>
-                      <Text fontSize="md" fontWeight="medium" color="gray.800">
-                        {item.textKey ? t(item.textKey) : item.text}
-                      </Text>
-                    </HStack>
-                  </ListItem>
-                ))}
-              </UnorderedList>
+              <Image src={selectedGroup?.image} borderRadius="2xl" w="full" h="auto" objectFit="contain" boxShadow="lg" />
+              <Box>
+                <UnorderedList spacing={5} listStyleType="none" ml={0}>
+                  {selectedGroup?.editions.map((item, idx) => (
+                    <ListItem key={idx} p={4} bg="blue.50" borderRadius="xl">
+                      <HStack spacing={4} align="center">
+                        <Text fontSize="2xl">{item.flag}</Text>
+                        <Text fontSize="md" fontWeight="medium" color="gray.800">
+                          {item.textKey ? t(item.textKey) : item.text}
+                        </Text>
+                      </HStack>
+                    </ListItem>
+                  ))}
+                </UnorderedList>
+              </Box>
             </VStack>
           </ModalBody>
           <ModalFooter bg="gray.50">
