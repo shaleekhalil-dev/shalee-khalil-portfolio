@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import {
   Box, Heading, VStack, Button, SimpleGrid, Container, Image, Text,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter,
-  ModalCloseButton, useDisclosure, ListItem, HStack, UnorderedList, Badge
+  ModalCloseButton, useDisclosure, ListItem, HStack, UnorderedList, Badge, Icon, Divider
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
-// الدالة المحدثة لضمان جلب الصورة الصحيحة لكل ID
 const getDriveUrl = (id) => `https://lh3.googleusercontent.com/d/${id}`;
 
 const Books = () => {
@@ -18,7 +18,9 @@ const Books = () => {
     {
       id: "01",
       titleKey: "group_01_title",
-      image: getDriveUrl("1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF"), // الرقصة الأخيرة - تم تحديث الـ ID
+      image: getDriveUrl("1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g1_ed1" },
         { flag: "🇺🇸", text: "The Last Dance of the Escape" },
@@ -28,7 +30,9 @@ const Books = () => {
     {
       id: "02",
       titleKey: "group_02_title",
-      image: getDriveUrl("1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah"), // هل جربت أن تحلم
+      image: getDriveUrl("1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g2_ed1" },
         { flag: "🇺🇸", text: "Have You Ever Tried To Dreamed" }
@@ -37,7 +41,9 @@ const Books = () => {
     {
       id: "03",
       titleKey: "group_03_title",
-      image: getDriveUrl("1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V"), // تركت (مذكرات سارة)
+      image: getDriveUrl("1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g3_ed1" },
         { flag: "🇺🇸", text: "Left" }
@@ -46,7 +52,9 @@ const Books = () => {
     {
       id: "04",
       titleKey: "group_04_title",
-      image: getDriveUrl("1WcDemkg50UHetNAY7pHsdc6vjX92on_9"), // طائر الفينيق
+      image: getDriveUrl("1WcDemkg50UHetNAY7pHsdc6vjX92on_9"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g4_ed1" },
         { flag: "🇺🇸", text: "The Phoenix: Mastering the Sovereignty of the Healer" }
@@ -55,7 +63,9 @@ const Books = () => {
     {
       id: "05",
       titleKey: "group_05_title",
-      image: getDriveUrl("188RKTdEapP0FveGYn192Bm63eJ9VTEuR"), // مرآة الروح
+      image: getDriveUrl("188RKTdEapP0FveGYn192Bm63eJ9VTEuR"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g5_ed1" },
         { flag: "🇺🇸", text: "The Mirror of the Soul: Kon's Awakening" }
@@ -64,7 +74,9 @@ const Books = () => {
     {
       id: "06",
       titleKey: "group_06_title",
-      image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"), // هندسة الأصداء - الرابط الأصلي
+      image: getDriveUrl("1_JTBrCNVOwfwHWjcT1cdilBuEBMltEi4"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g6_ed1" },
         { flag: "🇺🇸", text: "The Architecture of Echoes" },
@@ -74,7 +86,9 @@ const Books = () => {
     {
       id: "07",
       titleKey: "group_07_title",
-      image: getDriveUrl("1k83W3foPlgOX-GiHG3tEkO73obDmjdk0"), // دوائر الذاكرة المحرمة
+      image: getDriveUrl("1k83W3foPlgOX-GiHG3tEkO73obDmjdk0"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g7_ed1" },
         { flag: "🇸🇦", textKey: "g7_ed2" },
@@ -87,7 +101,9 @@ const Books = () => {
     {
       id: "08",
       titleKey: "group_08_title",
-      image: getDriveUrl("1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw"), // عبير وشادي
+      image: getDriveUrl("1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw"),
+      amazonUrl: "https://www.amazon.com/author/shalee-khalil",
+      googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil",
       editions: [
         { flag: "🇸🇦", textKey: "g8_ed1" },
         { flag: "🇺🇸", text: "Shadi & Abeer" },
@@ -147,16 +163,19 @@ const Books = () => {
             <Box>{selectedGroup ? t(selectedGroup.titleKey) : ""}</Box>
           </ModalHeader>
           <ModalCloseButton mt={4} />
+          
           <ModalBody p={6}>
             <VStack spacing={8} align="stretch">
               <Image src={selectedGroup?.image} borderRadius="2xl" w="full" h="auto" objectFit="contain" boxShadow="lg" />
+              
               <Box>
-                <UnorderedList spacing={5} listStyleType="none" ml={0}>
+                <Heading size="sm" mb={4} color="gray.600">{t("available_editions") || "Available Editions"}</Heading>
+                <UnorderedList spacing={3} listStyleType="none" ml={0}>
                   {selectedGroup?.editions.map((item, idx) => (
-                    <ListItem key={idx} p={4} bg="blue.50" borderRadius="xl">
-                      <HStack spacing={4} align="center">
-                        <Text fontSize="2xl">{item.flag}</Text>
-                        <Text fontSize="md" fontWeight="medium" color="gray.800">
+                    <ListItem key={idx} p={3} bg="blue.50" borderRadius="xl">
+                      <HStack spacing={4}>
+                        <Text fontSize="xl">{item.flag}</Text>
+                        <Text fontSize="sm" fontWeight="medium" color="gray.800">
                           {item.textKey ? t(item.textKey) : item.text}
                         </Text>
                       </HStack>
@@ -164,8 +183,31 @@ const Books = () => {
                   ))}
                 </UnorderedList>
               </Box>
+
+              <Divider />
+
+              <Box>
+                <Heading size="sm" mb={4} color="gray.600">{t("card_stores_title")}</Heading>
+                <VStack spacing={3}>
+                  <Button 
+                    as="a" href={selectedGroup?.amazonUrl} target="_blank"
+                    w="full" py={6} borderRadius="xl" bg="black" color="white"
+                    _hover={{ bg: "gray.800" }} leftIcon={<Icon as={ExternalLinkIcon} />}
+                  >
+                    {t("btn_amazon")}
+                  </Button>
+                  <Button 
+                    as="a" href={selectedGroup?.googleUrl} target="_blank"
+                    w="full" py={6} borderRadius="xl" bg="black" color="white"
+                    _hover={{ bg: "gray.800" }} leftIcon={<Icon as={ExternalLinkIcon} />}
+                  >
+                    {t("btn_google_books")}
+                  </Button>
+                </VStack>
+              </Box>
             </VStack>
           </ModalBody>
+
           <ModalFooter bg="gray.50">
             <Button colorScheme="blue" onClick={onClose} borderRadius="xl" px={8}>{t("close")}</Button>
           </ModalFooter>
