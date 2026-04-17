@@ -22,13 +22,12 @@ const Header = () => {
   const [showHeader, setShowHeader] = useState(true);
   const lastScrollY = useRef(0);
 
-  // منطق إخفاء وإظهار الهيدر عند التمرير
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY.current) {
-        setShowHeader(false); // إخفاء عند النزول
+        setShowHeader(false);
       } else {
-        setShowHeader(true); // إظهار عند الصعود
+        setShowHeader(true);
       }
       lastScrollY.current = window.scrollY;
     };
@@ -61,58 +60,57 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      translateY={showHeader ? 0 : -200}
+      transform={showHeader ? "translateY(0)" : "translateY(-100%)"}
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="rgba(255, 255, 255, 0.2)" // زجاجي متناسق مع App.css
-      backdropFilter="blur(10px)"
+      backgroundColor="rgba(255, 255, 255, 0.1)"
+      backdropFilter="blur(15px)"
       zIndex={1000}
-      className="glass-card"
-      borderRadius="0"
-      borderTop="none"
-      borderLeft="none"
-      borderRight="none"
+      borderBottom="1px solid rgba(255, 255, 255, 0.3)"
     >
       <Container maxW="container.xl">
         <HStack px={4} py={4} justifyContent="space-between" alignItems="center">
           <HStack spacing={8}>
-            {/* روابط التنقل الرئيسية */}
             <HStack spacing={6} display={{ base: "none", md: "flex" }}>
-              <Link onClick={() => handleNavClick("landing")} fontWeight="bold" color="black">
+              <Link onClick={() => handleNavClick("landing")} fontWeight="800" color="black">
                 {i18n.language === "ar" ? "الرئيسية" : "Home"}
               </Link>
-              <Link onClick={() => handleNavClick("projects")} fontWeight="bold" color="black">
+              <Link onClick={() => handleNavClick("projects")} fontWeight="800" color="black">
                 {i18n.language === "ar" ? "المشاريع" : "Projects"}
               </Link>
-              <Link onClick={() => navigate("/books")} fontWeight="bold" color="black">
+              <Link onClick={() => navigate("/books")} fontWeight="800" color="black">
                 {i18n.language === "ar" ? "المؤلفات" : "Books"}
               </Link>
-              <Link onClick={() => navigate("/vault")} fontWeight="bold" color="black">
+              <Link onClick={() => navigate("/vault")} fontWeight="800" color="black">
                 {i18n.language === "ar" ? "الشهادات" : "Vault"}
               </Link>
-              <Link onClick={() => handleNavClick("contactme")} fontWeight="bold" color="black">
+              <Link onClick={() => handleNavClick("contactme")} fontWeight="800" color="black">
                 {i18n.language === "ar" ? "تواصل معي" : "Contact"}
               </Link>
             </HStack>
           </HStack>
 
-          {/* زر تبديل اللغة الاحترافي */}
           <Menu>
             <MenuButton 
               as={Button} 
               rightIcon={<FontAwesomeIcon icon={faChevronDown} size="xs" />}
-              bg="black"
-              color="white"
-              size="sm"
-              _hover={{ bg: "gray.800" }}
-              _active={{ bg: "gray.700" }}
+              className="language-switcher-btn"
+              variant="outline"
             >
               {i18n.language === "en" ? "🇺🇸 English" : "🇸🇦 العربية"}
             </MenuButton>
-            <MenuList bg="white" borderColor="gray.200">
-              <MenuItem onClick={() => changeLanguage("en")} color="black" fontWeight="bold">🇺🇸 English</MenuItem>
-              <MenuItem onClick={() => changeLanguage("ar")} color="black" fontWeight="bold">🇸🇦 العربية</MenuItem>
+            <MenuList 
+              bg="rgba(255, 255, 255, 0.9)" 
+              backdropFilter="blur(10px)" 
+              borderColor="rgba(255, 255, 255, 0.3)"
+            >
+              <MenuItem onClick={() => changeLanguage("en")} color="black" fontWeight="800" bg="transparent" _hover={{bg: "rgba(26, 54, 93, 0.1)"}}>
+                🇺🇸 English
+              </MenuItem>
+              <MenuItem onClick={() => changeLanguage("ar")} color="black" fontWeight="800" bg="transparent" _hover={{bg: "rgba(26, 54, 93, 0.1)"}}>
+                🇸🇦 العربية
+              </MenuItem>
             </MenuList>
           </Menu>
         </HStack>

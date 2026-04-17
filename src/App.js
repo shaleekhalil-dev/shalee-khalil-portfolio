@@ -12,10 +12,8 @@ import Certs from "./components/Certs";
 import "./components/App.css";
 import "./i18n";
 
-// تهيئة Google Analytics بالمعرف الجديد
 ReactGA.initialize("G-ZZZXV3LW4K");
 
-// مكون لتتبع الصفحات تلقائياً
 const AnalyticsTracker = () => {
   const location = useLocation();
   useEffect(() => {
@@ -24,7 +22,6 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// مكون لضمان صعود الصفحة للأعلى عند التنقل
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -39,7 +36,12 @@ function App() {
       <Router>
         <ScrollToTop />
         <AnalyticsTracker />
-        <Box as="main" minH="100vh">
+        <Box 
+          as="main" 
+          minH="100vh" 
+          className="app-container" 
+          position="relative"
+        >
           <Header />
           <Routes>
             <Route

@@ -6,7 +6,6 @@ const Certs = () => {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
 
-  // المسار التعليمي الأكاديمي
   const academicPath = [
     { 
       degree: isAr ? "ماجستير إدارة الموارد البشرية التطبيقية" : "Master of Applied Human Resource Management", 
@@ -23,7 +22,6 @@ const Certs = () => {
     }
   ];
 
-  // الشهادات التقنية (تم إضافة Meta وGoogle Data Analytics)
   const techCerts = [
     { name: "Meta Full Stack Engineer", level: "Professional" },
     { name: "Google Data Analytics", level: "Professional" },
@@ -49,18 +47,17 @@ const Certs = () => {
             {t('learning_journey_title')}
           </Heading>
 
-          {/* القسم الأول: المسار الأكاديمي الشامل */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center">
               {isAr ? "المسار الأكاديمي" : "Academic Journey"}
             </Heading>
             <VStack spacing={6}>
               {academicPath.map((item, i) => (
-                <Box key={i} className="glass-card" p={8} w="full" borderLeft={isAr ? "none" : "4px solid black"} borderRight={isAr ? "4px solid black" : "none"}>
+                <Box key={i} className="glass-card" p={8} w="full" borderLeft={isAr ? "none" : "6px solid #1a365d"} borderRight={isAr ? "6px solid #1a365d" : "none"}>
                   <VStack align="start" spacing={2}>
-                    <Tag size="md" colorScheme="purple" variant="solid">{item.org || item.status}</Tag>
-                    <Text fontSize="xl" fontWeight="bold">{item.degree}</Text>
-                    {item.goal && <Text color="blue.600" fontWeight="bold" fontSize="sm">✦ {item.goal}</Text>}
+                    <Tag size="md" colorScheme="blue" variant="solid" borderRadius="full">{item.org || item.status}</Tag>
+                    <Text fontSize="xl" fontWeight="800">{item.degree}</Text>
+                    {item.goal && <Text color="#1a365d" fontWeight="bold" fontSize="md">✦ {item.goal}</Text>}
                   </VStack>
                 </Box>
               ))}
@@ -69,7 +66,6 @@ const Certs = () => {
 
           <Divider borderColor="blackAlpha.400" />
 
-          {/* القسم الثاني: الشهادات التقنية والمهنية */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center">
               {isAr ? "الاحتراف التقني والبيانات" : "Technical & Data Expertise"}
@@ -77,9 +73,9 @@ const Certs = () => {
             <SimpleGrid columns={[1, 2, 3]} spacing={6}>
               {techCerts.map((cert, i) => (
                 <GridItem key={i} className="glass-card" p={6} textAlign="center">
-                  <VStack>
-                    <Tag size="sm" variant="outline" colorScheme="orange">{cert.level}</Tag>
-                    <Text fontSize="lg" fontWeight="bold">{cert.name}</Text>
+                  <VStack spacing={3}>
+                    <Tag size="sm" variant="subtle" colorScheme="cyan">{cert.level}</Tag>
+                    <Text fontSize="lg" fontWeight="800">{cert.name}</Text>
                   </VStack>
                 </GridItem>
               ))}
@@ -88,29 +84,27 @@ const Certs = () => {
 
           <Divider borderColor="blackAlpha.400" />
 
-          {/* القسم الثالث: علم النفس والقيادة */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center">
               {isAr ? "اعتمادات علم النفس والقيادة" : "Psychology & Leadership Credentials"}
             </Heading>
             <SimpleGrid columns={[1, 2]} spacing={8}>
               {psychCerts.map((cert, i) => (
-                <Box key={i} className="glass-card" p={8}>
+                <Box key={i} className="glass-card" p={8} borderTop="4px solid #2b6cb0">
                   <VStack align="start" spacing={3}>
-                    <Tag size="lg" colorScheme="blue" variant="solid">{cert.org}</Tag>
-                    <Text fontSize="xl" fontWeight="bold">{cert.name}</Text>
+                    <Tag size="lg" colorScheme="facebook" variant="solid">{cert.org}</Tag>
+                    <Text fontSize="xl" fontWeight="800">{cert.name}</Text>
                   </VStack>
                 </Box>
               ))}
             </SimpleGrid>
           </Box>
 
-          {/* الملخص النهائي الاستراتيجي */}
-          <Box className="glass-card" p={10} textAlign="center" border="2px solid black">
+          <Box className="glass-card" p={10} textAlign="center" border="3px solid #1a365d">
             <Heading size="md" mb={4}>
               {isAr ? "الرؤية الاستراتيجية" : "Strategic Vision"}
             </Heading>
-            <Text fontSize="xl" fontWeight="bold">
+            <Text fontSize="xl" fontWeight="800">
               {isAr 
                 ? "دمج تكنولوجيا Full-Stack وتحليل البيانات مع إدارة الموارد البشرية وأنسنة بيئات العمل الرقمية." 
                 : "Integrating Full-Stack technology & Data Analytics with HRM to humanize digital work environments."}

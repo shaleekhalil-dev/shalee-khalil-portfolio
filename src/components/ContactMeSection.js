@@ -61,7 +61,7 @@ const ContactMeSection = () => {
   return (
     <Box as="section" id="contactme-section" py={20} minH="100vh" display="flex" alignItems="center">
       <Container maxW="container.md">
-        <VStack spacing={8} className="glass-card" p={{ base: 6, md: 12 }}>
+        <VStack spacing={8} className="glass-card" p={{ base: 6, md: 12 }} border="1px solid rgba(255, 255, 255, 0.4)">
           <Heading as="h1" size="xl" textAlign="center">
             {isAr ? "تواصل معي" : "Contact Me"}
           </Heading>
@@ -70,42 +70,43 @@ const ContactMeSection = () => {
             <form onSubmit={formik.handleSubmit}>
               <VStack spacing={5}>
                 <FormControl isInvalid={!!formik.errors.firstName && formik.touched.firstName}>
-                  <FormLabel fontWeight="bold">{t("form_name")}</FormLabel>
+                  <FormLabel fontWeight="800">{t("form_name")}</FormLabel>
                   <Input 
                     id="firstName" 
                     name="firstName" 
                     {...formik.getFieldProps("firstName")} 
-                    border="1px solid rgba(0,0,0,0.2)"
-                    _focus={{ borderColor: "black" }}
+                    bg="rgba(255, 255, 255, 0.2)"
+                    border="2px solid #1a365d"
+                    _focus={{ borderColor: "blue.500", bg: "white" }}
                   />
-                  <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
+                  <FormErrorMessage fontWeight="bold">{formik.errors.firstName}</FormErrorMessage>
                 </FormControl>
 
                 <FormControl isInvalid={!!formik.errors.email && formik.touched.email}>
-                  <FormLabel fontWeight="bold">{t("form_email")}</FormLabel>
+                  <FormLabel fontWeight="800">{t("form_email")}</FormLabel>
                   <Input 
                     id="email" 
                     name="email" 
                     type="email" 
                     {...formik.getFieldProps("email")} 
-                    border="1px solid rgba(0,0,0,0.2)"
-                    _focus={{ borderColor: "black" }}
+                    bg="rgba(255, 255, 255, 0.2)"
+                    border="2px solid #1a365d"
+                    _focus={{ borderColor: "blue.500", bg: "white" }}
                   />
-                  <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+                  <FormErrorMessage fontWeight="bold">{formik.errors.email}</FormErrorMessage>
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel fontWeight="bold">{t("form_type")}</FormLabel>
+                  <FormLabel fontWeight="800">{t("form_type")}</FormLabel>
                   <Select 
                     id="type" 
                     name="type" 
                     {...formik.getFieldProps("type")} 
-                    border="1px solid rgba(0,0,0,0.2)"
-                    _focus={{ borderColor: "black" }}
-                    bg="rgba(255,255,255,0.4)"
+                    bg="rgba(255, 255, 255, 0.4)"
+                    border="2px solid #1a365d"
+                    _focus={{ borderColor: "blue.500" }}
                   >
                     <option value="Software Development">{isAr ? "تطوير برمجيات" : "Software Development"}</option>
-                    {/* إضافة خيار استشارات تحليل البيانات الاستراتيجي */}
                     <option value="Data Analytics">{isAr ? "استشارات تحليل البيانات" : "Data Analytics Consulting"}</option>
                     <option value="Coaching">{isAr ? "كوتشينج وتوجيه مهني" : "Coaching & Professional Development"}</option>
                     <option value="Literary Consultation">{isAr ? "استشارة أدبية" : "Literary Consultation"}</option>
@@ -113,26 +114,27 @@ const ContactMeSection = () => {
                 </FormControl>
 
                 <FormControl isInvalid={!!formik.errors.comment && formik.touched.comment}>
-                  <FormLabel fontWeight="bold">{t("form_message")}</FormLabel>
+                  <FormLabel fontWeight="800">{t("form_message")}</FormLabel>
                   <Textarea 
                     id="comment" 
                     name="comment" 
                     height={150} 
                     {...formik.getFieldProps("comment")} 
-                    border="1px solid rgba(0,0,0,0.2)"
-                    _focus={{ borderColor: "black" }}
+                    bg="rgba(255, 255, 255, 0.2)"
+                    border="2px solid #1a365d"
+                    _focus={{ borderColor: "blue.500", bg: "white" }}
                   />
-                  <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
+                  <FormErrorMessage fontWeight="bold">{formik.errors.comment}</FormErrorMessage>
                 </FormControl>
 
                 <Button 
                   type="submit" 
-                  bg="black" 
+                  bg="#1a365d" 
                   color="white" 
                   width="full" 
                   size="lg"
                   isLoading={formik.isSubmitting}
-                  _hover={{ bg: "gray.800" }}
+                  _hover={{ bg: "#2b6cb0", transform: "scale(1.02)" }}
                 >
                   {t("form_submit")}
                 </Button>

@@ -1,12 +1,14 @@
 {
-  "nav_projects": "المشاريع التقنية",
-  "nav_contact": "تواصل معي",
   "nav_home": "الرئيسية",
+  "nav_projects": "المشاريع التقنية",
   "nav_books": "المؤلفات",
-  "nav_vault": "رحلة التعليم المستمر",
+  "nav_vault": "الشهادات",
+  "nav_contact": "تواصل معي",
+  
   "library_title": "المكتبة الرقمية (28 إصداراً)",
   "learning_journey_title": "رحلة التعليم المستمر والاعتمادات الدولية",
   "hero_subtitle": "Hybrid Strategic Leader | Full-Stack Developer | Data Analyst | Author | Trainer",
+  
   "card_bio_title": "ملف التعريف الرقمي",
   "card_bio_text": "قائد استراتيجي هجين يدمج إدارة الموارد البشرية مع علم النفس والبرمجة لأنسنة بيئات العمل وتطوير رأس المال النفسي.",
   "card_links_title": "روابط الوصول السريع",
@@ -15,28 +17,19 @@
   "Educational Excellence Portfolio": "ملف التميز التعليمي",
   "Human Capital & Coaching Profile": "ملف رأس المال البشري والتوجيه",
   
-  "link_canva_name": "مركز الهوية الرقمية الموحد",
-  "link_teacher_name": "ملف التميز التعليمي",
-  "link_coach_name": "ملف رأس المال البشري والتوجيه",
-  
   "card_stores_title": "الوصول إلى مؤلفاتي الأدبية والنفسية",
   "btn_amazon": "متجر أمازون",
   "btn_google_books": "جوجل للكتب",
+  
   "form_name": "الاسم الكامل",
   "form_email": "البريد الإلكتروني",
   "form_type": "نوع الطلب",
   "form_message": "رسالتك",
   "form_submit": "إرسال الطلب",
-  "form_success_msg": "تم استلام رسالتك بنجاح يا",
   "required_field": "هذا الحقل مطلوب",
   "invalid_email": "البريد الإلكتروني غير صحيح",
   "comment_min_length": "يجب أن تكون الرسالة 10 رموز على الأقل",
   
-  "type_dev": "تطوير برمجيات",
-  "type_data": "استشارات تحليل البيانات والرؤى الاستراتيجية",
-  "type_coaching": "الكوتشينج والتطوير المهني",
-  "type_literary": "استشارة أدبية",
-
   "Academic Journey": "المسار الأكاديمي",
   "Technical & Data Expertise": "الاحتراف التقني والبيانات",
   "Psychology & Leadership Credentials": "اعتمادات علم النفس والقيادة",

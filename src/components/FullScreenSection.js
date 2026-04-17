@@ -1,24 +1,19 @@
 import * as React from "react";
 import { VStack } from "@chakra-ui/react";
 
-/**
- * FullScreenSection component
- * يضمن هذا المكون أن كل قسم في الموقع يشغل مساحة الشاشة بالكامل (100vh)
- * مع الحفاظ على تمركز المحتوى في المنتصف.
- */
 const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
   return (
     <VStack
-      backgroundColor={boxProps.backgroundColor}
-      // قمنا بتثبيت اللون ليتبع القواعد التي وضعتها في App.css لضمان الوضوح
-      color={isDarkBackground ? "black" : "black"} 
+      backgroundColor="transparent"
+      color="black"
       w="full"
     >
       <VStack 
         maxWidth="1280px" 
         minHeight="100vh" 
         w="full"
-        justifyContent="center" // لضمان توسط المحتوى عمودياً
+        justifyContent="center"
+        px={4}
         {...boxProps}
       >
         {children}

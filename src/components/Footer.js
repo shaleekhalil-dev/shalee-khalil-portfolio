@@ -11,10 +11,11 @@ const Footer = () => {
     <Box 
       as="footer" 
       className="glass-card" 
-      borderRadius="0" 
-      borderBottom="none" 
-      borderLeft="none" 
-      borderRight="none" 
+      borderRadius="0 !important" 
+      borderBottom="none !important" 
+      borderLeft="none !important" 
+      borderRight="none !important" 
+      borderTop="1px solid rgba(255, 255, 255, 0.3) !important"
       py={8}
       mt={10}
     >
@@ -25,13 +26,11 @@ const Footer = () => {
           alignItems="center"
           px={4}
         >
-          {/* اسمك وهويتك القانونية */}
-          <Text fontSize="sm" fontWeight="bold">
+          <Text fontSize="md" fontWeight="800">
             Shalee Khalil • شعلي خليل © {currentYear}
           </Text>
 
-          {/* رسالتك الاستراتيجية المحدثة */}
-          <Text fontSize="sm" fontWeight="bold" mt={{ base: 4, md: 0 }} textAlign="center">
+          <Text fontSize="md" fontWeight="800" mt={{ base: 4, md: 0 }} textAlign="center">
             {isAr 
               ? "أنسنة بيئات العمل الرقمية | تطوير رأس المال النفسي والذكاء الاصطناعي" 
               : "Humanizing Digital Workspaces | Psychology & AI Integration"}

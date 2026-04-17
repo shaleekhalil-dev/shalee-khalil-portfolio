@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, SimpleGrid, Text, VStack, Container, Divider, Link, Icon, HStack } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Text, VStack, Container, Divider, Link, Icon, HStack, Image } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -10,6 +10,7 @@ const Books = () => {
   const bookGroups = [
     {
       id: 1,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group1.jpg",
       group_name: isAr ? "1. مجموعة: دوائر الذاكرة المحرمة (4 لغات)" : "1. Group: Circles of Forbidden Memory (4 Languages)",
       details: [
         { ar: "دوائر الذاكرة المحرمة (وتشمل النسخة الكاملة)", en: "Circles of Forbidden Memory", fr: "Cercles de la mémoire interdite", es: "Círculos de Memoria Prohibida" }
@@ -17,6 +18,7 @@ const Books = () => {
     },
     {
       id: 2,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group2.jpg",
       group_name: isAr ? "2. مجموعة: هندسة الأصداء (شروخ في جدار الصمت)" : "2. Group: The Architecture of Echoes",
       details: [
         { ar: "شروخ في جدار الصمت: الأب القاسي", en: "The Architecture of Echoes", fr: "L'Architecture des Échos" }
@@ -24,6 +26,7 @@ const Books = () => {
     },
     {
       id: 3,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group3.jpg",
       group_name: isAr ? "3. مجموعة: دورة الظلال (Cycle of Shadows)" : "3. Group: Cycle of Shadows",
       details: [
         { ar: "دورة الظلال", en: "The Cycle of Shadows (Full Edition)", fr: "Le Cycle des Ombres" }
@@ -31,6 +34,7 @@ const Books = () => {
     },
     {
       id: 4,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group4.jpg",
       group_name: isAr ? "4. مجموعة: الرقصة الأخيرة" : "4. Group: The Last Dance",
       details: [
         { ar: "الرقصة الأخيرة: هروب نحو الحياة", en: "The Last Dance of the Escape", fr: "La Dernière Danse de l'Échappée" }
@@ -38,6 +42,7 @@ const Books = () => {
     },
     {
       id: 5,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group5.jpg",
       group_name: isAr ? "5. مجموعة: طائر الفينيق" : "5. Group: The Phoenix",
       details: [
         { ar: "طائر الفينيق", en: "The Phoenix: Mastering the Sovereignty of the Healer" }
@@ -45,6 +50,7 @@ const Books = () => {
     },
     {
       id: 6,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group6.jpg",
       group_name: isAr ? "6. مجموعة: هل جربت أن تحلم" : "6. Group: Have You Ever Tried to Dream",
       details: [
         { ar: "هل جربت أن تحلم: اصنع من حياتك الحياة التي تحلم بها", en: "Have You Ever Tried To Dreamed" }
@@ -52,6 +58,7 @@ const Books = () => {
     },
     {
       id: 7,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group7.jpg",
       group_name: isAr ? "7. مجموعة: عبير وشادي" : "7. Group: Shadi & Abeer",
       details: [
         { ar: "شادي وعبير: ترانيم الحب", en: "Shadi & Abeer", fr: "Abeer et Shady: Hymnes d'amour", es: "Abeer y Shady: Himnos de amor" }
@@ -59,6 +66,7 @@ const Books = () => {
     },
     {
       id: 8,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group8.jpg",
       group_name: isAr ? "8. مجموعة: مذكرات سارة" : "8. Group: Sara's Memoirs",
       details: [
         { ar: "تركت: مذكرات سارة (وتشمل: فنجان قهوة، وأسرار القهوة)", en: "Left" }
@@ -66,6 +74,7 @@ const Books = () => {
     },
     {
       id: 9,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group9.jpg",
       group_name: isAr ? "9. مجموعة: مرآة الروح / رحلة كون" : "9. Group: The Mirror of the Soul",
       details: [
         { ar: "بوابة النور: استيقاظ كون (رحلة كون / صدى الوعي)", en: "The Mirror of the Soul: Kon's Awakening" }
@@ -73,6 +82,7 @@ const Books = () => {
     },
     {
       id: 10,
+      image: "https://raw.githubusercontent.com/shaleekhalil-dev/shalee-khalil-portfolio/main/public/images/books/group10.jpg",
       group_name: isAr ? "10. أعمال أخرى" : "10. Other Works",
       details: [
         { ar: "البوابة / خيار القلب: سلوى", en: "The Gate / Heart's Choice: Salwa" }
@@ -90,14 +100,21 @@ const Books = () => {
 
           <SimpleGrid columns={[1, null, 2]} spacing={10}>
             {bookGroups.map((group) => (
-              <Box key={group.id} className="glass-card" p={8} borderLeft={isAr ? "none" : "4px solid black"} borderRight={isAr ? "4px solid black" : "none"}>
-                <Heading as="h3" size="md" mb={4} color="blue.600">
+              <Box key={group.id} className="glass-card" p={8} borderLeft={isAr ? "none" : "6px solid #1a365d"} borderRight={isAr ? "6px solid #1a365d" : "none"} overflow="hidden">
+                <Image 
+                  src={group.image} 
+                  alt={group.group_name} 
+                  borderRadius="lg" 
+                  mb={6} 
+                  fallbackSrc="https://via.placeholder.com/400x200?text=Shalee+Khalil+Library" 
+                />
+                <Heading as="h3" size="md" mb={4}>
                   {group.group_name}
                 </Heading>
                 <VStack align="start" spacing={3}>
                   {group.details.map((detail, idx) => (
                     <Box key={idx} w="full">
-                      {detail.ar && <Text fontWeight="bold">🇸🇦 {detail.ar}</Text>}
+                      {detail.ar && <Text>🇸🇦 {detail.ar}</Text>}
                       {detail.en && <Text fontSize="sm">🇺🇸 {detail.en}</Text>}
                       {detail.fr && <Text fontSize="sm">🇫🇷 {detail.fr}</Text>}
                       {detail.es && <Text fontSize="sm">🇪🇸 {detail.es}</Text>}
@@ -110,20 +127,16 @@ const Books = () => {
 
           <Divider borderColor="blackAlpha.400" my={10} />
 
-          {/* تم تحديث المسميات والروابط هنا لتطابق الهوية الهجينة الجديدة */}
-          <Box className="glass-card" p={8} bg="rgba(72, 187, 120, 0.2)" textAlign="center" border="2px dashed green">
+          <Box className="glass-card" p={8} textAlign="center" border="2px dashed #1a365d">
             <Heading size="md" mb={6}>{t("card_links_title")}</Heading>
             <SimpleGrid columns={[1, null, 3]} spacing={6}>
-              {/* رابط مركز الهوية الرقمية الموحد */}
-              <Link href="https://canva.link/uucyyzdna28977l" isExternal fontWeight="bold">
+              <Link href="https://canva.link/uucyyzdna28977l" isExternal>
                 <HStack justify="center"><Icon as={FaExternalLinkAlt} /><Text>{t("Unified Digital Identity Hub")}</Text></HStack>
               </Link>
-              {/* رابط ملف التميز التعليمي */}
-              <Link href="https://sites.google.com/view/shaleekh" isExternal fontWeight="bold">
+              <Link href="https://sites.google.com/view/shaleekh" isExternal>
                 <HStack justify="center"><Icon as={FaExternalLinkAlt} /><Text>{t("Educational Excellence Portfolio")}</Text></HStack>
               </Link>
-              {/* رابط ملف رأس المال البشري والتوجيه */}
-              <Link href="https://sites.google.com/view/shaaleekhalil" isExternal fontWeight="bold">
+              <Link href="https://sites.google.com/view/shaaleekhalil" isExternal>
                 <HStack justify="center"><Icon as={FaExternalLinkAlt} /><Text>{t("Human Capital & Coaching Profile")}</Text></HStack>
               </Link>
             </SimpleGrid>

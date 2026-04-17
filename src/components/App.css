@@ -1,41 +1,50 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* الحفاظ على التدرج الأزرق الفخم الخاص بك */
-  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 50%, #4299e1 100%);
-  background-attachment: fixed;
-  color: #000000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 50%, #4299e1 100%) !important;
+  background-attachment: fixed !important;
   min-height: 100vh;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease; /* تحسين الانتقال ليشمل الخلفية والظل */
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* ضمان أن تظل جميع النصوص سوداء وقوية كما طلبت */
 h1, h2, h3, h4, p, span, div, label {
   color: #000000 !important;
-  font-weight: 700;
-  line-height: 1.6;
+  font-weight: 800 !important;
 }
 
-/* إضافة دعم لاتجاه النصوص عند التحويل للعربية */
+.language-switcher-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #000000 !important;
+  font-weight: 900 !important;
+  border-radius: 10px !important;
+  padding: 8px 15px !important;
+  transition: all 0.3s ease;
+}
+
+.language-switcher-btn:hover {
+  background: #ffffff !important;
+  color: #1a365d !important;
+}
+
 [dir='rtl'] {
   text-align: right;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* يمكنك تغيير الخط للعربية هنا لاحقاً */
 }
 
 main {
@@ -43,8 +52,6 @@ main {
   z-index: 1;
 }
 
-/* تحسين شكل الروابط داخل الكروت الزجاجية */
-a {
-  text-decoration: none;
-  color: inherit;
+section {
+  background: transparent !important;
 }
