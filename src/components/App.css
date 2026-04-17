@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* الحفاظ على التدرج الأزرق الفخم الخاص بك */
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 50%, #4299e1 100%);
+  background-attachment: fixed;
+  color: #000000;
+  min-height: 100vh;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; /* تحسين الانتقال ليشمل الخلفية والظل */
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ضمان أن تظل جميع النصوص سوداء وقوية كما طلبت */
+h1, h2, h3, h4, p, span, div, label {
+  color: #000000 !important;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* إضافة دعم لاتجاه النصوص عند التحويل للعربية */
+[dir='rtl'] {
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* يمكنك تغيير الخط للعربية هنا لاحقاً */
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* تحسين شكل الروابط داخل الكروت الزجاجية */
+a {
+  text-decoration: none;
+  color: inherit;
+}

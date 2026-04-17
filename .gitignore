@@ -1,0 +1,26 @@
+# التبعيات (Dependencies)
+node_modules/
+.pnp
+.pnp.js
+
+# ملفات التخزين المؤقت (Testing & Cache)
+.cache/
+coverage/
+.npm
+.eslintcache
+
+# مخرجات البناء (Build outputs)
+build/
+dist/
+out/
+
+# ملفات البيئة والحماية (Environment & Security)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات النظام (System files)
+.DS_Store
+Thumbs.db

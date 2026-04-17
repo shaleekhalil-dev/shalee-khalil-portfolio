@@ -1,0 +1,44 @@
+{
+  "nav_projects": "Technical Projects",
+  "nav_contact": "Contact Me",
+  "nav_home": "Home",
+  "nav_books": "Editions",
+  "nav_vault": "Learning Journey",
+  "library_title": "Digital Library (28 Editions)",
+  "learning_journey_title": "Continuous Learning Journey & Global Credentials",
+  "hero_subtitle": "Hybrid Strategic Leader | Full-Stack Developer | Data Analyst | Author | Trainer",
+  "card_bio_title": "Digital Identity Profile",
+  "card_bio_text": "A Hybrid Strategic Leader integrating HR management with Psychology and Full Stack development to humanize workspaces and develop psychological capital.",
+  "card_links_title": "Quick Access Links",
+  
+  "Unified Digital Identity Hub": "Unified Digital Identity Hub",
+  "Educational Excellence Portfolio": "Educational Excellence Portfolio",
+  "Human Capital & Coaching Profile": "Human Capital & Coaching Profile",
+  
+  "link_canva_name": "Unified Digital Identity Hub",
+  "link_teacher_name": "Educational Excellence Portfolio",
+  "link_coach_name": "Human Capital & Coaching Profile",
+  
+  "card_stores_title": "Access My Literary & Psychological Works",
+  "btn_amazon": "Amazon Store",
+  "btn_google_books": "Google Play Books",
+  "form_name": "Full Name",
+  "form_email": "Email Address",
+  "form_type": "Enquiry Type",
+  "form_message": "Your Message",
+  "form_submit": "Submit Request",
+  "form_success_msg": "Message received successfully,",
+  "required_field": "This field is required",
+  "invalid_email": "Invalid email address",
+  "comment_min_length": "Must be at least 10 characters",
+  
+  "type_dev": "Software Development",
+  "type_data": "Data Analytics & Strategic Insights",
+  "type_coaching": "Coaching & Professional Development",
+  "type_literary": "Literary Consultation",
+
+  "Academic Journey": "Academic Journey",
+  "Technical & Data Expertise": "Technical & Data Expertise",
+  "Psychology & Leadership Credentials": "Psychology & Leadership Credentials",
+  "Strategic Vision": "Strategic Vision"
+}
