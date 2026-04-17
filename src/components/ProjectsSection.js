@@ -1,109 +1,86 @@
-import React from "react";
-import { Box, Heading, SimpleGrid, VStack, Container, Text, Badge, HStack, Link } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
+import React, { useState } from "react";
+import { VStack, Heading, SimpleGrid, Box, Image, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Button, HStack, Link, Container } from "@chakra-ui/react";
+import { faAmazon, faGooglePlay } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faCode, faShieldHalved, faFilter, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+
+const booksData = [
+  {
+    id: 1,
+    title: "المجموعة الأولى (الكتب الأساسية)",
+    image: "/images/books/group1.jpg",
+    editions: ["طائر الفينيق (عربي/إنجليزي)", "هل جربت أن تحلم (عربي/إنجليزي)", "تركت (Left) / مذكرات سارة", "رقصة الوداع (3 أجزاء)"],
+    amazon: "https://www.amazon.com/author/shaleekhalil",
+    google: "https://play.google.com/store/books/author?id=Shalee+Khalil"
+  },
+  {
+    id: 2,
+    title: "المجموعة الثانية (الروايات والقصص)",
+    image: "/images/books/group2.jpg",
+    editions: ["سلسلة عبير وشادي (3 إصدارات)", "خيار القلب: سلوى", "أسرار القهوة", "فنجان قهوة: مذكرات سارة"],
+    amazon: "https://www.amazon.com/author/shaleekhalil",
+    google: "https://play.google.com/store/books/author?id=Shalee+Khalil"
+  },
+  {
+    id: 3,
+    title: "المجموعة الثالثة (الوعي والفلسفة)",
+    image: "/images/books/group3.jpg",
+    editions: ["هندسة الأصداء (3 لغات)", "رحلة كون / مرآة الروح / صدى الوعي", "دوائر الذاكرة المحرمة", "دورة الظلال", "البوابة (The Gate)"],
+    amazon: "https://www.amazon.com/author/shaleekhalil",
+    google: "https://play.google.com/store/books/author?id=Shalee+Khalil"
+  }
+];
 
 const ProjectsSection = () => {
-  const { i18n } = useTranslation();
-  const isAr = i18n.language === "ar";
+  const { t } = useTranslation();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedGroup, setSelectedGroup] = useState(null);
 
-  const projects = [
-    {
-      title: "Little Lemon API",
-      description: isAr 
-        ? "نظام متكامل لإدارة المطاعم مبني باستخدام Django REST Framework، يتضمن أنظمة صلاحيات متقدّمة (RBAC) لإدارة المجموعات (مديرين، طاقم توصيل) مع ميزات التصفية والترتيب."
-        : "A complete restaurant management system built with Django REST Framework, featuring advanced RBAC for groups (Managers, Delivery Crew) with filtering and ordering capabilities.",
-      tags: ["Python", "Django", "SQL", "API Design", "Pipenv"],
-      features: isAr ? ["صلاحيات RBAC", "بحث وتصفية", "أتمتة إدارية"] : ["RBAC Roles", "Search & Filter", "Admin Automation"],
-      link: "https://github.com/shaleekhalil-dev/Little-Lemon-API"
-    },
-    {
-      title: "Hybrid Digital Identity",
-      description: isAr 
-        ? "تطوير المنصة الحالية التي تدمج مخرجات الموارد البشرية وعلم النفس مع تقنيات الـ Full Stack، باستخدام React و Chakra UI ودمج Google Analytics."
-        : "Developing the current platform that integrates HR and Psychology outputs with Full Stack technologies using React, Chakra UI, and GA4 integration.",
-      tags: ["React", "JavaScript", "Chakra UI", "GA4", "I18n"],
-      features: isAr ? ["هوية هجينة", "تصميم زجاجي", "تحليل بيانات"] : ["Hybrid Identity", "Glassmorphism", "Data Analytics"],
-      link: "https://github.com/shaleekhalil-dev/shalee-khalil-portfolio"
-    }
-  ];
+  const handleOpen = (group) => {
+    setSelectedGroup(group);
+    onOpen();
+  };
 
   return (
-    <Box as="section" id="projects-section" py={20} minH="100vh" display="flex" alignItems="center">
-      <Container maxW="container.xl">
-        <VStack spacing={12} align="stretch">
-          <Heading as="h2" size="2xl" textAlign="center" color="black" fontWeight="900">
-            {isAr ? "المشاريع التقنية والابتكارات" : "Technical Projects & Innovations"}
-          </Heading>
+    <Container maxW="container.xl" py={20} id="projects-section">
+      <VStack spacing={12}>
+        <Heading color="#0c4a6e" size="2xl">{t("library_title")}</Heading>
+        <SimpleGrid columns={[1, null, 3]} spacing={10} w="full">
+          {booksData.map((group) => (
+            <Box key={group.id} className="glass-card" p={6} cursor="pointer" onClick={() => handleOpen(group)} textAlign="center">
+              <Image src={group.image} borderRadius="xl" mb={6} mx="auto" fallbackSrc="https://via.placeholder.com/300x400?text=Shalee+Khalil+Books" />
+              <Heading size="md" mb={4}>{group.title}</Heading>
+              <Button size="sm" colorScheme="blue" variant="ghost">عرض التفاصيل</Button>
+            </Box>
+          ))}
+        </SimpleGrid>
+      </VStack>
 
-          <SimpleGrid columns={[1, null, 2]} spacing={10}>
-            {projects.map((project, index) => (
-              <Box 
-                key={index} 
-                className="glass-card" 
-                p={8} 
-                display="flex" 
-                flexDirection="column"
-                borderBottom="6px solid #1a365d"
-                transition="all 0.3s ease"
-                _hover={{ transform: "translateY(-10px)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
-              >
-                <VStack align="start" spacing={5} flex="1">
-                  <HStack justifyContent="space-between" w="full">
-                    <Heading as="h3" size="lg" color="#1a365d">{project.title}</Heading>
-                    <HStack spacing={4}>
-                      <Link href={project.link} isExternal _hover={{ color: "#2b6cb0" }}>
-                        <FontAwesomeIcon icon={faGithub} size="2x" />
-                      </Link>
-                    </HStack>
-                  </HStack>
-                  
-                  <HStack spacing={2} flexWrap="wrap">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} bg="#1a365d" color="white" borderRadius="full" px={3} py={1}>
-                        {tag}
-                      </Badge>
-                    ))}
-                  </HStack>
-
-                  <Text fontSize="md" fontWeight="700" color="black" lineHeight="tall">
-                    {project.description}
-                  </Text>
-
-                  <VStack align="start" spacing={3} w="full" pt={2}>
-                    {project.features.map((feature, i) => (
-                      <HStack key={i} spacing={3}>
-                        <Box color="#2b6cb0">
-                           <FontAwesomeIcon icon={i === 0 ? faShieldHalved : (i === 1 ? faFilter : faCode)} size="sm" />
-                        </Box>
-                        <Text fontSize="sm" fontWeight="800" color="black">{feature}</Text>
-                      </HStack>
-                    ))}
-                  </VStack>
-
-                  <Link 
-                    href={project.link} 
-                    isExternal 
-                    mt="auto" 
-                    pt={4} 
-                    fontWeight="900" 
-                    color="#1a365d"
-                    display="flex"
-                    alignItems="center"
-                    _hover={{ textDecoration: "underline" }}
-                  >
-                    {isAr ? "معاينة المستودع" : "View Repository"} 
-                    <Box mx={2}><FontAwesomeIcon icon={faExternalLinkAlt} size="xs" /></Box>
-                  </Link>
-                </VStack>
-              </Box>
-            ))}
-          </SimpleGrid>
-        </VStack>
-      </Container>
-    </Box>
+      {selectedGroup && (
+        <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
+          <ModalOverlay backdropFilter="blur(10px)" />
+          <ModalContent borderRadius="3xl" bg="#f8fafc" p={4}>
+            <ModalHeader color="#0c4a6e" textAlign="center" fontSize="2xl">{selectedGroup.title}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <VStack spacing={6}>
+                <Image src={selectedGroup.image} borderRadius="2xl" maxH="300px" />
+                <Box w="full" p={5} bg="whiteAlpha.800" borderRadius="2xl" border="1px solid #bae6fd">
+                  <Heading size="sm" mb={3} color="#0369a1">الإصدارات ضمن هذه المجموعة:</Heading>
+                  {selectedGroup.editions.map((ed, i) => (
+                    <Text key={i} fontWeight="700" mb={1}>• {ed}</Text>
+                  ))}
+                </Box>
+                <HStack spacing={4} w="full">
+                  <Button as={Link} href={selectedGroup.amazon} isExternal leftIcon={<FontAwesomeIcon icon={faAmazon} />} colorScheme="orange" flex="1" h="50px">Amazon</Button>
+                  <Button as={Link} href={selectedGroup.google} isExternal leftIcon={<FontAwesomeIcon icon={faGooglePlay} />} colorScheme="blue" flex="1" h="50px">Google Books</Button>
+                </HStack>
+              </VStack>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      )}
+    </Container>
   );
 };
 
