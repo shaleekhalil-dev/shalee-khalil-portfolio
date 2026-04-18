@@ -26,27 +26,27 @@ const Header = () => {
   return (
     <Box position="fixed" top={0} left={0} right={0} zIndex={1000} className="glass-card" borderRadius="0">
       <Container maxW="container.xl">
-        <HStack px={{ base: 2, md: 4 }} py={4} justifyContent="space-between">
+        <HStack px={{ base: 1, md: 4 }} py={4} justifyContent="space-between">
           
-          {/* روابط التنقل - تم تحسين المسافات للشاشات الصغيرة */}
-          <HStack spacing={{ base: 4, md: 8 }} fontWeight="800" fontSize={{ base: "xs", md: "sm" }}>
-            <Link href="#landing-section">{t("nav_home")}</Link>
+          {/* روابط التنقل - تحسين المسافات وحجم الخط للجوال */}
+          <HStack spacing={{ base: 3, md: 8 }} fontWeight="800" fontSize={{ base: "11px", md: "sm" }}>
+            <Link href="#landing-section" _hover={{ color: "#0284c7" }}>{t("nav_home")}</Link>
             
-            {/* إخفاء هذه الروابط في الشاشات الصغيرة جداً لتجنب التزاحم أو تقليل حجم الخط */}
-            <Link href="#certs-section" display={{ base: "none", sm: "block" }}>
+            {/* يختفي فقط في الشاشات الصغيرة جداً لفسح المجال */}
+            <Link href="#certs-section" display={{ base: "none", md: "block" }} _hover={{ color: "#0284c7" }}>
               {isAr ? 'المسار الأكاديمي' : 'Academic Path'}
             </Link>
             
-            <Link href="#projects-section">
+            <Link href="#projects-section" _hover={{ color: "#0284c7" }}>
               {isAr ? 'المشاريع' : 'Works'}
             </Link>
             
-            <Link href="#contactme-section">{t("nav_contact")}</Link>
+            <Link href="#contactme-section" _hover={{ color: "#0284c7" }}>{t("nav_contact")}</Link>
           </HStack>
 
           <HStack spacing={{ base: 2, md: 6 }}>
-            {/* أيقونات التواصل - تختفي في الجوال لتوفير مساحة لزر اللغة */}
-            <HStack spacing={4} display={{ base: "none", md: "flex" }}>
+            {/* أيقونات التواصل - تظهر فقط في الشاشات الكبيرة */}
+            <HStack spacing={4} display={{ base: "none", lg: "flex" }}>
               {socials.map((social, index) => (
                 <Link key={index} href={social.url} isExternal _hover={{ transform: "scale(1.2)" }}>
                   <FontAwesomeIcon icon={social.icon} size="lg" color="#0284c7" />
@@ -54,17 +54,19 @@ const Header = () => {
               ))}
             </HStack>
 
-            {/* زر اللغة - تم تعديل العرض والخط ليظهر كاملاً على الجوال */}
+            {/* زر اللغة - مع عرض أدنى ثابت لمنع التشويه */}
             <Button 
               size="sm" 
               onClick={toggleLanguage} 
               colorScheme="blue" 
               variant="solid" 
               fontWeight="900"
-              minW={{ base: "85px", md: "100px" }} // يضمن عدم اختفاء نصف الزر
+              minW={{ base: "75px", md: "100px" }}
+              h={{ base: "30px", md: "40px" }}
               px={{ base: 2, md: 4 }}
-              fontSize={{ base: "xs", md: "sm" }}
-              boxShadow="sm"
+              fontSize={{ base: "10px", md: "sm" }}
+              boxShadow="md"
+              _active={{ transform: "scale(0.95)" }}
             >
               {isAr ? 'English' : 'العربية'}
             </Button>

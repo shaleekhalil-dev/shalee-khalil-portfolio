@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslation } from "react-i18next";
 
 const ProjectsSection = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // 1. المشاريع التقنية الأربعة (بدون صور - باستخدام أيقونات)
+  // 1. المشاريع التقنية (تم تحديث المسميات لتكون أكثر مهنية)
   const techProjects = [
     {
       id: "t1",
@@ -31,8 +31,8 @@ const ProjectsSection = () => {
     },
     {
       id: "t3",
-      title: isAr ? "مشروع ليتل ليمون (المصغر)" : "Little Lemon (Mini Project)",
-      description: isAr ? "تطبيق ويب مصغر لنظام مطعم يعتمد على تقنيات الـ Front-end الأساسية." : "A mini web application for a restaurant system using core Front-end technologies.",
+      title: isAr ? "محرك الحجوزات الرقمي" : "Digital Reservation Engine",
+      description: isAr ? "تطبيق ويب متكامل لنظام إدارة الحجوزات يعتمد على تقنيات الـ Front-end المتقدمة." : "A comprehensive web application for reservation management using advanced Front-end technologies.",
       link: "https://github.com/shaleekhalil-dev/LittleLemonProject",
       icon: faLaptopCode,
       tags: ["React", "UI/UX"]
@@ -47,23 +47,21 @@ const ProjectsSection = () => {
     }
   ];
 
-  // 2. المكتبة الأدبية الكاملة (9 مجموعات)
+  // 2. المكتبة الأدبية (تم تنقيحها وحذف التكرار)
   const booksData = [
-    { id: 1, title: isAr ? "المجموعة الأولى: طائر الفينيق" : "Group 1: The Phoenix", image: "https://drive.google.com/thumbnail?id=1WcDemkg50UHetNAY7pHsdc6vjX92on_9", editions: [isAr ? "طائر الفينيق: عندما نشرق من جديد (العربية)" : "The Phoenix: Resurging Anew (Arabic)", "The Phoenix: Mastering the Sovereignty of the Healer (English)"] },
-    { id: 2, title: isAr ? "المجموعة الثانية: هل جربت أن تحلم" : "Group 2: Have You Ever Tried to Dream", image: "https://drive.google.com/thumbnail?id=1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah", editions: [isAr ? "هل جربت أن تحلم (العربية)" : "Have You Ever Tried to Dream (Arabic)", "Have You Ever Tried To Dream (English)"] },
-    { id: 3, title: isAr ? "المجموعة الثالثة: رقصة الوداع / هندسة الأصداء" : "Group 3: The Architecture of Echoes", image: "https://drive.google.com/thumbnail?id=1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", editions: [isAr ? "شروخ في جدار الصمت (العربية)" : "Cracks in the Wall of Silence (Arabic)", "The Architecture of Echoes (English)", "L'Architecture des Échos (French)"] },
-    { id: 4, title: isAr ? "المجموعة الرابعة: دورة الظلال" : "Group 4: The Cycle of Shadows", image: "https://drive.google.com/thumbnail?id=1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", editions: [isAr ? "دورة الظلال (العربية)" : "The Cycle of Shadows (Arabic)", "The Cycle of Shadows (English)", "Le Cycle des Ombres (French)"] },
-    { id: 5, title: isAr ? "المجموعة الخامسة: دوائر الذاكرة المحرمة" : "Group 5: Circles of Forbidden Memory", image: "https://drive.google.com/thumbnail?id=1k83W3foPlgOX-GiHG3tEkO73obDmjdk0", editions: [isAr ? "دوائر الذاكرة المحرمة (العربية)" : "Circles of Forbidden Memory (Arabic)", "The Cycle of Shadows - Graphic Novel (English)", "Círculos de Memoria Prohibida (Spanish)"] },
-    { id: 6, title: isAr ? "المجموعة السادسة: الرقصة الأخيرة" : "Group 6: The Last Dance", image: "https://drive.google.com/thumbnail?id=1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF", editions: [isAr ? "الرقصة الأخيرة (العربية)" : "The Last Dance (Arabic)", "The Last Dance of the Escape (English)"] },
-    { id: 7, title: isAr ? "المجموعة السابعة: عبير وشادي" : "Group 7: Abeer and Shady", image: "https://drive.google.com/thumbnail?id=1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw", editions: [isAr ? "عبير وشادي: ترانيم الحب (العربية)" : "Abeer & Shadi (Arabic)", "Shadi & Abeer (English)", "Abeer y Shady (Spanish)"] },
-    { id: 8, title: isAr ? "المجموعة الثامنة: مرآة الروح" : "Group 8: Mirror of the Soul", image: "https://drive.google.com/thumbnail?id=188RKTdEapP0FveGYn192Bm63eJ9VTEuR", editions: [isAr ? "صدى الوعي (العربية)" : "Echo of Consciousness (Arabic)", "The Mirror of the Soul (English)"] },
-    { id: 9, title: isAr ? "المجموعة التاسعة: تركت / مذكرات سارة" : "Group 9: Left / Sara's Memoirs", image: "https://drive.google.com/thumbnail?id=1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V", editions: [isAr ? "تركت: مذكرات سارة (العربية)" : "Left: Sara's Memoirs (Arabic)", "Left (English)"] }
+    { id: 1, title: isAr ? "طائر الفينيق" : "The Phoenix", image: "https://drive.google.com/thumbnail?id=1WcDemkg50UHetNAY7pHsdc6vjX92on_9", editions: [isAr ? "طائر الفينيق: عندما نشرق من جديد (العربية)" : "The Phoenix: Resurging Anew (Arabic)", "The Phoenix: Mastering the Sovereignty of the Healer (English)"] },
+    { id: 2, title: isAr ? "هل جربت أن تحلم" : "Have You Ever Tried to Dream", image: "https://drive.google.com/thumbnail?id=1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah", editions: [isAr ? "هل جربت أن تحلم (العربية)" : "Have You Ever Tried to Dream (Arabic)", "Have You Ever Tried To Dream (English)"] },
+    { id: 3, title: isAr ? "هندسة الأصداء / رقصة الوداع" : "The Architecture of Echoes", image: "https://drive.google.com/thumbnail?id=1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", editions: [isAr ? "شروخ في جدار الصمت (العربية)" : "Cracks in the Wall of Silence (Arabic)", "The Architecture of Echoes (English)", "L'Architecture des Échos (French)"] },
+    { id: 4, title: isAr ? "دورة الظلال" : "The Cycle of Shadows", image: "https://drive.google.com/thumbnail?id=1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", editions: [isAr ? "دورة الظلال (العربية)" : "The Cycle of Shadows (Arabic)", "The Cycle of Shadows (English)", "Le Cycle des Ombres (French)"] },
+    { id: 5, title: isAr ? "دوائر الذاكرة المحرمة" : "Circles of Forbidden Memory", image: "https://drive.google.com/thumbnail?id=1k83W3foPlgOX-GiHG3tEkO73obDmjdk0", editions: [isAr ? "دوائر الذاكرة المحرمة (العربية)" : "Circles of Forbidden Memory (Arabic)", "The Cycle of Shadows - Graphic Novel (English)", "Círculos de Memoria Prohibida (Spanish)"] },
+    { id: 6, title: isAr ? "عبير وشادي" : "Abeer and Shady", image: "https://drive.google.com/thumbnail?id=1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw", editions: [isAr ? "عبير وشادي: ترانيم الحب (العربية)" : "Abeer & Shadi (Arabic)", "Shadi & Abeer (English)", "Abeer y Shady (Spanish)"] },
+    { id: 7, title: isAr ? "مرآة الروح / صدى الوعي" : "Mirror of the Soul", image: "https://drive.google.com/thumbnail?id=188RKTdEapP0FveGYn192Bm63eJ9VTEuR", editions: [isAr ? "صدى الوعي (العربية)" : "Echo of Consciousness (Arabic)", "The Mirror of the Soul (English)", "Journey of Existence (English)"] },
+    { id: 8, title: isAr ? "تركت (Left) / مذكرات سارة" : "Left / Sara's Memoirs", image: "https://drive.google.com/thumbnail?id=1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V", editions: [isAr ? "تركت: مذكرات سارة (العربية)" : "Left: Sara's Memoirs (Arabic)", "Left (English)", isAr ? "فنجان قهوة: مذكرات سارة" : "A Cup of Coffee: Sara's Memoirs"] }
   ];
 
   return (
     <Container maxW="container.xl" py={20} id="projects-section">
       <VStack spacing={16}>
-        {/* قسم المشاريع التقنية */}
         <VStack spacing={8} w="full">
           <Heading color="#0c4a6e" size="xl">{isAr ? "المشاريع التقنية وتحليل البيانات" : "Tech Projects & Data Analytics"}</Heading>
           <SimpleGrid columns={[1, 2, 4]} spacing={6} w="full">
@@ -80,7 +78,6 @@ const ProjectsSection = () => {
           </SimpleGrid>
         </VStack>
 
-        {/* قسم المكتبة الأدبية */}
         <VStack spacing={8} w="full">
           <Heading color="#0c4a6e" size="xl">{isAr ? "المكتبة الأدبية والمؤلفات" : "Literary Library & Works"}</Heading>
           <SimpleGrid columns={[1, 2, 3]} spacing={10} w="full">
@@ -94,7 +91,6 @@ const ProjectsSection = () => {
         </VStack>
       </VStack>
 
-      {/* Modal */}
       {selectedItem && (
         <Modal isOpen={isOpen} onClose={onClose} isCentered size="lg">
           <ModalOverlay backdropFilter="blur(10px)" />
