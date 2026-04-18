@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import ReactGA from "react-ga4"; 
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -12,62 +11,25 @@ import Certs from "./components/Certs";
 import "./components/App.css";
 import "./i18n";
 
-ReactGA.initialize("G-ZZZXV3LW4K");
-
-const AnalyticsTracker = () => {
-  const location = useLocation();
-  useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname + location.hash });
-  }, [location]);
-  return null;
-};
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
-
-// --- التعديل الذكي لحل مشكلة الخلفية الزرقاء في Render و Vercel ---
 const isGitHubPages = window.location.hostname.includes("github.io");
 
 function App() {
   return (
     <ChakraProvider>
-      {/* إذا كان الرابط يحتوي على github.io يستخدم المسار الفرعي، وإلا يستخدم الجذر / مباشرة */}
       <Router basename={isGitHubPages ? "/shalee-khalil-portfolio" : "/"}>
-        <ScrollToTop />
-        <AnalyticsTracker />
-        <Box 
-          as="main" 
-          minH="100vh" 
-          className="app-container" 
-          position="relative"
-        >
+        <Box as="main" minH="100vh" className="app-container" position="relative">
           <Header />
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <LandingSection />
-                  <Box id="certs-section">
-                    <Certs />
-                  </Box>
-                  <Box id="projects-section">
-                    <ProjectsSection />
-                  </Box>
-                  <Box id="contactme-section">
-                    <ContactMeSection />
-                  </Box>
-                </>
-              }
-            />
+            <Route path="/" element={
+              <>
+                <LandingSection />
+                <Box id="certs-section"><Certs /></Box>
+                <Box id="projects-section"><ProjectsSection /></Box>
+                <Box id="contactme-section"><ContactMeSection /></Box>
+              </>
+            } />
             <Route path="/books" element={<Books />} />
             <Route path="/certs" element={<Certs />} />
-            <Route path="/vault" element={<Certs />} />
           </Routes>
           <Footer />
         </Box>
