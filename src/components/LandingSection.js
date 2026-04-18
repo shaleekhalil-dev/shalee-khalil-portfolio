@@ -2,6 +2,8 @@ import React from "react";
 import { Avatar, Heading, VStack, Box, Text, Container, SimpleGrid, HStack, Link, Icon } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { FaExternalLinkAlt } from "react-icons/fa";
+// استيراد الصورة من المجلد المحلي لضمان استقرارها
+import myProfileImage from "../images/shalee.png"; 
 
 const LandingSection = () => {
   const { t, i18n } = useTranslation();
@@ -13,9 +15,10 @@ const LandingSection = () => {
         <VStack spacing={10} w="full">
           <VStack spacing={6} textAlign="center" className="glass-card" p={10} w="full" borderBottom="5px solid #7dd3fc">
             <Avatar 
-              src="https://media.licdn.com/dms/image/v2/D4D03AQFe7fJazFVxAQ/profile-displayphoto-scale_400_400/B4DZj_UhVKGQAk-/0/1756630227562?e=1777507200&v=beta&t=IOjMpvAl-YF8Mk8p-hhTDFwdYq223WjX5T3uUN8GlRQ" 
+              src={myProfileImage} // تم تغيير الرابط ليستخدم الصورة المحلية
               size="2xl" 
               border="4px solid #bae6fd"
+              name="Shalee Khalil"
             />
             <VStack spacing={2}>
               <Heading as="h1" size="2xl" color="#0c4a6e" fontWeight="900">
