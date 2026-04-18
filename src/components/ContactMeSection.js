@@ -9,24 +9,23 @@ const ContactMeSection = () => {
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
-  // الرابط الخاص بك الذي أنشأته
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAKJTiH_jGiwqeymDyd_ASnEJ2C9svEemOzWs1Eh_U1FihhcZBLBmONaJrdHu3BDQr/exec";
+  // الرابط الجديد الذي زودتني به
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5v40idcrMV0Zdu5rS3L2vJLYbW9ZCr3SM5lskqCLrLtDWZisc8vonALMwmZgj-Yg/exec";
 
   const formik = useFormik({
     initialValues: { firstName: "", email: "", comment: "" },
     onSubmit: async (values, actions) => {
       setIsLoading(true);
       try {
-        // تحويل البيانات لتعمل مع Google Apps Script
-        const formData = new FormData();
-        formData.append("firstName", values.firstName);
-        formData.append("email", values.email);
-        formData.append("comment", values.comment);
+        const params = new URLSearchParams();
+        params.append("firstName", values.firstName);
+        params.append("email", values.email);
+        params.append("comment", values.comment);
 
         await fetch(SCRIPT_URL, {
           method: "POST",
-          mode: "no-cors", // ضروري جداً لتجنب مشاكل التوجيه في جوجل
-          body: formData,
+          mode: "no-cors",
+          body: params,
         });
 
         toast({
@@ -42,7 +41,6 @@ const ContactMeSection = () => {
       } catch (error) {
         toast({
           title: isAr ? "خطأ في الإرسال" : "Submission Error",
-          description: isAr ? "يرجى المحاولة مرة أخرى لاحقاً" : "Please try again later",
           status: "error",
           duration: 5000,
           isClosable: true,
@@ -64,44 +62,16 @@ const ContactMeSection = () => {
             <form onSubmit={formik.handleSubmit}>
               <VStack spacing={5}>
                 <FormControl isRequired>
-                  <FormLabel fontWeight="800" color="#0c4a6e">
-                    {isAr ? "الاسم الأول" : "First Name"}
-                  </FormLabel>
-                  <Input 
-                    name="firstName" 
-                    {...formik.getFieldProps("firstName")} 
-                    bg="whiteAlpha.500" 
-                    border="1px solid #7dd3fc" 
-                    _focus={{borderColor: "#0369a1", bg: "white"}} 
-                    h="50px" 
-                  />
+                  <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "الاسم الأول" : "First Name"}</FormLabel>
+                  <Input name="firstName" {...formik.getFieldProps("firstName")} bg="whiteAlpha.500" border="1px solid #7dd3fc" h="50px" />
                 </FormControl>
                 <FormControl isRequired>
-                  <FormLabel fontWeight="800" color="#0c4a6e">
-                    {isAr ? "البريد الإلكتروني" : "Email Address"}
-                  </FormLabel>
-                  <Input 
-                    name="email" 
-                    type="email" 
-                    {...formik.getFieldProps("email")} 
-                    bg="whiteAlpha.500" 
-                    border="1px solid #7dd3fc" 
-                    _focus={{borderColor: "#0369a1", bg: "white"}} 
-                    h="50px" 
-                  />
+                  <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "البريد الإلكتروني" : "Email Address"}</FormLabel>
+                  <Input name="email" type="email" {...formik.getFieldProps("email")} bg="whiteAlpha.500" border="1px solid #7dd3fc" h="50px" />
                 </FormControl>
                 <FormControl isRequired>
-                  <FormLabel fontWeight="800" color="#0c4a6e">
-                    {isAr ? "الرسالة" : "Message"}
-                  </FormLabel>
-                  <Textarea 
-                    name="comment" 
-                    {...formik.getFieldProps("comment")} 
-                    bg="whiteAlpha.500" 
-                    border="1px solid #7dd3fc" 
-                    _focus={{borderColor: "#0369a1", bg: "white"}} 
-                    rows={5} 
-                  />
+                  <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "الرسالة" : "Message"}</FormLabel>
+                  <Textarea name="comment" {...formik.getFieldProps("comment")} bg="whiteAlpha.500" border="1px solid #7dd3fc" rows={5} />
                 </FormControl>
                 <Button 
                   type="submit" 
@@ -110,7 +80,6 @@ const ContactMeSection = () => {
                   color="white" 
                   w="full" 
                   h="60px" 
-                  fontSize="lg" 
                   _hover={{ bg: "#0c4a6e", transform: "scale(1.02)" }}
                 >
                   {isAr ? "إرسال" : "Submit"}
