@@ -30,11 +30,14 @@ const ScrollToTop = () => {
   return null;
 };
 
+// --- التعديل الذكي لحل مشكلة الخلفية الزرقاء في Render و Vercel ---
+const isGitHubPages = window.location.hostname.includes("github.io");
+
 function App() {
   return (
     <ChakraProvider>
-      {/* التعديل الحاسم هنا لإزالة الشاشة البيضاء في GitHub Pages عبر إضافة الـ basename */}
-      <Router basename="/shalee-khalil-portfolio">
+      {/* إذا كان الرابط يحتوي على github.io يستخدم المسار الفرعي، وإلا يستخدم الجذر / مباشرة */}
+      <Router basename={isGitHubPages ? "/shalee-khalil-portfolio" : "/"}>
         <ScrollToTop />
         <AnalyticsTracker />
         <Box 
