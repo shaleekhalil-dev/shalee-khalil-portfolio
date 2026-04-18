@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { VStack, Heading, SimpleGrid, Box, Image, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Button, HStack, Link, Container, Badge, Icon } from "@chakra-ui/react";
+import { VStack, Heading, SimpleGrid, Box, Image, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Button, HStack, Link, Container, Badge } from "@chakra-ui/react";
 import { faAmazon, faGooglePlay, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCode, faChartLine, faServer, faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,12 +11,11 @@ const ProjectsSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // 1. المشاريع التقنية (تم تحديث المسميات لتكون أكثر مهنية)
   const techProjects = [
     {
       id: "t1",
       title: isAr ? "تحليل جودة البيانات (TechLine)" : "TechLine Quality Analytics",
-      description: isAr ? "تحليل إحصائي متقدم باستخدام Python لبيانات الجودة والتميز التشغيلي." : "Advanced statistical analysis project using Python for quality data and operational excellence.",
+      description: isAr ? "تحليل إحصائي متقدم باستخدام Python لبيانات الجودة والتميز التشغيلي." : "Advanced statistical analysis project using Python.",
       link: "https://github.com/shaleekhalil-dev/TechLine-Quality-Analytics",
       icon: faChartLine,
       tags: ["Python", "Data Analytics"]
@@ -24,30 +23,29 @@ const ProjectsSection = () => {
     {
       id: "t2",
       title: isAr ? "نظام Little Lemon API" : "Little Lemon API",
-      description: isAr ? "تطوير نظام API متكامل باستخدام Django مع إدارة متقدمة للصلاحيات (RBAC)." : "Full-stack API development with Django and advanced RBAC management.",
+      description: isAr ? "تطوير نظام API متكامل باستخدام Django مع إدارة صلاحيات RBAC." : "Full-stack API development with Django.",
       link: "https://github.com/shaleekhalil-dev/Little-Lemon-API",
       icon: faServer,
-      tags: ["Django", "DRF", "API"]
+      tags: ["Django", "DRF"]
     },
     {
       id: "t3",
       title: isAr ? "محرك الحجوزات الرقمي" : "Digital Reservation Engine",
-      description: isAr ? "تطبيق ويب متكامل لنظام إدارة الحجوزات يعتمد على تقنيات الـ Front-end المتقدمة." : "A comprehensive web application for reservation management using advanced Front-end technologies.",
+      description: isAr ? "تطبيق ويب متكامل لنظام إدارة الحجوزات." : "Web application for reservation management.",
       link: "https://github.com/shaleekhalil-dev/LittleLemonProject",
       icon: faLaptopCode,
       tags: ["React", "UI/UX"]
     },
     {
       id: "t4",
-      title: isAr ? "ملف التعريف الرقمي (هذا الموقع)" : "Digital Portfolio (This Site)",
-      description: isAr ? "تطوير هوية رقمية متكاملة تدمج المؤلفات والخبرات التقنية باستخدام React." : "Development of a unified digital identity merging works and tech expertise using React.",
+      title: isAr ? "ملف التعريف الرقمي" : "Digital Portfolio",
+      description: isAr ? "تطوير هوية رقمية متكاملة تدمج المؤلفات والخبرات التقنية." : "Unified digital identity merging works and tech expertise.",
       link: "https://github.com/shaleekhalil-dev/shalee-khalil-portfolio",
       icon: faCode,
       tags: ["React", "Chakra UI"]
     }
   ];
 
-  // 2. المكتبة الأدبية (تم تنقيحها وحذف التكرار)
   const booksData = [
     { id: 1, title: isAr ? "طائر الفينيق" : "The Phoenix", image: "https://drive.google.com/thumbnail?id=1WcDemkg50UHetNAY7pHsdc6vjX92on_9", editions: [isAr ? "طائر الفينيق: عندما نشرق من جديد (العربية)" : "The Phoenix: Resurging Anew (Arabic)", "The Phoenix: Mastering the Sovereignty of the Healer (English)"] },
     { id: 2, title: isAr ? "هل جربت أن تحلم" : "Have You Ever Tried to Dream", image: "https://drive.google.com/thumbnail?id=1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah", editions: [isAr ? "هل جربت أن تحلم (العربية)" : "Have You Ever Tried to Dream (Arabic)", "Have You Ever Tried To Dream (English)"] },
@@ -63,15 +61,13 @@ const ProjectsSection = () => {
     <Container maxW="container.xl" py={20} id="projects-section">
       <VStack spacing={16}>
         <VStack spacing={8} w="full">
-          <Heading color="#0c4a6e" size="xl">{isAr ? "المشاريع التقنية وتحليل البيانات" : "Tech Projects & Data Analytics"}</Heading>
+          <Heading color="#0c4a6e" size="xl" textAlign="center">{isAr ? "المشاريع التقنية وتحليل البيانات" : "Tech Projects & Data Analytics"}</Heading>
           <SimpleGrid columns={[1, 2, 4]} spacing={6} w="full">
             {techProjects.map((p) => (
-              <Box key={p.id} className="glass-card" p={6} borderRadius="xl" border="1px solid #bae6fd" textAlign="center" _hover={{ transform: "translateY(-5px)", transition: "0.3s" }}>
-                <Box mb={4} color="#0284c7">
-                  <FontAwesomeIcon icon={p.icon} size="3x" />
-                </Box>
+              <Box key={p.id} className="glass-card" p={6} borderRadius="xl" border="1px solid #bae6fd" textAlign="center" _hover={{ transform: "translateY(-5px)" }} transition="0.3s">
+                <Box mb={4} color="#0284c7"><FontAwesomeIcon icon={p.icon} size="3x" /></Box>
                 <Heading size="sm" mb={3} color="#0c4a6e">{p.title}</Heading>
-                <HStack justify="center" mb={3}>{p.tags.map(tag => <Badge key={tag} colorScheme="blue" variant="subtle">{tag}</Badge>)}</HStack>
+                <HStack justify="center" mb={3}>{p.tags.map(tag => <Badge key={tag} colorScheme="blue">{tag}</Badge>)}</HStack>
                 <Button as={Link} href={p.link} isExternal size="xs" colorScheme="blue" variant="outline" leftIcon={<FontAwesomeIcon icon={faGithub} />}>GitHub</Button>
               </Box>
             ))}
@@ -79,10 +75,10 @@ const ProjectsSection = () => {
         </VStack>
 
         <VStack spacing={8} w="full">
-          <Heading color="#0c4a6e" size="xl">{isAr ? "المكتبة الأدبية والمؤلفات" : "Literary Library & Works"}</Heading>
+          <Heading color="#0c4a6e" size="xl" textAlign="center">{isAr ? "المكتبة الأدبية والمؤلفات" : "Literary Library & Works"}</Heading>
           <SimpleGrid columns={[1, 2, 3]} spacing={10} w="full">
             {booksData.map((book) => (
-              <Box key={book.id} className="glass-card" p={6} cursor="pointer" onClick={() => { setSelectedItem(book); onOpen(); }} textAlign="center">
+              <Box key={book.id} className="glass-card" p={6} cursor="pointer" onClick={() => { setSelectedItem(book); onOpen(); }} textAlign="center" _hover={{ shadow: "xl" }}>
                 <Image src={book.image} borderRadius="xl" mb={4} h="280px" mx="auto" objectFit="cover" fallbackSrc="https://via.placeholder.com/300x400?text=Shalee+Khalil" />
                 <Heading size="sm" color="#0c4a6e">{book.title}</Heading>
               </Box>
@@ -111,9 +107,3 @@ const ProjectsSection = () => {
             </ModalBody>
           </ModalContent>
         </Modal>
-      )}
-    </Container>
-  );
-};
-
-export default ProjectsSection;

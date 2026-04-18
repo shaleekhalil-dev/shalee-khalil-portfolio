@@ -2,12 +2,13 @@ import React from "react";
 import { Avatar, Heading, VStack, Box, Text, Container, SimpleGrid, HStack, Link, Icon } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { FaExternalLinkAlt } from "react-icons/fa";
-// استيراد الصورة من المجلد المحلي لضمان استقرارها
-import myProfileImage from "../images/shalee.png"; 
 
 const LandingSection = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
+
+  // استخدام الرابط السحابي لضمان استقرار الموقع عند الرفع
+  const profileImageUrl = "https://lh3.googleusercontent.com/d/18B6gq5r6kbxn2-6j_XJaJi2LT5BZvvMO";
 
   return (
     <Box as="section" id="landing-section" minH="100vh" py="120px" display="flex" alignItems="center">
@@ -15,7 +16,7 @@ const LandingSection = () => {
         <VStack spacing={10} w="full">
           <VStack spacing={6} textAlign="center" className="glass-card" p={10} w="full" borderBottom="5px solid #7dd3fc">
             <Avatar 
-              src={myProfileImage} // تم تغيير الرابط ليستخدم الصورة المحلية
+              src={profileImageUrl} 
               size="2xl" 
               border="4px solid #bae6fd"
               name="Shalee Khalil"
@@ -37,7 +38,7 @@ const LandingSection = () => {
               <Heading size="md" mb={4} color="#0c4a6e" borderBottom="2px solid #7dd3fc" pb={2}>
                 {isAr ? "الرؤية والهدف" : "Vision & Mission"}
               </Heading>
-              <Text fontSize="md" fontWeight="700" color="#0c4a6e">
+              <Text fontSize="md" fontWeight="700" color="#0c4a6e" lineHeight="tall">
                 {isAr 
                   ? "أسعى لأنسنة بيئات العمل الرقمية باستخدام الذكاء الاصطناعي لتطوير رأس المال النفسي، ودمج أدوات البرمجة في أتمتة العمليات الإدارية وتحليل البيانات لتحقيق التميز التشغيلي." 
                   : "I aim to humanize digital work environments using AI to develop psychological capital, integrating programming tools to automate administrative processes and analyze data for operational excellence."}
@@ -49,19 +50,19 @@ const LandingSection = () => {
                 {isAr ? "المنصات والهويات الرقمية" : "Digital Identities & Hubs"}
               </Heading>
               <VStack spacing={4} align="stretch">
-                <Link href="https://canva.link/uucyyzdna28977l" isExternal>
+                <Link href="https://canva.link/uucyyzdna28977l" isExternal _hover={{ transform: "translateX(5px)" }} transition="0.3s">
                   <HStack color="#0369a1" fontWeight="800">
                     <Icon as={FaExternalLinkAlt} />
                     <Text>{isAr ? "مركز الهوية الرقمية الموحد" : "Unified Digital Identity Hub"}</Text>
                   </HStack>
                 </Link>
-                <Link href="https://sites.google.com/view/shaleekh" isExternal>
+                <Link href="https://sites.google.com/view/shaleekh" isExternal _hover={{ transform: "translateX(5px)" }} transition="0.3s">
                   <HStack color="#0369a1" fontWeight="800">
                     <Icon as={FaExternalLinkAlt} />
                     <Text>{isAr ? "ملف التميز التعليمي" : "Educational Excellence Portfolio"}</Text>
                   </HStack>
                 </Link>
-                <Link href="https://sites.google.com/view/shaaleekhalil" isExternal>
+                <Link href="https://sites.google.com/view/shaaleekhalil" isExternal _hover={{ transform: "translateX(5px)" }} transition="0.3s">
                   <HStack color="#0369a1" fontWeight="800">
                     <Icon as={FaExternalLinkAlt} />
                     <Text>{isAr ? "ملف رأس المال البشري والتوجيه" : "Human Capital & Coaching Profile"}</Text>
