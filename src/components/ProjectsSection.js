@@ -67,7 +67,7 @@ const ProjectsSection = () => {
               <Box key={p.id} className="glass-card" p={6} borderRadius="xl" border="1px solid #bae6fd" textAlign="center" _hover={{ transform: "translateY(-5px)" }} transition="0.3s">
                 <Box mb={4} color="#0284c7"><FontAwesomeIcon icon={p.icon} size="3x" /></Box>
                 <Heading size="sm" mb={3} color="#0c4a6e">{p.title}</Heading>
-                <HStack justify="center" mb={3}>{p.tags.map(tag => <Badge key={tag} colorScheme="blue">{tag}</Badge>)}</HStack>
+                <HStack justify="center" mb={3}>{p.tags.map(tag => <Badge key={tag} colorScheme="blue" variant="subtle">{tag}</Badge>)}</HStack>
                 <Button as={Link} href={p.link} isExternal size="xs" colorScheme="blue" variant="outline" leftIcon={<FontAwesomeIcon icon={faGithub} />}>GitHub</Button>
               </Box>
             ))}
@@ -107,3 +107,9 @@ const ProjectsSection = () => {
             </ModalBody>
           </ModalContent>
         </Modal>
+      )}
+    </Container>
+  );
+};
+
+export default ProjectsSection;
