@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { Box, Button, FormControl, FormLabel, Heading, Input, VStack, Container, Textarea, useToast } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
@@ -7,20 +7,49 @@ const ContactMeSection = () => {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   const toast = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // الرابط الخاص بك الذي أنشأته
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAKJTiH_jGiwqeymDyd_ASnEJ2C9svEemOzWs1Eh_U1FihhcZBLBmONaJrdHu3BDQr/exec";
 
   const formik = useFormik({
     initialValues: { firstName: "", email: "", comment: "" },
-    onSubmit: (values, actions) => {
-      toast({
-        title: isAr ? "تم استلام رسالتك" : "Message Received",
-        description: isAr 
-          ? `شكراً لك يا ${values.firstName}، سأتواصل معك قريباً.` 
-          : `Thank you ${values.firstName}, I will contact you soon.`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-      actions.resetForm();
+    onSubmit: async (values, actions) => {
+      setIsLoading(true);
+      try {
+        // تحويل البيانات لتعمل مع Google Apps Script
+        const formData = new FormData();
+        formData.append("firstName", values.firstName);
+        formData.append("email", values.email);
+        formData.append("comment", values.comment);
+
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors", // ضروري جداً لتجنب مشاكل التوجيه في جوجل
+          body: formData,
+        });
+
+        toast({
+          title: isAr ? "تم الإرسال بنجاح" : "Message Sent",
+          description: isAr 
+            ? `شكراً لك يا ${values.firstName}، سأتواصل معك قريباً.` 
+            : `Thank you ${values.firstName}, I will contact you soon.`,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        actions.resetForm();
+      } catch (error) {
+        toast({
+          title: isAr ? "خطأ في الإرسال" : "Submission Error",
+          description: isAr ? "يرجى المحاولة مرة أخرى لاحقاً" : "Please try again later",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
 
@@ -76,6 +105,7 @@ const ContactMeSection = () => {
                 </FormControl>
                 <Button 
                   type="submit" 
+                  isLoading={isLoading}
                   bg="#0369a1" 
                   color="white" 
                   w="full" 
