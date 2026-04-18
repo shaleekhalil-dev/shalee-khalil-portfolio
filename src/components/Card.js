@@ -5,7 +5,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 const Card = ({ title, description, imageSrc, url }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
 
   return (
@@ -25,18 +25,19 @@ const Card = ({ title, description, imageSrc, url }) => {
             w="full" 
             h="200px" 
             objectFit="cover"
+            fallbackSrc="https://via.placeholder.com/400x200?text=Shalee+Khalil+Project"
           />
           <VStack p={6} align="flex-start" spacing={3} w="full">
             <Heading as="h3" size="md">
               {title}
             </Heading>
-            <Text fontSize="sm" noOfLines={3}>
+            <Text fontSize="sm" noOfLines={4}>
               {description}
             </Text>
             
             <HStack fontWeight="bold" spacing={2} pt={2}>
               <Text fontSize="sm">
-                {isAr ? "عرض المشروع" : "See Project"}
+                {isAr ? "عرض التفاصيل" : "View Details"}
               </Text>
               <FontAwesomeIcon 
                 icon={isAr ? faArrowLeft : faArrowRight} 

@@ -55,6 +55,7 @@ function App() {
               }
             />
             <Route path="/books" element={<Books />} />
+            <Route path="/certs" element={<Certs />} />
             <Route path="/vault" element={<Certs />} />
           </Routes>
           <Footer />

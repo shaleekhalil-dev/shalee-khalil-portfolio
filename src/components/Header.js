@@ -26,7 +26,8 @@ const Header = () => {
         <HStack px={4} py={4} justifyContent="space-between">
           <HStack spacing={8} fontWeight="800">
             <Link href="#landing-section">{t("nav_home")}</Link>
-            <Link href="#projects-section">{t("nav_books")}</Link>
+            <Link href="#certs-section">{i18n.language === 'ar' ? 'المسار الأكاديمي' : 'Academic Path'}</Link>
+            <Link href="#books-section">{i18n.language === 'ar' ? 'المؤلفات' : 'Books'}</Link>
             <Link href="#contactme-section">{t("nav_contact")}</Link>
           </HStack>
 
