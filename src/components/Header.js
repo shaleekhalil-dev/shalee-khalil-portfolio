@@ -5,10 +5,10 @@ import { faFacebook, faGithub, faLinkedin, faWhatsapp } from "@fortawesome/free-
 import { useTranslation } from "react-i18next";
 
 const socials = [
-  { icon: faWhatsapp, url: "https://wa.me/970597151126" },
-  { icon: faLinkedin, url: "https://www.linkedin.com/in/shaleekhalil" },
+  { icon: faWhatsapp, url: "https://wa.me/970599661819" },
+  { icon: faLinkedin, url: "https://www.linkedin.com/in/shalee-khalil" },
   { icon: faGithub, url: "https://github.com/shaleekhalil-dev" },
-  { icon: faFacebook, url: "https://facebook.com/shaleekhalil" },
+  { icon: faFacebook, url: "https://www.facebook.com/shaaleekh/" },
 ];
 
 const Header = () => {
@@ -27,7 +27,7 @@ const Header = () => {
           <HStack spacing={8} fontWeight="800">
             <Link href="#landing-section">{t("nav_home")}</Link>
             <Link href="#certs-section">{i18n.language === 'ar' ? 'المسار الأكاديمي' : 'Academic Path'}</Link>
-            <Link href="#books-section">{i18n.language === 'ar' ? 'المؤلفات' : 'Books'}</Link>
+            <Link href="#projects-section">{i18n.language === 'ar' ? 'المؤلفات' : 'Books'}</Link>
             <Link href="#contactme-section">{t("nav_contact")}</Link>
           </HStack>
 

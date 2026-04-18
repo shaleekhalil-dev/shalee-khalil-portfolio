@@ -49,6 +49,9 @@ function App() {
               element={
                 <>
                   <LandingSection />
+                  <Box id="certs-section">
+                    <Certs />
+                  </Box>
                   <ProjectsSection />
                   <ContactMeSection />
                 </>
