@@ -2,7 +2,7 @@
   "name": "shalee-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shaleekhalil-dev.github.io/shalee-khalil-portfolio",
+  "homepage": ".",
   "engines": {
     "node": "24.x"
   },
