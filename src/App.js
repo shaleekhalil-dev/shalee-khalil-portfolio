@@ -17,7 +17,7 @@ ReactGA.initialize("G-ZZZXV3LW4K");
 const AnalyticsTracker = () => {
   const location = useLocation();
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname });
+    ReactGA.send({ hitType: "pageview", page: location.pathname + location.hash });
   }, [location]);
   return null;
 };
@@ -33,7 +33,8 @@ const ScrollToTop = () => {
 function App() {
   return (
     <ChakraProvider>
-      <Router>
+      {/* التعديل الحاسم هنا لإزالة الشاشة البيضاء في GitHub Pages عبر إضافة الـ basename */}
+      <Router basename="/shalee-khalil-portfolio">
         <ScrollToTop />
         <AnalyticsTracker />
         <Box 
@@ -52,8 +53,12 @@ function App() {
                   <Box id="certs-section">
                     <Certs />
                   </Box>
-                  <ProjectsSection />
-                  <ContactMeSection />
+                  <Box id="projects-section">
+                    <ProjectsSection />
+                  </Box>
+                  <Box id="contactme-section">
+                    <ContactMeSection />
+                  </Box>
                 </>
               }
             />
