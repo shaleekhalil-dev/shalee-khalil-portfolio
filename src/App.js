@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ChakraProvider, Box } from "@chakra-ui/react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -11,7 +11,9 @@ import Certs from "./components/Certs";
 import "./components/App.css";
 import "./i18n";
 
-const isGitHubPages = window.location.hostname.includes("github.io");
+// تحسين اكتشاف البيئة لضمان عمل الروابط في كل المنصات
+const isGitHubPages = window.location.hostname.includes("github.io") || 
+                     window.location.pathname.includes("shalee-khalil-portfolio");
 
 function App() {
   return (
@@ -22,12 +24,29 @@ function App() {
           <Routes>
             <Route path="/" element={
               <>
-                <LandingSection />
-                <Box id="certs-section"><Certs /></Box>
-                <Box id="projects-section"><ProjectsSection /></Box>
-                <Box id="contactme-section"><ContactMeSection /></Box>
+                {/* قسم الهبوط الرئيسي */}
+                <Box id="landing-section">
+                  <LandingSection />
+                </Box>
+
+                {/* قسم المسار الأكاديمي والشهادات */}
+                <Box id="certs-section">
+                  <Certs />
+                </Box>
+
+                {/* قسم المشاريع التقنية والمؤلفات الأدبية */}
+                <Box id="projects-section">
+                  <ProjectsSection />
+                </Box>
+
+                {/* قسم تواصل معي */}
+                <Box id="contactme-section">
+                  <ContactMeSection />
+                </Box>
               </>
             } />
+            
+            {/* المسارات الفرعية في حال الوصول المباشر */}
             <Route path="/books" element={<Books />} />
             <Route path="/certs" element={<Certs />} />
           </Routes>
