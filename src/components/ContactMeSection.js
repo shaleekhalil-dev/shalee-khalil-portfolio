@@ -9,13 +9,14 @@ const ContactMeSection = () => {
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5v40idcrMV0Zdu5rS3L2vJLYbW9ZCr3SM5lskqCLrLtDWZisc8vonALMwmZgj-Yg/exec";
+  // تم تحديث الرابط هنا إلى الرابط الجديد الذي أرسلته
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw2e3bZuaj55pKQTVg872NpZ_N-QANX77NrMKlPB1XIbT6kdAi9hj3KtEzCv9iSWgkH/exec";
 
   const formik = useFormik({
     initialValues: { 
       firstName: "", 
       email: "", 
-      category: "General", // القيمة الافتراضية للفلتر
+      category: "General", 
       comment: "" 
     },
     onSubmit: async (values, actions) => {
@@ -24,7 +25,7 @@ const ContactMeSection = () => {
         const params = new URLSearchParams();
         params.append("firstName", values.firstName);
         params.append("email", values.email);
-        params.append("category", values.category); // إرسال المجال المختار
+        params.append("category", values.category);
         params.append("comment", values.comment);
 
         await fetch(SCRIPT_URL, {
@@ -66,19 +67,16 @@ const ContactMeSection = () => {
           <Box w="full">
             <form onSubmit={formik.handleSubmit}>
               <VStack spacing={5}>
-                {/* حقل الاسم */}
                 <FormControl isRequired>
                   <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "الاسم الأول" : "First Name"}</FormLabel>
                   <Input name="firstName" {...formik.getFieldProps("firstName")} bg="whiteAlpha.500" border="1px solid #7dd3fc" h="50px" />
                 </FormControl>
 
-                {/* حقل البريد */}
                 <FormControl isRequired>
                   <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "البريد الإلكتروني" : "Email Address"}</FormLabel>
                   <Input name="email" type="email" {...formik.getFieldProps("email")} bg="whiteAlpha.500" border="1px solid #7dd3fc" h="50px" />
                 </FormControl>
 
-                {/* الفلتر الاستراتيجي - نوع الاستشارة */}
                 <FormControl isRequired>
                   <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "مجال التواصل" : "Area of Interest"}</FormLabel>
                   <Select 
@@ -98,13 +96,11 @@ const ContactMeSection = () => {
                   </Select>
                 </FormControl>
 
-                {/* حقل الرسالة */}
                 <FormControl isRequired>
                   <FormLabel fontWeight="800" color="#0c4a6e">{isAr ? "الرسالة" : "Message"}</FormLabel>
                   <Textarea name="comment" {...formik.getFieldProps("comment")} bg="whiteAlpha.500" border="1px solid #7dd3fc" rows={5} />
                 </FormControl>
 
-                {/* زر الإرسال */}
                 <Button 
                   type="submit" 
                   isLoading={isLoading}
