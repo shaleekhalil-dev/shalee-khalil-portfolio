@@ -22,7 +22,8 @@ function AppContent() {
   const isAr = i18n.language === "ar";
 
   useEffect(() => {
-    ReactGA.initialize("G-4KZ8ZH2PED");
+    // تم تحديث المعرف هنا ليتوافق مع الحساب الفعال
+    ReactGA.initialize("G-PBQ610WXQC");
     ReactGA.send("pageview");
 
     const messages = [
@@ -30,19 +31,19 @@ function AppContent() {
         title: isAr ? "مرحباً بك في عالمي الرقمي" : "Welcome to my digital world",
         description: isAr ? "اكتشف كيف أدمج علم النفس بالتقنية لأنسنة بيئات العمل." : "Discover how I merge psychology with tech to humanize work.",
         sectionId: "landing-section",
-        delay: 3000 // يظهر بعد 3 ثوانٍ
+        delay: 3000 
       },
       {
         title: isAr ? "المكتبة الأدبية" : "Literary Library",
         description: isAr ? "طائر الفينيق وعبير وشادي متاحان للقراءة الكاملة الآن!" : "The Phoenix & Abeer and Shady are available for full reading!",
         sectionId: "projects-section",
-        delay: 8000 // يظهر بعد 8 ثوانٍ (أي بعد 5 ثوانٍ من الأول)
+        delay: 8000 
       },
       {
         title: isAr ? "المسار الأكاديمي" : "Academic Path",
         description: isAr ? "تصفح شهاداتي الاحترافية في الذكاء الاصطناعي وتحليل البيانات." : "Explore my professional certs in AI and Data Analytics.",
         sectionId: "certs-section",
-        delay: 13000 // يظهر بعد 13 ثانية
+        delay: 13000 
       }
     ];
 
