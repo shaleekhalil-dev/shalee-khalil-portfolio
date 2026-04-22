@@ -4,6 +4,7 @@ import { ChakraProvider, Box, useToast } from "@chakra-ui/react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
+import DomainsSection from "./components/DomainsSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
@@ -22,7 +23,6 @@ function AppContent() {
   const isAr = i18n.language === "ar";
 
   useEffect(() => {
-    // تم تحديث المعرف هنا ليتوافق مع الحساب الفعال
     ReactGA.initialize("G-PBQ610WXQC");
     ReactGA.send("pageview");
 
@@ -82,6 +82,7 @@ function AppContent() {
         <Route path="/" element={
           <>
             <Box id="landing-section"><LandingSection /></Box>
+            <DomainsSection />
             <Box id="certs-section"><Certs /></Box>
             <Box id="projects-section"><ProjectsSection /></Box>
             <Box id="contactme-section"><ContactMeSection /></Box>
