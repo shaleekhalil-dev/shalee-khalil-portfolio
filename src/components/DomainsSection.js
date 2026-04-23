@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link, HStack } from "@chakra-ui/react";
+import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link } from "@chakra-ui/react";
 import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, FaPenNib } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
@@ -10,35 +10,44 @@ const domains = [
     titleAr: "كاتب ومؤلف", 
     titleEn: "Author & Writer",
     url: "https://www.amazon.com/author/shaleekhalil",
-    googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil"
+    btnAr: "اعرف المزيد من خلال Amazon",
+    btnEn: "Learn more on Amazon"
   },
   { 
     id: 2, 
     icon: FaChalkboardTeacher, 
     titleAr: "معلم", 
     titleEn: "Teacher",
-    url: "https://sites.google.com/view/shaleekh"
+    url: "https://sites.google.com/view/shaleekh",
+    btnAr: "ملف الإنجاز الخاص بي",
+    btnEn: "My Portfolio"
   },
   { 
     id: 3, 
     icon: FaUserTie, 
-    titleAr: "مدرب استراتيجي / حياة", 
-    titleEn: "Strategic / Life Coach",
-    url: "https://sites.google.com/view/shaaleekhalil"
+    titleAr: "مدرب حياة ومدرب استراتيجي", 
+    titleEn: "Life & Strategic Coach",
+    url: "https://sites.google.com/view/shaaleekhalil",
+    btnAr: "منصة التدريب الخاصة بي",
+    btnEn: "My Training Platform"
   },
   { 
     id: 4, 
     icon: FaCode, 
     titleAr: "مصمم مواقع ويب", 
     titleEn: "Web Developer",
-    url: "https://lowcost-web.vercel.app/"
+    url: "https://lowcost-web.vercel.app/",
+    btnAr: "اعرف المزيد عن مشروع LOW COST",
+    btnEn: "Learn about LOW COST project"
   },
   { 
     id: 5, 
     icon: FaFingerprint, 
     titleAr: "الهوية الرقمية", 
     titleEn: "Digital Identity",
-    url: "https://www.canva.com/design/DAHFWHjYPDQ/0rnqyOINuaLWgb1EN7ykWg/edit"
+    url: "https://www.canva.com/design/DAHFWHjYPDQ/0rnqyOINuaLWgb1EN7ykWg/edit",
+    btnAr: "ألقِ نظرة على هويتي الرقمية",
+    btnEn: "View my Digital Identity"
   },
 ];
 
@@ -54,7 +63,6 @@ const DomainsSection = () => {
             {isAr ? "المجالات العملية" : "Professional Domains"}
           </Heading>
           
-          {/* التعديل هنا لجعل المربعات متناسقة (3 في الصف أو 2 حسب حجم الشاشة) */}
           <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8} w="full">
             {domains.map((domain) => (
               <VStack 
@@ -82,31 +90,17 @@ const DomainsSection = () => {
                   {isAr ? domain.titleAr : domain.titleEn}
                 </Text>
                 
-                <VStack spacing={2}>
-                  <Link 
-                    href={domain.url} 
-                    isExternal 
-                    color="#0284c7" 
-                    fontWeight="bold" 
-                    fontSize="sm"
-                    _hover={{ textDecoration: "underline" }}
-                  >
-                    {isAr ? "اعرف المزيد (Amazon) ←" : "Learn More (Amazon) ←"}
-                  </Link>
-                  
-                  {domain.googleUrl && (
-                    <Link 
-                      href={domain.googleUrl} 
-                      isExternal 
-                      color="#0c4a6e" 
-                      fontWeight="bold" 
-                      fontSize="sm"
-                      _hover={{ textDecoration: "underline" }}
-                    >
-                      {isAr ? "تصفح مؤلفاتي على Google Play ←" : "Browse my books on Google Play ←"}
-                    </Link>
-                  )}
-                </VStack>
+                <Link 
+                  href={domain.url} 
+                  isExternal 
+                  color="#0284c7" 
+                  fontWeight="bold" 
+                  fontSize="sm"
+                  textAlign="center"
+                  _hover={{ textDecoration: "underline" }}
+                >
+                  {isAr ? `${domain.btnAr} ←` : `${domain.btnEn} ←`}
+                </Link>
               </VStack>
             ))}
           </SimpleGrid>

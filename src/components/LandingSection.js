@@ -1,19 +1,20 @@
 import React from "react";
-import { Avatar, Heading, VStack, Box, Text, Container, SimpleGrid, HStack, Link, Icon } from "@chakra-ui/react";
+import { Avatar, Heading, VStack, Box, Text, Container } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 const LandingSection = () => {
   const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
 
-  // استخدام الرابط السحابي لضمان استقرار الموقع عند الرفع
+  // الرابط السحابي للصورة
   const profileImageUrl = "https://lh3.googleusercontent.com/d/18B6gq5r6kbxn2-6j_XJaJi2LT5BZvvMO";
 
   return (
     <Box as="section" id="landing-section" minH="100vh" py="120px" display="flex" alignItems="center">
       <Container maxW="container.lg">
         <VStack spacing={10} w="full">
+          
+          {/* قسم التعريف الشخصي الرئيسي */}
           <VStack spacing={6} textAlign="center" className="glass-card" p={10} w="full" borderBottom="5px solid #7dd3fc">
             <Avatar 
               src={profileImageUrl} 
@@ -33,44 +34,27 @@ const LandingSection = () => {
             </VStack>
           </VStack>
 
-          <SimpleGrid columns={[1, null, 2]} spacing={8} w="full">
-            <Box className="glass-card" p={8} border="1px solid #bae6fd">
-              <Heading size="md" mb={4} color="#0c4a6e" borderBottom="2px solid #7dd3fc" pb={2}>
-                {isAr ? "الرؤية والهدف" : "Vision & Mission"}
-              </Heading>
-              <Text fontSize="md" fontWeight="700" color="#0c4a6e" lineHeight="tall">
-                {isAr 
-                  ? "أسعى لأنسنة بيئات العمل الرقمية باستخدام الذكاء الاصطناعي لتطوير رأس المال النفسي، ودمج أدوات البرمجة في أتمتة العمليات الإدارية وتحليل البيانات لتحقيق التميز التشغيلي." 
-                  : "I aim to humanize digital work environments using AI to develop psychological capital, integrating programming tools to automate administrative processes and analyze data for operational excellence."}
-              </Text>
-            </Box>
+          {/* قسم الرؤية والهدف الاستراتيجي - مستطيل أصغر وأنيق */}
+          <Box 
+            className="glass-card" 
+            p={6} 
+            maxW="850px" 
+            w="full"
+            mx="auto" 
+            textAlign="center" 
+            border="2px solid #0c4a6e"
+            boxShadow="lg"
+          >
+            <Heading size="md" mb={3} color="#0c4a6e">
+              {isAr ? "الرؤية والهدف الاستراتيجي" : "Vision & Strategic Goal"}
+            </Heading>
+            <Text fontSize="lg" fontWeight="700" color="#0369a1" lineHeight="tall">
+              {isAr 
+                ? "أنسنة بيئات العمل الرقمية باستخدام الذكاء الاصطناعي لتطوير رأس المال النفسي وتحقيق التميز التشغيلي." 
+                : "Humanizing digital work environments using AI to develop psychological capital and operational excellence."}
+            </Text>
+          </Box>
 
-            <Box className="glass-card" p={8} border="1px solid #bae6fd">
-              <Heading size="md" mb={4} color="#0c4a6e" borderBottom="2px solid #7dd3fc" pb={2}>
-                {isAr ? "المنصات والهويات الرقمية" : "Digital Identities & Hubs"}
-              </Heading>
-              <VStack spacing={4} align="stretch">
-                <Link href="https://canva.link/uucyyzdna28977l" isExternal _hover={{ transform: "translateX(5px)" }} transition="0.3s">
-                  <HStack color="#0369a1" fontWeight="800">
-                    <Icon as={FaExternalLinkAlt} />
-                    <Text>{isAr ? "مركز الهوية الرقمية الموحد" : "Unified Digital Identity Hub"}</Text>
-                  </HStack>
-                </Link>
-                <Link href="https://sites.google.com/view/shaleekh" isExternal _hover={{ transform: "translateX(5px)" }} transition="0.3s">
-                  <HStack color="#0369a1" fontWeight="800">
-                    <Icon as={FaExternalLinkAlt} />
-                    <Text>{isAr ? "ملف التميز التعليمي" : "Educational Excellence Portfolio"}</Text>
-                  </HStack>
-                </Link>
-                <Link href="https://sites.google.com/view/shaaleekhalil" isExternal _hover={{ transform: "translateX(5px)" }} transition="0.3s">
-                  <HStack color="#0369a1" fontWeight="800">
-                    <Icon as={FaExternalLinkAlt} />
-                    <Text>{isAr ? "ملف رأس المال البشري والتوجيه" : "Human Capital & Coaching Profile"}</Text>
-                  </HStack>
-                </Link>
-              </VStack>
-            </Box>
-          </SimpleGrid>
         </VStack>
       </Container>
     </Box>
