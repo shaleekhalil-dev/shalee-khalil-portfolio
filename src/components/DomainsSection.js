@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container } from "@chakra-ui/react";
+import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link } from "@chakra-ui/react";
 import { FaChalkboardTeacher, FaUserTie, FaChessKnight, FaCode } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
@@ -26,12 +26,13 @@ const domains = [
     id: 4, 
     icon: FaCode, 
     titleAr: "مصمم مواقع ويب", 
-    titleEn: "Web Developer" 
+    titleEn: "Web Developer",
+    url: "https://lowcost-web.vercel.app/"
   },
 ];
 
 const DomainsSection = () => {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
 
   return (
@@ -44,35 +45,43 @@ const DomainsSection = () => {
           
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8} w="full">
             {domains.map((domain) => (
-              <VStack 
+              <Link 
                 key={domain.id} 
-                p={8} 
-                bg="gray.50" 
-                borderRadius="2xl" 
-                borderWidth="1px"
-                borderColor="gray.100"
-                shadow="sm"
-                _hover={{ 
-                  transform: "translateY(-10px)", 
-                  shadow: "2xl",
-                  borderColor: "#0284c7",
-                  bg: "white"
-                }}
-                transition="all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+                href={domain.url || undefined} 
+                isExternal={!!domain.url}
+                _hover={{ textDecoration: "none" }}
+                cursor={domain.url ? "pointer" : "default"}
               >
-                <Box 
-                  p={4} 
-                  bg="blue.50" 
-                  borderRadius="full" 
-                  color="#0284c7"
-                  mb={2}
+                <VStack 
+                  p={8} 
+                  bg="gray.50" 
+                  borderRadius="2xl" 
+                  borderWidth="1px"
+                  borderColor="gray.100"
+                  shadow="sm"
+                  h="full"
+                  _hover={domain.url ? { 
+                    transform: "translateY(-10px)", 
+                    shadow: "2xl",
+                    borderColor: "#0284c7",
+                    bg: "white"
+                  } : {}}
+                  transition="all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
                 >
-                  <Icon as={domain.icon} w={10} h={10} />
-                </Box>
-                <Text fontWeight="900" fontSize="xl" color="#1a365d">
-                  {isAr ? domain.titleAr : domain.titleEn}
-                </Text>
-              </VStack>
+                  <Box 
+                    p={4} 
+                    bg="blue.50" 
+                    borderRadius="full" 
+                    color="#0284c7"
+                    mb={2}
+                  >
+                    <Icon as={domain.icon} w={10} h={10} />
+                  </Box>
+                  <Text fontWeight="900" fontSize="xl" color="#1a365d" textAlign="center">
+                    {isAr ? domain.titleAr : domain.titleEn}
+                  </Text>
+                </VStack>
+              </Link>
             ))}
           </SimpleGrid>
         </VStack>

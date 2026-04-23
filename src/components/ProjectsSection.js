@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactGA from "react-ga4";
 import { VStack, Heading, SimpleGrid, Box, Image, Text, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Button, HStack, Link, Container, Badge } from "@chakra-ui/react";
 import { faAmazon, faGooglePlay, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faCode, faChartLine, faServer, faLaptopCode, faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faChartLine, faServer, faLaptopCode, faBookOpen, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslation } from "react-i18next";
 
@@ -13,6 +13,7 @@ const ProjectsSection = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const techProjects = [
+    { id: "t0", title: isAr ? "LowCost Web (تصميم مواقع)" : "LowCost Web (Web Solutions)", link: "https://lowcost-web.vercel.app/", icon: faGlobe, tags: [isAr ? "تجاري" : "Business", "UI/UX"] },
     { id: "t1", title: isAr ? "تحليل جودة البيانات" : "Data Quality Analytics", link: "https://github.com/shaleekhalil-dev/TechLine-Quality-Analytics", icon: faChartLine, tags: ["Python", "Analytics"] },
     { id: "t2", title: isAr ? "نظام Little Lemon API" : "Little Lemon API", link: "https://github.com/shaleekhalil-dev/Little-Lemon-API", icon: faServer, tags: ["Django", "DRF"] },
     { id: "t3", title: isAr ? "محرك الحجوزات" : "Reservation Engine", link: "https://github.com/shaleekhalil-dev/LittleLemonProject", icon: faLaptopCode, tags: ["React", "UI"] },
@@ -38,7 +39,7 @@ const ProjectsSection = () => {
       id: 6, 
       title: isAr ? "عبير وشادي" : "Abeer and Shady", 
       image: "https://drive.google.com/thumbnail?id=1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw", 
-      previews: [{ lang: "Arabic", url: "https://drive.google.com/file/d/1rOmW5vGPFXMytE97TaekquCT3RHKF3jC/preview", label: isAr ? "قراءة النسخة العامية كاملة" : "Read Full Slang Version" }],
+      previews: [{ lang: "Arabic", url: "https://drive.google.com/file/d/1qN9VLYkxqSN8DJM878j5-y1PdJRfv9wd/view?usp=sharing", label: isAr ? "قراءة النسخة العامية كاملة" : "Read Full Slang Version" }],
       editions: [isAr ? "عبير وشادي (العربية)" : "Abeer & Shadi (Arabic)"] 
     },
     { id: 7, title: isAr ? "مرآة الروح" : "Mirror of the Soul", image: "https://drive.google.com/thumbnail?id=188RKTdEapP0FveGYn192Bm63eJ9VTEuR", editions: [isAr ? "صدى الوعي (العربية)" : "Echo of Consciousness (Arabic)"] },
@@ -62,14 +63,16 @@ const ProjectsSection = () => {
     <Container maxW="container.xl" py={20} id="projects-section">
       <VStack spacing={16}>
         <VStack spacing={8} w="full">
-          <Heading color="#0c4a6e" size="xl" textAlign="center">{isAr ? "المشاريع التقنية" : "Tech Projects"}</Heading>
+          <Heading color="#0c4a6e" size="xl" textAlign="center">{isAr ? "المشاريع والحلول التقنية" : "Tech Projects & Solutions"}</Heading>
           <SimpleGrid columns={[1, 2, 4]} spacing={6} w="full">
             {techProjects.map((p) => (
               <Box key={p.id} className="glass-card" p={6} textAlign="center" _hover={{ transform: "translateY(-5px)" }} transition="0.3s">
                 <Box mb={4} color="#0284c7"><FontAwesomeIcon icon={p.icon} size="3x" /></Box>
                 <Heading size="sm" mb={3} color="#0c4a6e">{p.title}</Heading>
                 <HStack justify="center" mb={3}>{p.tags.map(tag => <Badge key={tag} colorScheme="blue">{tag}</Badge>)}</HStack>
-                <Button as={Link} href={p.link} isExternal size="xs" variant="outline" colorScheme="blue">GitHub</Button>
+                <Button as={Link} href={p.link} isExternal size="xs" variant="outline" colorScheme="blue">
+                  {p.id === "t0" ? (isAr ? "زيارة الموقع" : "Visit Site") : "GitHub"}
+                </Button>
               </Box>
             ))}
           </SimpleGrid>
