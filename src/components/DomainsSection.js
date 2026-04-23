@@ -1,32 +1,40 @@
 import React from "react";
-import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link } from "@chakra-ui/react";
-import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint } from "react-icons/fa";
+import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link, HStack } from "@chakra-ui/react";
+import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, FaPenNib } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const domains = [
   { 
     id: 1, 
+    icon: FaPenNib, 
+    titleAr: "كاتب ومؤلف", 
+    titleEn: "Author & Writer",
+    url: "https://www.amazon.com/author/shaleekhalil",
+    googleUrl: "https://play.google.com/store/books/author?id=Shalee+Khalil"
+  },
+  { 
+    id: 2, 
     icon: FaChalkboardTeacher, 
     titleAr: "معلم", 
     titleEn: "Teacher",
     url: "https://sites.google.com/view/shaleekh"
   },
   { 
-    id: 2, 
+    id: 3, 
     icon: FaUserTie, 
     titleAr: "مدرب استراتيجي / حياة", 
     titleEn: "Strategic / Life Coach",
     url: "https://sites.google.com/view/shaaleekhalil"
   },
   { 
-    id: 3, 
+    id: 4, 
     icon: FaCode, 
     titleAr: "مصمم مواقع ويب", 
     titleEn: "Web Developer",
     url: "https://lowcost-web.vercel.app/"
   },
   { 
-    id: 4, 
+    id: 5, 
     icon: FaFingerprint, 
     titleAr: "الهوية الرقمية", 
     titleEn: "Digital Identity",
@@ -46,7 +54,8 @@ const DomainsSection = () => {
             {isAr ? "المجالات العملية" : "Professional Domains"}
           </Heading>
           
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8} w="full">
+          {/* التعديل هنا لجعل المربعات متناسقة (3 في الصف أو 2 حسب حجم الشاشة) */}
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8} w="full">
             {domains.map((domain) => (
               <VStack 
                 key={domain.id} 
@@ -72,16 +81,32 @@ const DomainsSection = () => {
                 <Text fontWeight="900" fontSize="xl" color="#1a365d" textAlign="center" mb={4}>
                   {isAr ? domain.titleAr : domain.titleEn}
                 </Text>
-                <Link 
-                  href={domain.url} 
-                  isExternal 
-                  color="#0284c7" 
-                  fontWeight="bold" 
-                  fontSize="sm"
-                  _hover={{ textDecoration: "underline" }}
-                >
-                  {isAr ? "اعرف المزيد ←" : "Learn More ←"}
-                </Link>
+                
+                <VStack spacing={2}>
+                  <Link 
+                    href={domain.url} 
+                    isExternal 
+                    color="#0284c7" 
+                    fontWeight="bold" 
+                    fontSize="sm"
+                    _hover={{ textDecoration: "underline" }}
+                  >
+                    {isAr ? "اعرف المزيد (Amazon) ←" : "Learn More (Amazon) ←"}
+                  </Link>
+                  
+                  {domain.googleUrl && (
+                    <Link 
+                      href={domain.googleUrl} 
+                      isExternal 
+                      color="#0c4a6e" 
+                      fontWeight="bold" 
+                      fontSize="sm"
+                      _hover={{ textDecoration: "underline" }}
+                    >
+                      {isAr ? "تصفح مؤلفاتي على Google Play ←" : "Browse my books on Google Play ←"}
+                    </Link>
+                  )}
+                </VStack>
               </VStack>
             ))}
           </SimpleGrid>
