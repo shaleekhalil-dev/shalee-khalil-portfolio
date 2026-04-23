@@ -1,26 +1,29 @@
 import React from "react";
-import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link } from "@chakra-ui/react";
-import { FaChalkboardTeacher, FaUserTie, FaChessKnight, FaCode } from "react-icons/fa";
+import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link, HStack } from "@chakra-ui/react";
+import { FaChalkboardTeacher, FaUserTie, FaChessKnight, FaCode, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const domains = [
   { 
     id: 1, 
-    icon: FaChalkboardTeacher, 
-    titleAr: "معلم", 
-    titleEn: "Teacher" 
+    icon: FaLinkedin, 
+    titleAr: "شعلي خليل (LinkedIn)", 
+    titleEn: "Shalee Khalil (LinkedIn)",
+    url: "https://www.linkedin.com/in/shalee-khalil"
   },
   { 
     id: 2, 
-    icon: FaUserTie, 
-    titleAr: "مدرب حياة", 
-    titleEn: "Life Coach" 
+    icon: FaChalkboardTeacher, 
+    titleAr: "معلم (Facebook)", 
+    titleEn: "Teacher (Facebook)",
+    url: "https://www.facebook.com/shaaleekh/"
   },
   { 
     id: 3, 
-    icon: FaChessKnight, 
-    titleAr: "مدرب استراتيجي", 
-    titleEn: "Strategic Trainer" 
+    icon: FaUserTie, 
+    titleAr: "مدرب حياة (Instagram)", 
+    titleEn: "Life Coach (Instagram)",
+    url: "https://www.instagram.com/shaaleekh/"
   },
   { 
     id: 4, 
@@ -40,47 +43,45 @@ const DomainsSection = () => {
       <Container maxW="container.xl">
         <VStack spacing={8}>
           <Heading as="h2" size="xl" color="#1a365d" textAlign="center">
-            {isAr ? "المجالات العملية" : "Professional Domains"}
+            {isAr ? "المجالات العملية والمنصات" : "Professional Domains & Platforms"}
           </Heading>
           
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8} w="full">
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
             {domains.map((domain) => (
               <Link 
                 key={domain.id} 
-                href={domain.url || undefined} 
-                isExternal={!!domain.url}
+                href={domain.url} 
+                isExternal
                 _hover={{ textDecoration: "none" }}
-                cursor={domain.url ? "pointer" : "default"}
               >
-                <VStack 
+                <HStack 
                   p={8} 
                   bg="gray.50" 
                   borderRadius="2xl" 
                   borderWidth="1px"
                   borderColor="gray.100"
                   shadow="sm"
-                  h="full"
-                  _hover={domain.url ? { 
-                    transform: "translateY(-10px)", 
-                    shadow: "2xl",
+                  spacing={6}
+                  _hover={{ 
+                    transform: "translateY(-5px)", 
+                    shadow: "xl",
                     borderColor: "#0284c7",
                     bg: "white"
-                  } : {}}
-                  transition="all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+                  }}
+                  transition="all 0.3s ease"
                 >
                   <Box 
                     p={4} 
                     bg="blue.50" 
                     borderRadius="full" 
                     color="#0284c7"
-                    mb={2}
                   >
-                    <Icon as={domain.icon} w={10} h={10} />
+                    <Icon as={domain.icon} w={8} h={8} />
                   </Box>
-                  <Text fontWeight="900" fontSize="xl" color="#1a365d" textAlign="center">
+                  <Text fontWeight="900" fontSize="xl" color="#1a365d">
                     {isAr ? domain.titleAr : domain.titleEn}
                   </Text>
-                </VStack>
+                </HStack>
               </Link>
             ))}
           </SimpleGrid>

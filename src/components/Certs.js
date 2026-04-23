@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, SimpleGrid, Text, VStack, Container, Divider, Tag, GridItem } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Text, VStack, Container, Divider, Tag, GridItem, Link } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 const Certs = () => {
@@ -10,7 +10,8 @@ const Certs = () => {
     { 
       degree: isAr ? "ماجستير إدارة الموارد البشرية التطبيقية" : "Master of Applied Human Resource Management", 
       status: isAr ? "قيد الدراسة حالياً" : "Currently Pursuing",
-      goal: isAr ? "الهدف القادم: دكتوراه في إدارة الأعمال (DBA) في إدارة المشاريع" : "Next Milestone: PhD in Business Administration (DBA) in Project Management"
+      goal: isAr ? "الهدف القادم: دكتوراه في إدارة الأعمال (DBA) في إدارة المشاريع" : "Next Milestone: PhD in Business Administration (DBA) in Project Management",
+      url: "https://sites.google.com/view/shaleekhalilresearches"
     },
     { 
       degree: isAr ? "الدبلوم البريطاني (2024): ممارس كوتشينج فعال و NLP" : "British Diploma (2024): Effective Coaching & NLP Practitioner", 
@@ -70,25 +71,46 @@ const Certs = () => {
             {isAr ? "المسار الأكاديمي والاحترافي" : "Academic & Professional Journey"}
           </Heading>
 
-          {/* المسار الأكاديمي */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center" color="#0369a1">
               {isAr ? "المسار الأكاديمي" : "Academic Path"}
             </Heading>
             <VStack spacing={6}>
-              {academicPath.map((item, i) => (
-                <Box key={i} className="glass-card" p={8} w="full" borderLeft={isAr ? "none" : "6px solid #0c4a6e"} borderRight={isAr ? "6px solid #0c4a6e" : "none"}>
-                  <VStack align="start" spacing={2}>
-                    <Tag size="md" colorScheme="blue" variant="solid" borderRadius="full">{item.org || item.status}</Tag>
-                    <Text fontSize="xl" fontWeight="800" color="#0c4a6e">{item.degree}</Text>
-                    {item.goal && <Text color="#0369a1" fontWeight="bold" fontSize="md">✦ {item.goal}</Text>}
-                  </VStack>
-                </Box>
-              ))}
+              {academicPath.map((item, i) => {
+                const cardContent = (
+                  <Box 
+                    key={i} 
+                    className="glass-card" 
+                    p={8} 
+                    w="full" 
+                    borderLeft={isAr ? "none" : "6px solid #0c4a6e"} 
+                    borderRight={isAr ? "6px solid #0c4a6e" : "none"}
+                    cursor={item.url ? "pointer" : "default"}
+                    transition="0.3s"
+                    _hover={item.url ? { bg: "#f0f9ff", borderColor: "#0284c7" } : {}}
+                  >
+                    <VStack align="start" spacing={2}>
+                      <Tag size="md" colorScheme="blue" variant="solid" borderRadius="full">{item.org || item.status}</Tag>
+                      <Text fontSize="xl" fontWeight="800" color="#0c4a6e">{item.degree}</Text>
+                      {item.goal && <Text color="#0369a1" fontWeight="bold" fontSize="md">✦ {item.goal}</Text>}
+                      {item.url && (
+                        <Text fontSize="xs" color="#0284c7" fontWeight="bold" mt={2}>
+                          {isAr ? "🔎 انقر لاستعراض الأبحاث العلمية" : "🔎 Click to view research papers"}
+                        </Text>
+                      )}
+                    </VStack>
+                  </Box>
+                );
+
+                return item.url ? (
+                  <Link href={item.url} isExternal key={i} w="full" _hover={{ textDecoration: "none" }}>
+                    {cardContent}
+                  </Link>
+                ) : cardContent;
+              })}
             </VStack>
           </Box>
 
-          {/* شهادات Google */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center" color="#0369a1">
               {isAr ? "الاحتراف التقني (Google)" : "Google Professional Certifications"}
@@ -105,7 +127,6 @@ const Certs = () => {
             </SimpleGrid>
           </Box>
 
-          {/* مسار Meta */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center" color="#0369a1">
               {isAr ? "مسار التطوير البرمجي (Meta)" : "Software Development (Meta)"}
@@ -122,7 +143,6 @@ const Certs = () => {
             </SimpleGrid>
           </Box>
 
-          {/* علم النفس والقيادة */}
           <Box>
             <Heading as="h2" size="xl" mb={8} textAlign="center" color="#0369a1">
               {isAr ? "اعتمادات القيادة وعلم النفس" : "Leadership & Psychology Credentials"}
