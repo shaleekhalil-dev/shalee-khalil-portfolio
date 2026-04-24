@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ReactGA from "react-ga4";
 import { ChakraProvider, Box, useToast } from "@chakra-ui/react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
 import DomainsSection from "./components/DomainsSection";
@@ -101,6 +102,7 @@ function App() {
     <ChakraProvider>
       <Router basename={isGitHubPages ? "/shalee-khalil-portfolio" : "/"}>
         <AppContent />
+        <SpeedInsights />
       </Router>
     </ChakraProvider>
   );
