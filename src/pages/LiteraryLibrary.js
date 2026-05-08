@@ -1,7 +1,7 @@
 import React from "react";
 import { 
   Box, Container, Heading, SimpleGrid, VStack, Text, 
-  Image, HStack, Button, Link, Badge, Divider 
+  Image, HStack, Button, Link, Badge, Divider, Icon // تم إضافة Icon هنا
 } from "@chakra-ui/react";
 import { FaAmazon, FaGooglePlay, FaBookOpen, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
@@ -50,9 +50,12 @@ const LiteraryLibrary = () => {
               {isAr ? "المكتبة الأدبية" : "Literary Library"}
             </Heading>
             <Box w="100px" h="5px" bg="brand.500" borderRadius="full" />
+            <Text fontSize="lg" color="brand.700" fontWeight="bold">
+              {isAr ? "رحلة الكلمة من الورق إلى الوعي الرقمي" : "A journey from paper to digital consciousness"}
+            </Text>
           </VStack>
 
-          {/* شبكة الكتب - مجموعات ثنائية */}
+          {/* شبكة الكتب - مجموعات ثنائية بتصميم زجاجي وانبثاق ناعم */}
           <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={6}>
             {bookGroups.map((book) => (
               <MotionBox 
