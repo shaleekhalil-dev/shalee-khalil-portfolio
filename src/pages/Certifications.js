@@ -17,70 +17,72 @@ const Certifications = () => {
   const isAr = i18n.language === "ar";
   const ArrowIcon = isAr ? FaArrowLeft : FaArrowRight;
 
-  // 1. المجموعة التقنية والبرمجية (استخراج شامل من IBM, Meta, Google, Microsoft)
+  // 1. فرع التقنية، البرمجة والذكاء الاصطناعي
   const techSection = {
     title: isAr ? "التقنية، البرمجة والذكاء الاصطناعي" : "Technology, Programming & AI",
     icon: FaRobot, color: "purple.500",
     linkedCerts: [
-      { name: "Full Stack Developer", issuer: "Meta", link: "https://coursera.org/verify/specialization/ATE" },
-      { name: "Full Stack Software Developer", issuer: "IBM", link: "https://coursera.org/verify/professional-cert/IBM-FS" },
-      { name: "Data Science", issuer: "IBM", link: "https://coursera.org/verify/professional-cert/IBM-DS" },
-      { name: "Cybersecurity", issuer: "Google", link: "https://coursera.org/verify/professional-cert/POZZEBOLKA6J" },
-      { name: "Data Analytics", issuer: "Google", link: "https://coursera.org/verify/professional-cert/CXSSXUYQUK2Z" },
+      { name: "IBM Full Stack Software Developer", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/W9D3R7395EI3" },
+      { name: "IBM DevOps and Software Engineering", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/W1WKC25AHWRG" },
+      { name: "IBM Data Engineering", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/SUZKGITATZYZ" },
+      { name: "IBM Data Science", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/GY6EPUG345Z0" },
+      { name: "Meta Android Developer", issuer: "Meta", link: "https://www.coursera.org/account/accomplishments/specialization/2X77NJKU8C79" },
+      { name: "Meta Full Stack Developer", issuer: "Meta", link: "https://coursera.org/verify/specialization/UGELP6MYNCJY" },
+      { name: "Google Cybersecurity", issuer: "Google", link: "https://coursera.org/verify/professional-cert/POZZEBOLKA6J" },
+      { name: "Google AI (Professional)", issuer: "Google", link: "https://coursera.org/verify/professional-cert/45TUGH9Y16XU" }
     ],
     skills: [
       { name: "Python Specialist", color: "blue", issuer: "IBM" },
-      { name: "React & JavaScript", color: "cyan", issuer: "Meta" },
-      { name: "Data Engineering", color: "teal", issuer: "IBM" },
-      { name: "Cloud Computing", color: "blue", issuer: "IBM" },
-      { name: "DevOps & Software Eng.", color: "gray", issuer: "IBM" },
-      { name: "Machine Learning", color: "purple", issuer: "IBM" },
+      { name: "AI Essentials", color: "purple", issuer: "Google" },
+      { name: "Data Analytics", color: "teal", issuer: "Google" },
+      { name: "UX Design", color: "pink", issuer: "Google" },
+      { name: "Prompt Engineering", color: "orange", issuer: "Google" },
+      { name: "Cloud Native App", color: "blue", issuer: "IBM" },
       { name: "Applied AI", color: "purple", issuer: "IBM" },
-      { name: "AI Essentials", color: "pink", issuer: "Google" },
-      { name: "Prompt Engineering", color: "orange", issuer: "Google AI" },
-      { name: "UX Design Professional", color: "pink", issuer: "Google" },
       { name: "iOS Developer", color: "blue", issuer: "Meta" },
-      { name: "Android Developer", color: "green", issuer: "Meta" },
-      { name: "IT Support", color: "orange", issuer: "Google" },
-      { name: "Microsoft 365", color: "blue", issuer: "Microsoft" }
+      { name: "IT Support", color: "gray", issuer: "Google" },
+      { name: "ICDL Base", color: "teal", issuer: "ICDL" }
     ]
   };
 
-  // 2. مجموعة العلوم النفسية، الكوتشينج والطب النفسي
+  // 2. فرع العلوم النفسية، الطب النفسي والتدريب
   const psychSection = {
-    title: isAr ? "العلوم النفسية، الطب النفسي والكوتشينج" : "Psychology, Psychiatry & Coaching",
+    title: isAr ? "العلوم النفسية، الطب النفسي والتدريب" : "Psychology, Psychiatry & Coaching",
     icon: FaBrain, color: "green.500",
     linkedCerts: [
-      { name: "Abnormal Psychology", issuer: "Wesleyan University", link: "https://coursera.org/verify/specialization/TZ0E4I1PHRE6" },
+      { name: "Psychology of Trauma & Anxiety", issuer: "APA", link: "https://coursera.org/verify/specialization/Z6Z4S3WW7V1K" },
       { name: "Psychological First Aid", issuer: "Johns Hopkins", link: "https://coursera.org/verify/9NAPCRKIBFB8" },
-      { name: "Positive Psychiatry", issuer: "University of Sydney", link: "https://coursera.org/verify/SYDNEY" }
+      { name: "Positive Psychiatry", issuer: "Uni Sydney", link: "https://coursera.org/verify/UEL4DAW0DNN4" },
+      { name: "Abnormal Psychology", issuer: "Wesleyan", link: "https://coursera.org/verify/specialization/TZ0E411PHRE6" },
+      { name: "Schizophrenia", issuer: "Wesleyan", link: "https://coursera.org/verify/BYAC43NN429C" }
     ],
     skills: [
       { name: "NLP Practitioner", color: "purple", issuer: "Auspicium UK" },
-      { name: "Effective Coaching", color: "green", issuer: "Auspicium UK" },
-      { name: "Trauma & Anxiety", color: "red", issuer: "APA" },
-      { name: "Health Coaching", color: "teal", issuer: "Imperial College" },
-      { name: "Practical Counseling", color: "blue", issuer: "Alison" },
-      { name: "Emotional Intelligence", color: "pink", issuer: "IBM" }
+      { name: "Life Coaching", color: "green", issuer: "Auspicium UK" },
+      { name: "Emotional Intelligence", color: "pink", issuer: "IBM" },
+      { name: "Counseling Skills", color: "blue", issuer: "Alison" },
+      { name: "Health Coaching", color: "teal", issuer: "Imperial" },
+      { name: "First Aid", color: "red", issuer: "Edraak" }
     ]
   };
 
-  // 3. مجموعة القيادة والإدارة (بما في ذلك إدارة المشاريع)
+  // 3. فرع القيادة، الإدارة الاستراتيجية والتسويق
   const leadershipSection = {
     title: isAr ? "القيادة، الإدارة الاستراتيجية والمشاريع" : "Leadership & Strategic Management",
     icon: FaUserTie, color: "orange.500",
     linkedCerts: [
       { name: "Google Project Management", issuer: "Google", link: "https://coursera.org/verify/professional-cert/A1CTHFP66S19" },
-      { name: "People Management", issuer: "Google", link: "https://coursera.org/verify/GOOGLE-PEOPLE" },
-      { name: "Business Intelligence", issuer: "IBM", link: "https://coursera.org/verify/IBM-BI" }
+      { name: "Leading with Impact", issuer: "IBM/Coursera", link: "https://coursera.org/verify/specialization/UCT93G46AFBT" },
+      { name: "Digital Marketing & E-commerce", issuer: "Google", link: "https://coursera.org/verify/professional-cert/BY0X1SSEOYMJ" },
+      { name: "Microsoft 365 Fundamentals", issuer: "Microsoft", link: "https://coursera.org/verify/specialization/1212LH1EP2PV" }
     ],
     skills: [
-      { name: "Agile & Scrum", color: "orange", issuer: "Google" },
+      { name: "People Management", color: "red", issuer: "Google" },
+      { name: "Soft Skills", color: "orange", issuer: "IBM" },
       { name: "Strategic HRM", color: "red", issuer: "M.A. Applied" },
-      { name: "Leading with Impact", color: "orange", issuer: "IBM" },
-      { name: "Diversity & Inclusion", color: "yellow", issuer: "IBM" },
-      { name: "Marketing & E-commerce", color: "blue", issuer: "Google" },
-      { name: "Data-Driven Strategy", color: "gray", issuer: "IBM" }
+      { name: "Data Marketing", color: "blue", issuer: "Google AI" },
+      { name: "Agile Management", color: "orange", issuer: "Google" },
+      { name: "Field Research", color: "gray", issuer: "PCBS" }
     ]
   };
 
@@ -101,7 +103,7 @@ const Certifications = () => {
             <Box w="100px" h="5px" bg="brand.500" borderRadius="full" />
           </VStack>
 
-          {/* المسار الأكاديمي الشارح */}
+          {/* المسار الأكاديمي */}
           <Box>
             <Heading size="lg" mb={8} display="flex" alignItems="center"><Icon as={FaGraduationCap} mr={3} color="brand.500"/> {isAr ? "المسار الأكاديمي" : "Academic Path"}</Heading>
             <VStack align="stretch" spacing={4}>
@@ -120,7 +122,7 @@ const Certifications = () => {
             </VStack>
           </Box>
 
-          {/* مصفوفة الكفايات مع تذليل الجهة المصدرة */}
+          {/* مصفوفة الكفايات التخصصية */}
           <Box>
             <Heading size="lg" mb={8} display="flex" alignItems="center"><Icon as={FaAward} mr={3} color="brand.500"/> {isAr ? "مصفوفة الكفايات التخصصية الشاملة" : "Comprehensive Competency Matrix"}</Heading>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
@@ -130,7 +132,7 @@ const Certifications = () => {
                     <HStack><Icon as={sec.icon} color={sec.color} boxSize={6} /><Heading size="md">{sec.title}</Heading></HStack>
                   </HStack>
                   <VStack align="stretch" spacing={2} mb={6}>
-                    {sec.linkedCerts && sec.linkedCerts.map((cert, i) => (
+                    {sec.linkedCerts.map((cert, i) => (
                       <HStack key={i} justify="space-between" bg="whiteAlpha.400" p={2} borderRadius="md">
                         <Text fontSize="xs" fontWeight="bold">{cert.name}</Text>
                         <Button as={Link} href={cert.link} isExternal size="2xs" colorScheme="blue" variant="ghost" rightIcon={<FaExternalLinkAlt />}>Verify</Button>
