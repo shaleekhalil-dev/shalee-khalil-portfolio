@@ -2,7 +2,7 @@
   "name": "shalee-portfolio-v3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shaleekhalil-dev.github.io/shalee-khalil-portfolio/",
+  "homepage": ".",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
