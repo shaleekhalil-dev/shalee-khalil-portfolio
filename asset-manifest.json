@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "./static/js/main.cc192b2f.js",
-    "index.html": "./index.html",
-    "main.cc192b2f.js.map": "./static/js/main.cc192b2f.js.map"
+    "main.js": "/shalee-khalil-portfolio/static/js/main.cc192b2f.js",
+    "index.html": "/shalee-khalil-portfolio/index.html",
+    "main.cc192b2f.js.map": "/shalee-khalil-portfolio/static/js/main.cc192b2f.js.map"
   },
   "entrypoints": [
     "static/js/main.cc192b2f.js"
