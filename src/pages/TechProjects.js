@@ -21,52 +21,47 @@ const TechProjects = () => {
     {
       title: isAr ? "نموذج التواصل المدعوم بالذكاء الاصطناعي" : "AI-Powered Communication Model",
       description: isAr 
-        ? "تطبيق تفاعلي متقدم يستخدم تقنيات الرؤية الحاسوبية لتحليل لغة الجسد وتعبيرات الوجه لتعزيز جودة التواصل الرقمي." 
-        : "Advanced interactive application using Computer Vision to analyze body language and facial expressions.",
-      tags: ["AI", "React", "Vision"],
+        ? "نموذج متطور يستخدم الرؤية الحاسوبية لتحليل تعبيرات الوجه والانفعالات، مما يسهل التواصل الإنساني المدعوم تقنياً." 
+        : "Advanced model using Computer Vision to analyze facial expressions and emotions for tech-enhanced communication.",
+      tags: ["AI", "Vision", "React"],
       live: "https://emotion-detector-app-six.vercel.app/",
-      icon: FaRobot,
-      color: "purple.500"
+      icon: FaRobot, color: "purple.500"
     },
     {
       title: isAr ? "منصة أنسنة بيئات العمل (PsyCap)" : "Workforce Humanization (PsyCap)",
       description: isAr 
-        ? "نظام متكامل يضم قاعدة بيانات سحابية (Render) لإدارة المستخدمين وصلاحيات الإدارة، يهدف لتحليل انطباعات الموظفين وتطوير رأس المال النفسي." 
-        : "A full-stack system with a cloud database (Render) for user management, aimed at analyzing employee sentiment and PsyCap.",
+        ? "نظام شامل مدعوم بقاعدة بيانات على (Render) لإدارة المستخدمين والصلاحيات، مخصص لمسح انطباعات الموظفين وتطوير رأس المال النفسي." 
+        : "Integrated system with a Render-hosted DB for user management, designed to analyze employee sentiment and develop PsyCap.",
       tags: ["Full-Stack", "Render DB", "HRM"],
       live: "https://psycap-frontend.vercel.app/",
-      icon: FaBrain,
-      color: "pink.500"
+      icon: FaBrain, color: "pink.500"
     },
     {
       title: isAr ? "متجر لو كوست (LowCost Web)" : "LowCost Web Store",
       description: isAr 
-        ? "نموذج لمشروع تجارة إلكترونية عصري يتميز بسرعة الأداء وواجهة مستخدم مرنة تدعم تجربة تسوق رقمية سلسة." 
-        : "A modern e-commerce project featuring high performance and a flexible UI for a seamless shopping experience.",
+        ? "مشروع تجارة إلكترونية متكامل يتميز بواجهة مستخدم عصرية وسرعة فائقة في الأداء، مصمم لتوفير تجربة تسوق سلسة." 
+        : "A complete e-commerce project featuring a modern UI and high performance for a seamless shopping experience.",
       tags: ["E-Commerce", "Vercel", "Frontend"],
       live: "https://lowcost-web.vercel.app/",
-      icon: FaShoppingBag,
-      color: "orange.500"
+      icon: FaShoppingBag, color: "orange.500"
     },
     {
       title: isAr ? "التحليل الاستراتيجي لشركة Tech-Line" : "Tech-Line Strategic Analysis",
       description: isAr 
-        ? "تقرير تقني مفصل تم إعداده باستخدام أدوات بايثون لتحليل أثر التدريب على أداء الموظفين وتحقيق التميز." 
-        : "Detailed technical report using Python to analyze training impact on employee performance.",
-      tags: ["Python", "Data Analysis", "HRM"],
+        ? "دراسة تحليلية باستخدام بايثون لبيانات الموظفين توضح أثر التدريب على الأداء المؤسسي وتحقيق الأهداف الاستراتيجية." 
+        : "Analytical study using Python to demonstrate the impact of training on institutional performance and goals.",
+      tags: ["Python", "Data Analysis", "Strategy"],
       presentation: "https://drive.google.com/file/d/1xxkr13xeV13uqdBSHONeQ0p5hSAcoAYw/view?usp=sharing",
-      icon: FaChartLine,
-      color: "teal.500"
+      icon: FaChartLine, color: "teal.500"
     },
     {
       title: isAr ? "التنبؤ بنجاح هبوط SpaceX Falcon 9" : "SpaceX Falcon 9 Landing Prediction",
       description: isAr 
-        ? "مشروع يستخدم API و SQL لبناء نماذج تعلم آلي تتنبأ بنجاح هبوط معززات الصواريخ بدقة 83.3%." 
-        : "Data science project predicting rocket landing success with 83.3% accuracy using ML models.",
-      tags: ["Python", "ML", "SpaceX"],
+        ? "مشروع علوم بيانات يستخدم SQL وتعلم الآلي للتنبؤ بنجاح هبوط معززات الصواريخ بدقة تصل إلى 83.3%." 
+        : "Data science project using SQL and ML to predict rocket landing success with 83.3% accuracy.",
+      tags: ["Python", "ML", "SQL"],
       github: "https://github.com/shaleekhalil-dev/-Data-Collection-API-with-Webscraping",
-      icon: FaRocket,
-      color: "blue.500"
+      icon: FaRocket, color: "blue.500"
     }
   ];
 
@@ -86,8 +81,7 @@ const TechProjects = () => {
             {projects.map((project, index) => (
               <MotionBox 
                 key={index} className="glass-card" p={8} bg="whiteAlpha.200" backdropFilter="blur(10px)"
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -10, bg: "whiteAlpha.300", boxShadow: "2xl", borderColor: "brand.500" }}
+                whileHover={{ y: -10, bg: "whiteAlpha.300", boxShadow: "2xl" }}
               >
                 <HStack justify="space-between" mb={6}>
                   <Box p={3} bg={`${project.color.split('.')[0]}.100`} borderRadius="xl">
@@ -103,9 +97,9 @@ const TechProjects = () => {
                 <Text color="brand.800" fontSize="sm" mb={6} minH="60px">{project.description}</Text>
                 <Divider mb={6} borderColor="whiteAlpha.400" />
                 <HStack spacing={4}>
-                  {project.github && <Button as={Link} href={project.github} isExternal leftIcon={<FaGithub />} size="sm" colorScheme="gray">GitHub</Button>}
-                  {project.live && <Button as={Link} href={project.live} isExternal leftIcon={<FaExternalLinkAlt />} size="sm" colorScheme="blue">Live Demo</Button>}
-                  {project.presentation && <Button as={Link} href={project.presentation} isExternal leftIcon={<FaEye />} size="sm" variant="outline" colorScheme="teal">{isAr ? "التقرير" : "Report"}</Button>}
+                  {project.github && <Button as={Link} href={project.github} isExternal size="sm" colorScheme="gray">GitHub</Button>}
+                  {project.live && <Button as={Link} href={project.live} isExternal size="sm" colorScheme="blue">Live Demo</Button>}
+                  {project.presentation && <Button as={Link} href={project.presentation} isExternal size="sm" variant="outline" colorScheme="teal">{isAr ? "التقرير" : "Report"}</Button>}
                 </HStack>
               </MotionBox>
             ))}

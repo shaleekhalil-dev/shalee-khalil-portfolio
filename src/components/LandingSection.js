@@ -4,7 +4,7 @@ import {
   Stack, Flex, Image, Badge, SimpleGrid, Icon
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { FaArrowRight, FaArrowLeft, FaCode, FaBook, FaGraduationCap } from "react-icons/fa";
+import { FaCode, FaBook, FaGraduationCap } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -15,13 +15,13 @@ const LandingSection = () => {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
   
-  // استخدام رابط Thumbnail محسن لضمان الظهور على Vercel/Render
+  // الرابط المحسن للصورة لضمان الظهور على كل المنصات
   const profileImg = "https://drive.google.com/thumbnail?id=18B6gq5r6kbxn2-6j_XJaJi2LT5BZvvMO&sz=w1000";
 
   const navLinks = [
     { label: isAr ? "المشاريع التقنية" : "Tech Projects", path: "/projects", icon: FaCode, color: "blue" },
     { label: isAr ? "المكتبة الأدبية" : "Literary Library", path: "/library", icon: FaBook, color: "teal" },
-    { label: isAr ? "المسار الأكاديمي" : "Academic Path", path: "/certifications", icon: FaGraduationCap, color: "purple" }
+    { label: isAr ? "المسار الأكاديمي" : "Academic Path", path: "/certs", icon: FaGraduationCap, color: "purple" }
   ];
 
   return (
@@ -42,24 +42,14 @@ const LandingSection = () => {
               {t("hero_description")}
             </Text>
 
-            {/* مربعات التنقل التفاعلية */}
+            {/* مربعات التنقل الجديدة */}
             <SimpleGrid columns={{ base: 1, sm: 3 }} spacing={4} w="full">
               {navLinks.map((item, idx) => (
                 <MotionBox key={idx} whileHover={{ y: -5 }} whileTap={{ scale: 0.95 }}>
                   <Button
-                    as={RouterLink}
-                    to={item.path}
-                    variant="outline"
-                    colorScheme={item.color}
-                    w="full"
-                    h="110px"
-                    flexDir="column"
-                    borderRadius="2xl"
-                    bg="whiteAlpha.300"
-                    backdropFilter="blur(10px)"
-                    border="1px solid"
-                    borderColor={`${item.color}.200`}
-                    _hover={{ bg: "whiteAlpha.400", boxShadow: "xl" }}
+                    as={RouterLink} to={item.path} variant="outline" colorScheme={item.color}
+                    w="full" h="110px" flexDir="column" borderRadius="2xl" bg="whiteAlpha.300"
+                    backdropFilter="blur(10px)" border="1px solid" borderColor={`${item.color}.200`}
                   >
                     <VStack spacing={2}>
                       <Icon as={item.icon} boxSize={6} />
@@ -72,36 +62,16 @@ const LandingSection = () => {
           </VStack>
 
           <Flex flex="1" justify="center" position="relative">
-            <MotionBox
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              position="relative"
-              padding="20px"
-            >
-              {/* الغلاف الزجاجي الأزرق المطور (Halo Effect) */}
+            <MotionBox initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} position="relative" padding="20px">
+              {/* غلاف زجاجي أزرق خلف الصورة */}
               <Box 
-                position="absolute" 
-                top="-5px" left="-5px" right="-5px" bottom="-5px" 
-                bg="blue.400" 
-                borderRadius="30% 70% 70% 30% / 30% 30% 70% 70%" 
-                opacity="0.2" 
-                filter="blur(30px)"
-                zIndex={0}
+                position="absolute" top="-5px" left="-5px" right="-5px" bottom="-5px" 
+                bg="blue.400" borderRadius="full" opacity="0.2" filter="blur(30px)" zIndex={0}
               />
-              
               <MotionImage 
-                src={profileImg} 
-                alt="Shalee Khalil" 
-                borderRadius="full" 
-                boxSize={{ base: "280px", md: "380px" }} 
-                objectFit="cover" 
-                border="8px solid white" 
-                shadow="2xl"
-                position="relative"
-                zIndex={1}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                src={profileImg} alt="Shalee Khalil" borderRadius="full" boxSize={{ base: "280px", md: "380px" }} 
+                objectFit="cover" border="8px solid white" shadow="2xl" position="relative" zIndex={1}
+                whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}
               />
             </MotionBox>
           </Flex>

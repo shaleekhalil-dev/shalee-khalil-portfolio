@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Box, useToast } from "@chakra-ui/react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+// تم التغيير إلى HashRouter لحل مشكلة الـ 404
+import { HashRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

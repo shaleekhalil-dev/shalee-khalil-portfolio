@@ -18,13 +18,13 @@ const LiteraryLibrary = () => {
     {
       id: 1, image: "1WcDemkg50UHetNAY7pHsdc6vjX92on_9", titleAr: "طائر الفينيق", titleEn: "The Phoenix",
       links: [
-        { label: isAr ? "العربية" : "Arabic", url: "https://drive.google.com/file/d/1EUNItc73f-SkvPGQMnrLUkpTBsa8ZQu-/preview" },
+        { label: isAr ? "النسخة العربية" : "Arabic", url: "https://drive.google.com/file/d/1EUNItc73f-SkvPGQMnrLUkpTBsa8ZQu-/preview" },
         { label: "English", url: "https://drive.google.com/file/d/1IgnL_NNntUgw4hTreTBJeKowaqYrWCjK/preview" }
       ]
     },
     {
       id: 2, image: "1GqYX2ywmlT19yIGRHcTsAxtxWj4cTSah", titleAr: "هل جربت أن تحلم؟", titleEn: "Have You Tried to Dream?",
-      links: [{ label: isAr ? "تصفح العمل" : "Browse Work", url: "https://www.amazon.com/stores/Shalee-Khalil/author/B0GH8H877J" }]
+      links: [{ label: isAr ? "تصفح العمل" : "Browse", url: "https://www.amazon.com/stores/Shalee-Khalil/author/B0GH8H877J" }]
     },
     {
       id: 3, image: "1Ns1wx8TtxIaICVn2nP_LJbHmcPGukF4V", titleAr: "تركت: مذكرات سارة", titleEn: "Left: Sarah's Diaries",
@@ -33,9 +33,10 @@ const LiteraryLibrary = () => {
         { label: "English", url: "https://drive.google.com/file/d/1wL7XPKtSXe8fQOI8hTG8RYdl-gM5fr8z/preview" }
       ]
     },
-    { id: 4, image: "1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", titleAr: "الأب القاسي", titleEn: "The Cruel Father", links: [{ label: "Amazon", url: "#" }] },
-    { id: 5, image: "1k83W3foPlgOX-GiHG3tEkO73obDmjdk0", titleAr: "دوائر الذاكرة المحرمة", titleEn: "Forbidden Memory Circles", links: [{ label: "Amazon", url: "#" }] },
-    { id: 6, image: "1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF", titleAr: "الرقصة الأخيرة", titleEn: "The Last Dance", links: [{ label: "Amazon", url: "#" }] },
+    // هؤلاء لا يملكون روابط معاينة حالياً لذا سنضع أزرار المتاجر مباشرة
+    { id: 4, image: "1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", titleAr: "الأب القاسي", titleEn: "The Cruel Father", links: [{ label: "Store", url: "#" }] },
+    { id: 5, image: "1k83W3foPlgOX-GiHG3tEkO73obDmjdk0", titleAr: "دوائر الذاكرة المحرمة", titleEn: "Forbidden Memory Circles", links: [{ label: "Store", url: "#" }] },
+    { id: 6, image: "1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF", titleAr: "الرقصة الأخيرة", titleEn: "The Last Dance", links: [{ label: "Store", url: "#" }] },
     { id: 7, image: "1vzSx8BOARMDI863F6GTYX1rDmRuYx8jw", titleAr: "عبير وشادي", titleEn: "Abeer & Shady", links: [{ label: isAr ? "النسخة العامية" : "Slang Version", url: "https://drive.google.com/file/d/1qN9VLYkxqSN8DJM878j5-y1PdJRfv9wd/view" }] },
     { id: 8, image: "1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5", titleAr: "مجموعة رحلة الوعي", titleEn: "Consciousness Journey", links: [{ label: "Google Play", url: "https://drive.google.com/file/d/1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5/view" }] }
   ];
@@ -59,15 +60,10 @@ const LiteraryLibrary = () => {
                   <Image src={`https://drive.google.com/thumbnail?id=${book.image}&sz=w1000`} alt={book.titleAr} h="full" w="full" objectFit="contain" />
                 </Box>
                 <VStack align="start" spacing={3} w="full">
-                  <HStack justify="space-between" w="full">
-                    <Heading size="xs" noOfLines={1}>{isAr ? book.titleAr : book.titleEn}</Heading>
-                    <Icon as={ArrowIcon} size="10px" color="brand.400" />
-                  </HStack>
-                  
+                  <Heading size="xs" noOfLines={1}>{isAr ? book.titleAr : book.titleEn}</Heading>
                   <Text fontSize="10px" fontWeight="bold" color="brand.600">
-                    {isAr ? "اعثر على هذا المؤلف عبر:" : "Find this work through:"}
+                    {isAr ? "اعثر على هذا المؤلف من خلال:" : "Find this work through:"}
                   </Text>
-
                   <VStack spacing={1} w="full">
                     {book.links[0].url !== "#" ? (
                       book.links.map((link, i) => (
