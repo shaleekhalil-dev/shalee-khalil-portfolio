@@ -4,8 +4,8 @@ import {
   HStack, Tag, Button, Link, Icon, Divider, Flex
 } from "@chakra-ui/react";
 import { 
-  FaGithub, FaRocket, FaChartLine, FaCarSide, FaCode, 
-  FaExternalLinkAlt, FaEye, FaArrowRight, FaArrowLeft, FaBrain, FaRobot, FaShoppingBag 
+  FaGithub, FaRocket, FaChartLine, FaCode, 
+  FaExternalLinkAlt, FaEye, FaArrowRight, FaArrowLeft, FaBrain, FaRobot, FaShoppingBag, FaDatabase 
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -18,6 +18,15 @@ const TechProjects = () => {
   const ArrowIcon = isAr ? FaArrowLeft : FaArrowRight;
 
   const projects = [
+    {
+      title: isAr ? "منصة التحليل الرقمي" : "Digital Analysis Platform",
+      description: isAr 
+        ? "منصة متطورة لتحليل البيانات الاستراتيجية واستخراج الرؤى الذكية لدعم اتخاذ القرار المؤسسي." 
+        : "Advanced digital analysis platform for strategic insights and data-driven decision making.",
+      tags: ["Data Analysis", "Vercel", "BI"],
+      live: "https://project-11-portfolio.vercel.app/",
+      icon: FaDatabase, color: "blue.600"
+    },
     {
       title: isAr ? "نموذج التواصل المدعوم بالذكاء الاصطناعي" : "AI-Powered Communication Model",
       description: isAr 

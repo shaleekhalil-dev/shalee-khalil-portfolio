@@ -27,7 +27,7 @@ const LiteraryLibrary = () => {
     { id: 4, image: "1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", titleAr: "الأب القاسي", titleEn: "The Cruel Father", hasStores: true, links: [] },
     { id: 5, image: "1k83W3foPlgOX-GiHG3tEkO73obDmjdk0", titleAr: "دوائر الذاكرة المحرمة", titleEn: "Forbidden Memory Circles", hasStores: true, links: [] },
     { id: 6, image: "1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF", titleAr: "الرقصة الأخيرة", titleEn: "The Last Dance", hasStores: true, links: [] },
-    { id: 8, image: "1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5", titleAr: "مجموعة رحلة الوعي", titleEn: "Consciousness Journey", hasStores: false, links: [
+    { id: 8, image: "1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5", titleAr: "مجموعة رحلة الوعي", titleEn: "Consciousness Journey", hasStores: true, links: [
         { label: isAr ? "تصفح المجموعة" : "Browse Group", url: "https://drive.google.com/file/d/1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5/view" }
     ]}
   ];

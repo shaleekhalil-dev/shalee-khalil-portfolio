@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link } from "@chakra-ui/react";
-import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, FaPenNib } from "react-icons/fa";
+import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, FaPenNib, FaDatabase } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
@@ -12,6 +12,7 @@ const domains = [
   { id: 3, icon: FaUserTie, titleAr: "مدرب حياة واستراتيجي", titleEn: "Life & Strategic Coach", url: "https://sites.google.com/view/shaaleekhalil" },
   { id: 4, icon: FaCode, titleAr: "مطور برمجيات شامل", titleEn: "Full-Stack Developer", url: "https://lowcost-web.vercel.app/" },
   { id: 5, icon: FaFingerprint, titleAr: "الهوية والتميز الرقمي", titleEn: "Digital Identity & Excellence", url: "https://canva.link/uucyyzdna28977l" },
+  { id: 6, icon: FaDatabase, titleAr: "مهندس ومحلل بيانات", titleEn: "Data Engineer & Analyst", url: "https://project-11-portfolio.vercel.app/" },
 ];
 
 const DomainsSection = () => {
@@ -29,7 +30,7 @@ const DomainsSection = () => {
             <Box w="80px" h="4px" bg="brand.500" borderRadius="full" />
           </VStack>
           
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 5 }} spacing={6} w="full">
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={6} w="full">
             {domains.map((domain, idx) => (
               <MotionVStack 
                 key={domain.id} 

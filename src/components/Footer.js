@@ -40,7 +40,7 @@ const Footer = () => {
           </Text>
           {/* تم استبدال الجملة السابقة بالتوقيع الجديد كما طلبت */}
           <Text fontSize="sm" fontWeight="600" color="brand.800" opacity={0.9} mt={2}>
-            *Built with ❤️ by Shalee Khalil - 2026*
+            Built with ❤️ by Shalee Khalil - 2026
           </Text>
         </VStack>
       </Flex>
