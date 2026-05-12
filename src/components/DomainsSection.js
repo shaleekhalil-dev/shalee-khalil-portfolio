@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link } from "@chakra-ui/react";
-import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, FaPenNib, FaDatabase } from "react-icons/fa";
+import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link, Button, HStack } from "@chakra-ui/react";
+import { FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, FaPenNib, FaDatabase, FaRocket, FaChartBar } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
@@ -12,7 +12,13 @@ const domains = [
   { id: 3, icon: FaUserTie, titleAr: "مدرب حياة واستراتيجي", titleEn: "Life & Strategic Coach", url: "https://sites.google.com/view/shaaleekhalil" },
   { id: 4, icon: FaCode, titleAr: "مطور برمجيات شامل", titleEn: "Full-Stack Developer", url: "https://lowcost-web.vercel.app/" },
   { id: 5, icon: FaFingerprint, titleAr: "الهوية والتميز الرقمي", titleEn: "Digital Identity & Excellence", url: "https://canva.link/uucyyzdna28977l" },
-  { id: 6, icon: FaDatabase, titleAr: "مهندس ومحلل بيانات", titleEn: "Data Engineer & Analyst", url: "https://project-11-portfolio.vercel.app/" },
+  { 
+    id: 6, 
+    icon: FaDatabase, 
+    titleAr: "مهندس ومحلل بيانات", 
+    titleEn: "Data Engineer & Analyst", 
+    isSpecial: true // خاصية لتمييز المربع الذي يحتاج زرين
+  },
 ];
 
 const DomainsSection = () => {
@@ -47,12 +53,41 @@ const DomainsSection = () => {
                 <Box p={4} bg="brand.900" borderRadius="xl" color="white" mb={4}>
                   <Icon as={domain.icon} w={6} h={6} />
                 </Box>
-                <Text fontWeight="800" fontSize="md" color="brand.900" textAlign="center">
+                <Text fontWeight="800" fontSize="md" color="brand.900" textAlign="center" mb={domain.isSpecial ? 4 : 0}>
                   {isAr ? domain.titleAr : domain.titleEn}
                 </Text>
-                <Link href={domain.url} isExternal fontSize="xs" color="brand.600" fontWeight="bold" mt={4}>
-                  {isAr ? "استكشف المزيد ←" : "Explore More ←"}
-                </Link>
+
+                {domain.isSpecial ? (
+                  <VStack spacing={2} w="full">
+                    <Button 
+                      as={Link} 
+                      href="https://drive.google.com/file/d/1hRTrz3fVNOdA9_gsaR1yNOl10AwRN1ii/view?usp=sharing" 
+                      isExternal 
+                      size="xs" 
+                      colorScheme="blue" 
+                      leftIcon={<FaRocket />}
+                      w="full"
+                    >
+                      {isAr ? "مشروع SpaceX" : "SpaceX Project"}
+                    </Button>
+                    <Button 
+                      as={Link} 
+                      href="https://project-11-portfolio.vercel.app/" 
+                      isExternal 
+                      size="xs" 
+                      variant="outline" 
+                      colorScheme="brand" 
+                      leftIcon={<FaChartBar />}
+                      w="full"
+                    >
+                      {isAr ? "منصة التحليلات" : "Analytics Platform"}
+                    </Button>
+                  </VStack>
+                ) : (
+                  <Link href={domain.url} isExternal fontSize="xs" color="brand.600" fontWeight="bold" mt={4}>
+                    {isAr ? "استكشف المزيد ←" : "Explore More ←"}
+                  </Link>
+                )}
               </MotionVStack>
             ))}
           </SimpleGrid>
