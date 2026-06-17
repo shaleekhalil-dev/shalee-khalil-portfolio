@@ -7,8 +7,8 @@ const socials = [
   { icon: FaWhatsapp, url: "https://wa.me/970599661819" },
   { icon: FaLinkedin, url: "https://www.linkedin.com/in/shalee-khalil" },
   { icon: FaGithub, url: "https://github.com/shaleekhalil-dev" },
-  { icon: FaInstagram, url: "https://www.instagram.com/shaaleekh/" },
-  { icon: FaFacebook, url: "https://www.facebook.com/shaaleekh/" },
+  { icon: FaInstagram, url: "https://www.instagram.com/shalee.ibrahim" }, // التحديث هنا
+  { icon: FaFacebook, url: "https://www.facebook.com/shalee.ibrahim" },  // التحديث هنا
 ];
 
 const Footer = () => {
@@ -38,7 +38,7 @@ const Footer = () => {
           <Text fontSize="sm" fontWeight="700" color="brand.700">
             {t("hero_title")}
           </Text>
-          {/* تم استبدال الجملة السابقة بالتوقيع الجديد كما طلبت */}
+          {/* تم الحفاظ على توقيعك لعام 2026 كاملاً دون مساس */}
           <Text fontSize="sm" fontWeight="600" color="brand.800" opacity={0.9} mt={2}>
             Built with ❤️ by Shalee Khalil - 2026
           </Text>

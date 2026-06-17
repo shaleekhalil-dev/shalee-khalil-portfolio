@@ -27,9 +27,24 @@ const LiteraryLibrary = () => {
     { id: 4, image: "1JebLdo3IEQ_GRDk6N1Vvtz2rjqWHiaAZ", titleAr: "الأب القاسي", titleEn: "The Cruel Father", hasStores: true, links: [] },
     { id: 5, image: "1k83W3foPlgOX-GiHG3tEkO73obDmjdk0", titleAr: "دوائر الذاكرة المحرمة", titleEn: "Forbidden Memory Circles", hasStores: true, links: [] },
     { id: 6, image: "1ea1LnghMt6jlqxYCgVK5WkAWWxhotQMF", titleAr: "الرقصة الأخيرة", titleEn: "The Last Dance", hasStores: true, links: [] },
-    { id: 8, image: "1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5", titleAr: "مجموعة رحلة الوعي", titleEn: "Consciousness Journey", hasStores: true, links: [
-        { label: isAr ? "تصفح المجموعة" : "Browse Group", url: "https://drive.google.com/file/d/1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5/view" }
-    ]}
+    { 
+      id: 8, 
+      image: "1TLYuyaj-46s56XH-O0oXsvzQPqZtnDU5", 
+      titleAr: "مجموعة رحلة الوعي", 
+      titleEn: "Consciousness Journey", 
+      hasStores: true, 
+      links: [] // تم حذف زر تصفح المجموعة من هنا بنجاح
+    },
+    { 
+      id: 9, 
+      image: "1TA4d4K062lxxAAfTVbqe1pJMm6hnBROq", 
+      titleAr: "بين زيف العقد وحقيقة النبض", 
+      titleEn: "Between the Falsity of the Contract and the Truth of the Pulse",
+      titleFr: "Entre la Fausseté du Contrat et la Vérité de l'Impulsion", 
+      titleEs: "Entre la Falsedad del Contrato y la Verdad del Pulso", 
+      hasStores: true, 
+      links: [] 
+    }
   ];
 
   return (
@@ -48,7 +63,7 @@ const LiteraryLibrary = () => {
                     <Image src={`https://drive.google.com/thumbnail?id=${book.image}&sz=w1000`} alt={book.titleAr} h="full" w="full" objectFit="contain" />
                   </Box>
                   <HStack justify="space-between" mb={2}>
-                    <Heading size="xs" noOfLines={1}>{isAr ? book.titleAr : book.titleEn}</Heading>
+                    <Heading size="xs" noOfLines={2}>{isAr ? book.titleAr : book.titleEn}</Heading>
                     <Icon as={ArrowIcon} color="brand.500" />
                   </HStack>
                 </Box>

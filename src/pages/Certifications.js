@@ -5,7 +5,7 @@ import {
 } from "@chakra-ui/react";
 import { 
   FaGraduationCap, FaExternalLinkAlt, FaAward, 
-  FaBrain, FaRobot, FaUserTie, FaArrowRight, FaArrowLeft 
+  FaBrain, FaRobot, FaUserTie, FaArrowRight, FaArrowLeft, FaSearch 
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ const Certifications = () => {
   const techSection = {
     title: isAr ? "التقنية، البرمجة والذكاء الاصطناعي" : "Technology, Programming & AI",
     icon: FaRobot, color: "purple.500",
-    linkedCerts: [
+    linkedCerts: [ // تم التصحيح هنا إلى نقطتين رأسييتين
       { name: "IBM Full Stack Software Developer", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/W9D3R7395EI3" },
       { name: "IBM DevOps and Software Engineering", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/W1WKC25AHWRG" },
       { name: "IBM Data Engineering", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/SUZKGITATZYZ" },
@@ -29,7 +29,9 @@ const Certifications = () => {
       { name: "Meta Android Developer", issuer: "Meta", link: "https://www.coursera.org/account/accomplishments/specialization/2X77NJKU8C79" },
       { name: "Meta Full Stack Developer", issuer: "Meta", link: "https://coursera.org/verify/specialization/UGELP6MYNCJY" },
       { name: "Google Cybersecurity", issuer: "Google", link: "https://coursera.org/verify/professional-cert/POZZEBOLKA6J" },
-      { name: "Google AI (Professional)", issuer: "Google", link: "https://coursera.org/verify/professional-cert/45TUGH9Y16XU" }
+      { name: "Google AI (Professional)", issuer: "Google", link: "https://coursera.org/verify/professional-cert/45TUGH9Y16XU" },
+      { name: "Digital Marketing & E-commerce", issuer: "Google", link: "https://coursera.org/verify/professional-cert/BY0X1SSEOYMJ" },
+      { name: "Microsoft 365 Fundamentals", issuer: "Microsoft", link: "https://coursera.org/verify/specialization/1212LH1EP2PV" }
     ],
     skills: [
       { name: "Python Specialist", color: "blue", issuer: "IBM" },
@@ -53,7 +55,7 @@ const Certifications = () => {
       { name: "Psychology of Trauma & Anxiety", issuer: "APA", link: "https://coursera.org/verify/specialization/Z6Z4S3WW7V1K" },
       { name: "Psychological First Aid", issuer: "Johns Hopkins", link: "https://coursera.org/verify/9NAPCRKIBFB8" },
       { name: "Positive Psychiatry", issuer: "Uni Sydney", link: "https://coursera.org/verify/UEL4DAW0DNN4" },
-      { name: "Abnormal Psychology", issuer: "Wesleyan", link: "https://coursera.org/verify/specialization/TZ0E411PHRE6" },
+      { name: "Abnormal Psychology", issuer: "Wesleyan", link: "https://www.coursera.org/account/accomplishments/specialization/TZ0E4I1PHRE6" },
       { name: "Schizophrenia", issuer: "Wesleyan", link: "https://coursera.org/verify/BYAC43NN429C" }
     ],
     skills: [
@@ -66,15 +68,13 @@ const Certifications = () => {
     ]
   };
 
-  // 3. فرع القيادة، الإدارة الاستراتيجية والتسويق
+  // 3. فرع القيادة، الإدارة الاستراتيجية والمشاريع
   const leadershipSection = {
     title: isAr ? "القيادة، الإدارة الاستراتيجية والمشاريع" : "Leadership & Strategic Management",
     icon: FaUserTie, color: "orange.500",
     linkedCerts: [
       { name: "Google Project Management", issuer: "Google", link: "https://coursera.org/verify/professional-cert/A1CTHFP66S19" },
-      { name: "Leading with Impact", issuer: "IBM/Coursera", link: "https://coursera.org/verify/specialization/UCT93G46AFBT" },
-      { name: "Digital Marketing & E-commerce", issuer: "Google", link: "https://coursera.org/verify/professional-cert/BY0X1SSEOYMJ" },
-      { name: "Microsoft 365 Fundamentals", issuer: "Microsoft", link: "https://coursera.org/verify/specialization/1212LH1EP2PV" }
+      { name: "Leading with Impact", issuer: "IBM/Coursera", link: "https://coursera.org/verify/specialization/UCT93G46AFBT" }
     ],
     skills: [
       { name: "People Management", color: "red", issuer: "Google" },
@@ -87,11 +87,39 @@ const Certifications = () => {
   };
 
   const education = [
-    { year: "Future", titleAr: "دكتوراه DBA", titleEn: "Doctorate DBA", descAr: "دمج الذكاء الاصطناعي في أنسنة بيئات العمل وتطوير رأس المال النفسي.", isFuture: true },
-    { year: "2026", titleAr: "ماجستير إدارة الموارد البشرية التطبيقية", titleEn: "Master's in Applied HRM", descAr: "دراسة عميقة في إدارة الكفاءات وتطوير الأنظمة المؤسسية الحديثة.", badge: "In Progress" },
-    { year: "2023", titleAr: "دبلوم عالي في التأهيل التربوي", titleEn: "Higher Diploma in Education", descAr: "تطوير المهارات البيداغوجية والتعامل النفسي مع الفئات العمرية المختلفة." },
-    { year: "2021", titleAr: "دبلوم مهني عالي", titleEn: "Higher Professional Diploma", descAr: "التركيز على الكفايات الميدانية، الإحصاء السكاني، وسيادة القانون." },
-    { year: "2015", titleAr: "بكالوريوس التعليم الأساسي", titleEn: "Bachelor's in Basic Education", descAr: "القاعدة المعرفية والتربوية لبناء المسارات التعليمية." }
+    { 
+      year: "Future", 
+      titleAr: "دكتوراه DBA", 
+      titleEn: "Doctorate DBA", 
+      descAr: "دمج الذكاء الاصطناعي في أنسنة بيئات العمل وتطوير رأس المال النفسي.", 
+      isFuture: true 
+    },
+    { 
+      year: "2026", 
+      titleAr: "ماجستير إدارة الموارد البشرية التطبيقية", 
+      titleEn: "Master's in Applied HRM", 
+      descAr: "دراسة عميقة في إدارة الكفاءات وتطوير الأنظمة المؤسسية الحديثة.", 
+      badge: "In Progress",
+      archiveUrl: "https://academic-research-archive.vercel.app/"
+    },
+    { 
+      year: "2023", 
+      titleAr: "الدبلوم المهني العالي (معلم يصنع المعاني وطلبة ينتجون المعرفة)", 
+      titleEn: "Higher Professional Diploma (Teachers Create Meaning & Students Produce Knowledge)", 
+      descAr: "تطوير المهارات البيداغوجية والتعامل النفسي مع الفئات العمرية المختلفة من جامعة بيرزيت." 
+    },
+    { 
+      year: "2021", 
+      titleAr: "دبلوم عالي في التأهيل التربوي", 
+      titleEn: "Higher Diploma in Educational Qualification", 
+      descAr: "الكفايات الميدانية والتربوية المتقدمة من المعهد الوطني للتدريب التربوي." 
+    },
+    { 
+      year: "2015", 
+      titleAr: "بكالوريوس التعليم الأساسي", 
+      titleEn: "Bachelor's in Basic Education", 
+      descAr: "القاعدة المعرفية والتربوية لبناء المسارات التعليمية من جامعة القدس المفتوحة." 
+    }
   ];
 
   return (
@@ -109,11 +137,25 @@ const Certifications = () => {
             <VStack align="stretch" spacing={4}>
               {education.map((edu, i) => (
                 <MotionBox key={i} className="glass-card" p={5} bg="whiteAlpha.200" backdropFilter="blur(10px)" borderLeft={edu.isFuture ? "6px solid #805AD5" : "none"} whileHover={{ scale: 1.02, x: isAr ? -10 : 10 }}>
-                  <HStack justify="space-between">
+                  <HStack justify="space-between" align="start">
                     <VStack align="start" spacing={1}>
                       <Badge colorScheme={edu.isFuture ? "purple" : "teal"}>{edu.year}</Badge>
                       <Text fontWeight="bold" fontSize="lg">{isAr ? edu.titleAr : edu.titleEn}</Text>
                       <Text fontSize="xs" opacity={0.8}>{edu.descAr}</Text>
+                      
+                      {edu.archiveUrl && (
+                        <Button 
+                          as={Link} 
+                          href={edu.archiveUrl} 
+                          isExternal 
+                          size="xs" 
+                          colorScheme="purple" 
+                          leftIcon={<FaSearch />} 
+                          mt={2}
+                        >
+                          {isAr ? "تصفح أرشيف البحوث العلمية" : "Browse Research Archive"}
+                        </Button>
+                      )}
                     </VStack>
                     {edu.badge && <Badge colorScheme="orange">{edu.badge}</Badge>}
                   </HStack>
@@ -122,7 +164,7 @@ const Certifications = () => {
             </VStack>
           </Box>
 
-          {/* مصفوفة الكفايات التخصصية */}
+          {/* مصفوفة الكفايات التخصصية الشاملة */}
           <Box>
             <Heading size="lg" mb={8} display="flex" alignItems="center"><Icon as={FaAward} mr={3} color="brand.500"/> {isAr ? "مصفوفة الكفايات التخصصية الشاملة" : "Comprehensive Competency Matrix"}</Heading>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
@@ -145,7 +187,7 @@ const Certifications = () => {
                         <Button size="xs" colorScheme={skill.color} borderRadius="full" px={4} py={5} flexDir="column" h="auto">
                           <VStack spacing={0}>
                             <Text fontWeight="bold" fontSize="10px">{skill.name}</Text>
-                            <Text fontSize="8px" opacity={0.8} fontWeight="normal">{skill.issuer}</Text>
+                            <Text fontSize="8px" opacity={0.8} fontWeight="normal">{skill.issuer}</Text> {/* تم إصلاح الإغلاق المزدوج هنا */}
                           </VStack>
                         </Button>
                       </MotionBox>

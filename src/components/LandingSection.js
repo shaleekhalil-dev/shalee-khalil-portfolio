@@ -14,7 +14,8 @@ const MotionImage = motion(Image);
 const LandingSection = () => {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar";
-  const profileImg = "https://drive.google.com/thumbnail?id=18B6gq5r6kbxn2-6j_XJaJi2LT5BZvvMO&sz=w1000";
+  // تحديث رابط صورتك الشخصية الجديدة هنا
+  const profileImg = "https://drive.google.com/thumbnail?id=12JfrTZaYrQuJoGjLXlahn4tPq0iGdqGp&sz=w1000";
 
   const navLinks = [
     { label: isAr ? "المشاريع التقنية" : "Tech Projects", path: "/projects", icon: FaCode, color: "blue" },
@@ -54,11 +55,24 @@ const LandingSection = () => {
 
           <Flex flex="1" justify="center" position="relative">
             <MotionBox initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} position="relative" padding="20px">
-              {/* الإطارات الزجاجية الخلفية المطلوبة */}
-              <Box position="absolute" top="0" left="0" boxSize="100%" bg="blue.200" opacity="0.2" borderRadius="3xl" transform="rotate(-5deg)" zIndex={0} backdropFilter="blur(8px)" border="1px solid white" />
-              <Box position="absolute" top="10px" left="15px" boxSize="100%" bg="whiteAlpha.300" opacity="0.3" borderRadius="3xl" transform="rotate(3deg)" zIndex={0} backdropFilter="blur(12px)" border="2px solid blue.50" />
+              {/* الإطارات الزجاجية الخلفية تم تعديلها لتصبح دائرية بالكامل بالتوافق مع شكل الصورة الجديد */}
+              <Box position="absolute" top="0" left="0" boxSize="100%" bg="blue.200" opacity="0.2" borderRadius="full" transform="rotate(-5deg)" zIndex={0} backdropFilter="blur(8px)" border="1px solid white" />
+              <Box position="absolute" top="10px" left="15px" boxSize="100%" bg="whiteAlpha.300" opacity="0.3" borderRadius="full" transform="rotate(3deg)" zIndex={0} backdropFilter="blur(12px)" border="2px solid blue.50" />
               
-              <MotionImage src={profileImg} alt="Shalee Khalil" borderRadius="2xl" boxSize={{ base: "280px", md: "380px" }} objectFit="cover" border="8px solid white" shadow="2xl" position="relative" zIndex={1} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }} />
+              {/* الصورة الشخصية الجديدة دائرية بالكامل مع الحفاظ على التأثيرات والحدود السمية والظلال */}
+              <MotionImage 
+                src={profileImg} 
+                alt="Shalee Khalil" 
+                borderRadius="full" 
+                boxSize={{ base: "280px", md: "380px" }} 
+                objectFit="cover" 
+                border="8px solid white" 
+                shadow="2xl" 
+                position="relative" 
+                zIndex={1} 
+                whileHover={{ scale: 1.05 }} 
+                transition={{ type: "spring", stiffness: 300 }} 
+              />
             </MotionBox>
           </Flex>
         </Stack>
