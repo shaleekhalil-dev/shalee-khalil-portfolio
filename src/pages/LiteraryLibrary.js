@@ -33,7 +33,7 @@ const LiteraryLibrary = () => {
       titleAr: "مجموعة رحلة الوعي", 
       titleEn: "Consciousness Journey", 
       hasStores: true, 
-      links: [] // تم حذف زر تصفح المجموعة من هنا بنجاح
+      links: [] 
     },
     { 
       id: 9, 
@@ -42,6 +42,22 @@ const LiteraryLibrary = () => {
       titleEn: "Between the Falsity of the Contract and the Truth of the Pulse",
       titleFr: "Entre la Fausseté du Contrat et la Vérité de l'Impulsion", 
       titleEs: "Entre la Falsedad del Contrato y la Verdad del Pulso", 
+      hasStores: true, 
+      links: [] 
+    },
+    { 
+      id: 10, 
+      image: "1tkBZIPNWQpHcUJHvNMJCvou1qKK1ZYCR", 
+      titleAr: "الغيمة الوردية: مايا ودوريد", 
+      titleEn: "The Secret of the Pink Cloud: Duraid and Maya", 
+      hasStores: true, 
+      links: [] 
+    },
+    { 
+      id: 11, 
+      image: "1CRvrGw_BpawNTaftOHJAjp2QgYj0Bvto", 
+      titleAr: "أجنحة من ذهب", 
+      titleEn: "WINGS OF GOLD", 
       hasStores: true, 
       links: [] 
     }

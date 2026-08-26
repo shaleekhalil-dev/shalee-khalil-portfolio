@@ -7,8 +7,8 @@ const socials = [
   { icon: FaWhatsapp, url: "https://wa.me/970599661819" },
   { icon: FaLinkedin, url: "https://www.linkedin.com/in/shalee-khalil" },
   { icon: FaGithub, url: "https://github.com/shaleekhalil-dev" },
-  { icon: FaInstagram, url: "https://www.instagram.com/shalee.ibrahim" }, // التحديث هنا
-  { icon: FaFacebook, url: "https://www.facebook.com/shalee.ibrahim" },  // التحديث هنا
+  { icon: FaInstagram, url: "https://www.instagram.com/shalee.khalil" }, // تم التحديث
+  { icon: FaFacebook, url: "https://www.facebook.com/shalee.i.khalil" },  // تم التحديث
 ];
 
 const Footer = () => {
