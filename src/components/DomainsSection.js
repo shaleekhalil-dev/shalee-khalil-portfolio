@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link, Button, HStack, Badge } from "@chakra-ui/react";
+import { Box, SimpleGrid, Icon, Text, VStack, Heading, Container, Link, Button, Badge } from "@chakra-ui/react";
 import { 
   FaChalkboardTeacher, FaUserTie, FaCode, FaFingerprint, 
   FaPenNib, FaDatabase, FaRocket, FaChartBar, FaArrowLeft, FaArrowRight 

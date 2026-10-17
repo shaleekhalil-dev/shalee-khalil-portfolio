@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Box, useToast, HStack, VStack, Text, Badge, Icon } from "@chakra-ui/react";
 import { HashRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { FaBook, FaAward, FaSparkles, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaBook, FaAward, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -10,7 +10,6 @@ import Certifications from "./pages/Certifications";
 import TechProjects from "./pages/TechProjects";
 import LiteraryLibrary from "./pages/LiteraryLibrary";
 
-// مكون لضمان صعود الصفحة للأعلى بسلاسة عند التنقل بين الأقسام
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -27,7 +26,6 @@ function AppContent() {
   const ArrowIcon = isAr ? FaArrowLeft : FaArrowRight;
 
   useEffect(() => {
-    // مصفوفة التحديثات الذكية: يمكنك إضافة أي كتاب أو شهادة أو مشروع جديد هنا مستقبلاً
     const updatesFeed = [
       {
         id: "new-book-toast",
@@ -44,8 +42,8 @@ function AppContent() {
         badge: isAr ? "تحديث المحراب العلمي 🎓" : "New Accreditations 🎓",
         badgeColor: "purple",
         icon: FaAward,
-        title: isAr ? "8 اعتمادات دولية وتخصصات جديدة" : "8 New International Specializations",
-        description: isAr ? "شهادات جديدة من Yale وGeneva وGoogle وMicrosoft في علم النفس والبرمجة." : "New certifications from Yale, Geneva, Google & Microsoft.",
+        title: isAr ? "إضافة سجل Credly والمساقات الأمريكية المعتمدة" : "Credly Transcript & U.S. ACE Courses Added",
+        description: isAr ? "تصفح التخصصات الموثقة والمساقات الجامعية الاستدراكية في الصحة والإدارة والتكنولوجيا." : "Explore verified specializations & U.S. ACE-accredited courses.",
         path: "/certs",
         delay: 9000
       }
@@ -100,7 +98,7 @@ function AppContent() {
     });
 
     return () => timers.forEach(timer => clearTimeout(timer));
-  }, [isAr, toast, navigate]);
+  }, [isAr, toast, navigate, ArrowIcon]);
 
   return (
     <Box minH="100vh" display="flex" flexDirection="column">

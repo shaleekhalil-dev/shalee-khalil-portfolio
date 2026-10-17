@@ -29,6 +29,14 @@ const theme = extendTheme({
         backgroundAttachment: "fixed",
         overflowX: "hidden",
       },
+      "[dir='rtl'] .chakra-select__icon-wrapper": {
+        left: "0.85rem !important",
+        right: "auto !important",
+      },
+      "[dir='ltr'] .chakra-select__icon-wrapper": {
+        right: "0.85rem !important",
+        left: "auto !important",
+      },
       ".glass-card": {
         bg: "rgba(255, 255, 255, 0.72)",
         backdropFilter: "blur(14px)",

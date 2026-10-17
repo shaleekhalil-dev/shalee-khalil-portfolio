@@ -119,6 +119,16 @@ const ContactMeSection = () => {
                     borderRadius="xl"
                     h="50px"
                     _focus={{ borderColor: "brand.500", bg: "white" }}
+                    sx={{
+                      paddingInlineStart: "1rem",
+                      paddingInlineEnd: "2.5rem",
+                      "& + .chakra-select__icon-wrapper": {
+                        left: isAr ? "0.85rem" : "auto",
+                        right: isAr ? "auto" : "0.85rem",
+                        color: "brand.700",
+                        pointerEvents: "none",
+                      },
+                    }}
                   >
                     <option value="Programming">{isAr ? "برمجة وحلول رقمية" : "Programming & Dev"}</option>
                     <option value="Consultation">{isAr ? "استشارة إدارية / نفسية" : "HR / Psych Consultation"}</option>
