@@ -4,8 +4,9 @@ import {
   HStack, Tag, Button, Link, Icon, Divider, Flex
 } from "@chakra-ui/react";
 import { 
-  FaGithub, FaRocket, FaChartLine, FaCode, 
-  FaExternalLinkAlt, FaEye, FaArrowRight, FaArrowLeft, FaBrain, FaRobot, FaShoppingBag, FaDatabase 
+  FaGithub, FaRocket, FaChartLine, 
+  FaExternalLinkAlt, FaArrowRight, FaArrowLeft, 
+  FaBrain, FaRobot, FaShoppingBag, FaDatabase, FaFileAlt 
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -80,7 +81,9 @@ const TechProjects = () => {
         <VStack spacing={12} align="stretch">
           <VStack spacing={4} textAlign="center">
             <HStack justify="center" spacing={4}>
-              <Heading size="2xl" color="brand.900" fontWeight="900">{isAr ? "المشاريع التقنية" : "Technical Projects"}</Heading>
+              <Heading size="2xl" color="brand.900" fontWeight="900">
+                {isAr ? "المشاريع التقنية" : "Technical Projects"}
+              </Heading>
               <Icon as={ArrowIcon} color="brand.500" boxSize={8} />
             </HStack>
             <Box w="100px" h="5px" bg="brand.500" borderRadius="full" />
@@ -89,27 +92,87 @@ const TechProjects = () => {
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             {projects.map((project, index) => (
               <MotionBox 
-                key={index} className="glass-card" p={8} bg="whiteAlpha.200" backdropFilter="blur(10px)"
-                whileHover={{ y: -10, bg: "whiteAlpha.300", boxShadow: "2xl" }}
+                key={index} 
+                className="glass-card" 
+                p={8} 
+                bg="whiteAlpha.300" 
+                backdropFilter="blur(12px)"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                whileHover={{ y: -10, bg: "whiteAlpha.500", boxShadow: "2xl" }}
+                display="flex"
+                flexDirection="column"
+                justifyContent="space-between"
               >
-                <HStack justify="space-between" mb={6}>
-                  <Box p={3} bg={`${project.color.split('.')[0]}.100`} borderRadius="xl">
-                    <Icon as={project.icon} w={8} h={8} color={project.color} />
-                  </Box>
-                  <Flex wrap="wrap" gap={2} justify="flex-end">
-                    {project.tags.map(tag => (
-                      <Tag key={tag} size="sm" variant="solid" colorScheme="blue">{tag}</Tag>
-                    ))}
-                  </Flex>
-                </HStack>
-                <Heading size="md" color="brand.900" mb={4}>{project.title}</Heading>
-                <Text color="brand.800" fontSize="sm" mb={6} minH="60px">{project.description}</Text>
-                <Divider mb={6} borderColor="whiteAlpha.400" />
-                <HStack spacing={4}>
-                  {project.github && <Button as={Link} href={project.github} isExternal size="sm" colorScheme="gray">GitHub</Button>}
-                  {project.live && <Button as={Link} href={project.live} isExternal size="sm" colorScheme="blue">Live Demo</Button>}
-                  {project.presentation && <Button as={Link} href={project.presentation} isExternal size="sm" variant="outline" colorScheme="teal">{isAr ? "التقرير" : "Report"}</Button>}
-                </HStack>
+                <Box>
+                  <HStack justify="space-between" mb={6}>
+                    <Box p={3.5} bg={`${project.color.split(".")[0]}.100`} borderRadius="2xl" shadow="sm">
+                      <Icon as={project.icon} w={8} h={8} color={project.color} />
+                    </Box>
+                    <Flex wrap="wrap" gap={2} justify="flex-end">
+                      {project.tags.map((tag) => (
+                        <Tag key={tag} size="sm" variant="solid" colorScheme="blue" borderRadius="full" px={3}>
+                          {tag}
+                        </Tag>
+                      ))}
+                    </Flex>
+                  </HStack>
+                  <Heading size="md" color="brand.900" mb={4}>{project.title}</Heading>
+                  <Text color="brand.800" fontSize="sm" mb={6} minH="60px" lineHeight="tall">
+                    {project.description}
+                  </Text>
+                </Box>
+
+                <Box>
+                  <Divider mb={5} borderColor="brand.200" opacity={0.6} />
+                  <HStack spacing={4}>
+                    {project.github && (
+                      <Button 
+                        as={Link} 
+                        href={project.github} 
+                        isExternal 
+                        size="sm" 
+                        colorScheme="gray" 
+                        leftIcon={<FaGithub />}
+                        borderRadius="lg"
+                        _hover={{ textDecoration: "none", transform: "translateY(-2px)" }}
+                      >
+                        GitHub
+                      </Button>
+                    )}
+                    {project.live && (
+                      <Button 
+                        as={Link} 
+                        href={project.live} 
+                        isExternal 
+                        size="sm" 
+                        colorScheme="blue" 
+                        leftIcon={<FaExternalLinkAlt />}
+                        borderRadius="lg"
+                        _hover={{ textDecoration: "none", transform: "translateY(-2px)" }}
+                      >
+                        {isAr ? "معاينة حية" : "Live Demo"}
+                      </Button>
+                    )}
+                    {project.presentation && (
+                      <Button 
+                        as={Link} 
+                        href={project.presentation} 
+                        isExternal 
+                        size="sm" 
+                        variant="outline" 
+                        colorScheme="teal" 
+                        leftIcon={<FaFileAlt />}
+                        borderRadius="lg"
+                        _hover={{ textDecoration: "none", bg: "teal.50", transform: "translateY(-2px)" }}
+                      >
+                        {isAr ? "التقرير التحليلي" : "Analytical Report"}
+                      </Button>
+                    )}
+                  </HStack>
+                </Box>
               </MotionBox>
             ))}
           </SimpleGrid>

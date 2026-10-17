@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { 
-  Box, Button, FormControl, FormLabel, Heading, Input, 
-  VStack, Container, Textarea, useToast, Select, Text
+  Box, Button, FormControl, FormLabel, FormErrorMessage, Heading, Input, 
+  VStack, Container, Textarea, useToast, Select, Icon
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { FaPaperPlane } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
@@ -21,9 +22,9 @@ const ContactMeSection = () => {
   const formik = useFormik({
     initialValues: { firstName: "", email: "", category: "Programming", comment: "" },
     validationSchema: Yup.object({
-      firstName: Yup.string().required(isAr ? "الحقل مطلوب" : "Required"),
-      email: Yup.string().email(isAr ? "بريد غير صحيح" : "Invalid email").required(isAr ? "الحقل مطلوب" : "Required"),
-      comment: Yup.string().min(10, isAr ? "١٠ رموز على الأقل" : "Min 10 characters").required(isAr ? "الحقل مطلوب" : "Required"),
+      firstName: Yup.string().required(isAr ? "الاسم الكامل مطلوب" : "Full name is required"),
+      email: Yup.string().email(isAr ? "صيغة البريد الإلكتروني غير صحيحة" : "Invalid email address").required(isAr ? "البريد الإلكتروني مطلوب" : "Email is required"),
+      comment: Yup.string().min(10, isAr ? "يرجى كتابة ١٠ أحرف على الأقل" : "Minimum 10 characters required").required(isAr ? "الرسالة مطلوبة" : "Message is required"),
     }),
     onSubmit: async (values, actions) => {
       setIsLoading(true);
@@ -37,8 +38,8 @@ const ContactMeSection = () => {
         await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: params });
 
         toast({
-          title: isAr ? "تم الإرسال" : "Message Sent",
-          description: isAr ? "شكراً لتواصلك، سأرد عليك قريباً." : "Thank you, I will reply soon.",
+          title: isAr ? "تم إرسال رسالتك بنجاح ✨" : "Message Sent Successfully ✨",
+          description: isAr ? "شكراً لتواصلك، سأرد عليك قريباً." : "Thank you for reaching out, I will reply soon.",
           status: "success",
           duration: 5000,
           isClosable: true,
@@ -47,9 +48,11 @@ const ContactMeSection = () => {
         actions.resetForm();
       } catch (error) {
         toast({
-          title: isAr ? "خطأ" : "Error",
+          title: isAr ? "حدث خطأ أثناء الإرسال" : "Submission Error",
+          description: isAr ? "يرجى المحاولة مرة أخرى." : "Please try again.",
           status: "error",
           duration: 5000,
+          isClosable: true,
         });
       } finally {
         setIsLoading(false);
@@ -75,31 +78,83 @@ const ContactMeSection = () => {
 
             <form onSubmit={formik.handleSubmit}>
               <VStack spacing={5}>
-                <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
+                <FormControl isInvalid={formik.touched.firstName && Boolean(formik.errors.firstName)}>
                   <FormLabel fontWeight="800" color="brand.900">{t("form_name")}</FormLabel>
-                  <Input name="firstName" {...formik.getFieldProps("firstName")} bg="whiteAlpha.600" borderColor="brand.200" h="50px" _focus={{ borderColor: "brand.500" }} />
+                  <Input 
+                    name="firstName" 
+                    placeholder={isAr ? "أدخل اسمك الكامل..." : "Enter your full name..."}
+                    {...formik.getFieldProps("firstName")} 
+                    bg="whiteAlpha.700" 
+                    borderColor="brand.200" 
+                    borderRadius="xl"
+                    h="50px" 
+                    _focus={{ borderColor: "brand.500", bg: "white", boxShadow: "0 0 0 1px #0ea5e9" }} 
+                  />
+                  <FormErrorMessage fontWeight="bold" fontSize="xs">{formik.errors.firstName}</FormErrorMessage>
                 </FormControl>
 
-                <FormControl isInvalid={formik.touched.email && formik.errors.email}>
+                <FormControl isInvalid={formik.touched.email && Boolean(formik.errors.email)}>
                   <FormLabel fontWeight="800" color="brand.900">{t("form_email")}</FormLabel>
-                  <Input name="email" type="email" {...formik.getFieldProps("email")} bg="whiteAlpha.600" borderColor="brand.200" h="50px" />
+                  <Input 
+                    name="email" 
+                    type="email" 
+                    placeholder="example@domain.com"
+                    {...formik.getFieldProps("email")} 
+                    bg="whiteAlpha.700" 
+                    borderColor="brand.200" 
+                    borderRadius="xl"
+                    h="50px" 
+                    _focus={{ borderColor: "brand.500", bg: "white", boxShadow: "0 0 0 1px #0ea5e9" }}
+                  />
+                  <FormErrorMessage fontWeight="bold" fontSize="xs">{formik.errors.email}</FormErrorMessage>
                 </FormControl>
 
                 <FormControl>
                   <FormLabel fontWeight="800" color="brand.900">{t("form_type")}</FormLabel>
-                  <Select name="category" {...formik.getFieldProps("category")} bg="whiteAlpha.600" borderColor="brand.200" h="50px">
+                  <Select 
+                    name="category" 
+                    {...formik.getFieldProps("category")} 
+                    bg="whiteAlpha.700" 
+                    borderColor="brand.200" 
+                    borderRadius="xl"
+                    h="50px"
+                    _focus={{ borderColor: "brand.500", bg: "white" }}
+                  >
                     <option value="Programming">{isAr ? "برمجة وحلول رقمية" : "Programming & Dev"}</option>
                     <option value="Consultation">{isAr ? "استشارة إدارية / نفسية" : "HR / Psych Consultation"}</option>
                     <option value="Literary">{isAr ? "استفسار أدبي" : "Literary Inquiry"}</option>
                   </Select>
                 </FormControl>
 
-                <FormControl isInvalid={formik.touched.comment && formik.errors.comment}>
+                <FormControl isInvalid={formik.touched.comment && Boolean(formik.errors.comment)}>
                   <FormLabel fontWeight="800" color="brand.900">{t("form_message")}</FormLabel>
-                  <Textarea name="comment" {...formik.getFieldProps("comment")} bg="whiteAlpha.600" borderColor="brand.200" rows={5} />
+                  <Textarea 
+                    name="comment" 
+                    placeholder={isAr ? "اكتب تفاصيل طلبك أو استفسارك هنا..." : "Write your message details here..."}
+                    {...formik.getFieldProps("comment")} 
+                    bg="whiteAlpha.700" 
+                    borderColor="brand.200" 
+                    borderRadius="xl"
+                    rows={5} 
+                    _focus={{ borderColor: "brand.500", bg: "white", boxShadow: "0 0 0 1px #0ea5e9" }}
+                  />
+                  <FormErrorMessage fontWeight="bold" fontSize="xs">{formik.errors.comment}</FormErrorMessage>
                 </FormControl>
 
-                <Button type="submit" isLoading={isLoading} bg="brand.900" color="white" w="full" h="60px" fontSize="lg" fontWeight="900" _hover={{ bg: "brand.700", transform: "translateY(-2px)" }}>
+                <Button 
+                  type="submit" 
+                  isLoading={isLoading} 
+                  bg="brand.900" 
+                  color="white" 
+                  w="full" 
+                  h="60px" 
+                  borderRadius="xl"
+                  fontSize="lg" 
+                  fontWeight="900" 
+                  leftIcon={<Icon as={FaPaperPlane} />}
+                  _hover={{ bg: "brand.700", transform: "translateY(-2px)", shadow: "xl" }}
+                  transition="all 0.2s"
+                >
                   {t("form_submit")}
                 </Button>
               </VStack>

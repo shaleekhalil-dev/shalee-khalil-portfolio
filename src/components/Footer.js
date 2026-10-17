@@ -4,29 +4,35 @@ import { FaFacebook, FaGithub, FaLinkedin, FaWhatsapp, FaInstagram } from "react
 import { useTranslation } from "react-i18next";
 
 const socials = [
-  { icon: FaWhatsapp, url: "https://wa.me/970599661819" },
-  { icon: FaLinkedin, url: "https://www.linkedin.com/in/shalee-khalil" },
-  { icon: FaGithub, url: "https://github.com/shaleekhalil-dev" },
-  { icon: FaInstagram, url: "https://www.instagram.com/shalee.khalil" }, // تم التحديث
-  { icon: FaFacebook, url: "https://www.facebook.com/shalee.i.khalil" },  // تم التحديث
+  { label: "WhatsApp", icon: FaWhatsapp, url: "https://wa.me/970599661819" },
+  { label: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/shalee-khalil" },
+  { label: "GitHub", icon: FaGithub, url: "https://github.com/shaleekhalil-dev" },
+  { label: "Instagram", icon: FaInstagram, url: "https://www.instagram.com/shalee.khalil" }, // تم التحديث
+  { label: "Facebook", icon: FaFacebook, url: "https://www.facebook.com/shalee.i.khalil" },  // تم التحديث
 ];
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <Box as="footer" py={12} bg="whiteAlpha.600" borderTop="1px solid" borderColor="whiteAlpha.800" backdropFilter="blur(5px)">
+    <Box as="footer" py={12} bg="whiteAlpha.600" borderTop="1px solid" borderColor="whiteAlpha.800" backdropFilter="blur(8px)">
       <Flex direction="column" align="center">
-        <HStack spacing={6} mb={6}>
+        <HStack spacing={4} mb={6}>
           {socials.map((social, index) => (
             <Link 
               key={index} 
               href={social.url} 
+              aria-label={social.label}
               isExternal 
-              _hover={{ transform: "translateY(-5px)", color: "brand.500" }}
-              transition="all 0.3s"
+              p={3}
+              borderRadius="full"
+              bg="whiteAlpha.700"
+              shadow="sm"
+              color="brand.900"
+              _hover={{ transform: "translateY(-5px)", bg: "brand.900", color: "white", shadow: "md" }}
+              transition="all 0.3s ease"
             >
-              <Icon as={social.icon} w={6} h={6} color="brand.900" />
+              <Icon as={social.icon} w={5} h={5} display="block" />
             </Link>
           ))}
         </HStack>

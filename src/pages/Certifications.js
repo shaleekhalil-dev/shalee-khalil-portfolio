@@ -1,11 +1,11 @@
 import React from "react";
 import { 
   Box, Container, Heading, SimpleGrid, VStack, Text, 
-  HStack, Button, Link, Badge, Icon, Divider, Flex 
+  HStack, Button, Link, Badge, Icon, Flex 
 } from "@chakra-ui/react";
 import { 
   FaGraduationCap, FaExternalLinkAlt, FaAward, 
-  FaBrain, FaRobot, FaUserTie, FaArrowRight, FaArrowLeft, FaSearch 
+  FaBrain, FaRobot, FaUserTie, FaSearch 
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -15,13 +15,16 @@ const MotionBox = motion(Box);
 const Certifications = () => {
   const { i18n } = useTranslation();
   const isAr = i18n.language === "ar";
-  const ArrowIcon = isAr ? FaArrowLeft : FaArrowRight;
 
   // 1. فرع التقنية، البرمجة والذكاء الاصطناعي
   const techSection = {
     title: isAr ? "التقنية، البرمجة والذكاء الاصطناعي" : "Technology, Programming & AI",
-    icon: FaRobot, color: "purple.500",
-    linkedCerts: [ // تم التصحيح هنا إلى نقطتين رأسييتين
+    icon: FaRobot, 
+    color: "purple.500",
+    linkedCerts: [
+      { name: "Google Data Analysis with Python", issuer: "Google", link: "https://www.coursera.org/account/accomplishments/specialization/2IR3Z0DEDCXM", isNew: true },
+      { name: "Microsoft IT Support Specialist", issuer: "Microsoft", link: "https://www.coursera.org/account/accomplishments/specialization/IIVAKGONYA9X", isNew: true },
+      { name: "Google IT Automation with Python", issuer: "Google", link: "https://www.coursera.org/account/accomplishments/specialization/IBV4OFHF2LMW", isNew: true },
       { name: "IBM Full Stack Software Developer", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/W9D3R7395EI3" },
       { name: "IBM DevOps and Software Engineering", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/W1WKC25AHWRG" },
       { name: "IBM Data Engineering", issuer: "IBM", link: "https://www.coursera.org/account/accomplishments/specialization/SUZKGITATZYZ" },
@@ -50,8 +53,14 @@ const Certifications = () => {
   // 2. فرع العلوم النفسية، الطب النفسي والتدريب
   const psychSection = {
     title: isAr ? "العلوم النفسية، الطب النفسي والتدريب" : "Psychology, Psychiatry & Coaching",
-    icon: FaBrain, color: "green.500",
+    icon: FaBrain, 
+    color: "green.500",
     linkedCerts: [
+      { name: "The Science of Well-Being (Yale University)", issuer: "Yale University", link: "https://www.coursera.org/account/accomplishments/verify/WLGSSF1WUEJU", isNew: true },
+      { name: "A life with ADHD (University of Geneva)", issuer: "University of Geneva", link: "https://www.coursera.org/account/accomplishments/verify/FILUWPN9G7VM", isNew: true },
+      { name: "Life Coach Certification (Packt)", issuer: "Packt", link: "https://www.coursera.org/account/accomplishments/verify/OJAEGAEJY1EB", isNew: true },
+      { name: "Top 20 Most Powerful Life Coaching Questions (Packt)", issuer: "Packt", link: "https://www.coursera.org/account/accomplishments/verify/GL0R8W3OUFPB", isNew: true },
+      { name: "Generative AI for Human Resources (HR) Professionals Specialization", issuer: "Coursera", link: "https://www.coursera.org/account/accomplishments/specialization/NXITBU44RT79", isNew: true },
       { name: "Psychology of Trauma & Anxiety", issuer: "APA", link: "https://coursera.org/verify/specialization/Z6Z4S3WW7V1K" },
       { name: "Psychological First Aid", issuer: "Johns Hopkins", link: "https://coursera.org/verify/9NAPCRKIBFB8" },
       { name: "Positive Psychiatry", issuer: "Uni Sydney", link: "https://coursera.org/verify/UEL4DAW0DNN4" },
@@ -71,7 +80,8 @@ const Certifications = () => {
   // 3. فرع القيادة، الإدارة الاستراتيجية والمشاريع
   const leadershipSection = {
     title: isAr ? "القيادة، الإدارة الاستراتيجية والمشاريع" : "Leadership & Strategic Management",
-    icon: FaUserTie, color: "orange.500",
+    icon: FaUserTie, 
+    color: "orange.500",
     linkedCerts: [
       { name: "Google Project Management", issuer: "Google", link: "https://coursera.org/verify/professional-cert/A1CTHFP66S19" },
       { name: "Leading with Impact", issuer: "IBM/Coursera", link: "https://coursera.org/verify/specialization/UCT93G46AFBT" }
@@ -92,6 +102,7 @@ const Certifications = () => {
       titleAr: "دكتوراه DBA", 
       titleEn: "Doctorate DBA", 
       descAr: "دمج الذكاء الاصطناعي في أنسنة بيئات العمل وتطوير رأس المال النفسي.", 
+      descEn: "Integrating artificial intelligence to humanize work environments and develop psychological capital.",
       isFuture: true 
     },
     { 
@@ -99,6 +110,7 @@ const Certifications = () => {
       titleAr: "ماجستير إدارة الموارد البشرية التطبيقية", 
       titleEn: "Master's in Applied HRM", 
       descAr: "دراسة عميقة في إدارة الكفاءات وتطوير الأنظمة المؤسسية الحديثة.", 
+      descEn: "In-depth study of competency management and the development of modern institutional systems.",
       badge: "In Progress",
       archiveUrl: "https://academic-research-archive.vercel.app/"
     },
@@ -106,19 +118,22 @@ const Certifications = () => {
       year: "2023", 
       titleAr: "الدبلوم المهني العالي (معلم يصنع المعاني وطلبة ينتجون المعرفة)", 
       titleEn: "Higher Professional Diploma (Teachers Create Meaning & Students Produce Knowledge)", 
-      descAr: "تطوير المهارات البيداغوجية والتعامل النفسي مع الفئات العمرية المختلفة من جامعة بيرزيت." 
+      descAr: "تطوير المهارات البيداغوجية والتعامل النفسي مع الفئات العمرية المختلفة من جامعة بيرزيت.",
+      descEn: "Developing pedagogical skills and psychological engagement with various age groups, from Birzeit University."
     },
     { 
       year: "2021", 
       titleAr: "دبلوم عالي في التأهيل التربوي", 
       titleEn: "Higher Diploma in Educational Qualification", 
-      descAr: "الكفايات الميدانية والتربوية المتقدمة من المعهد الوطني للتدريب التربوي." 
+      descAr: "الكفايات الميدانية والتربوية المتقدمة من المعهد الوطني للتدريب التربوي.",
+      descEn: "Advanced field and educational competencies from the National Institute for Educational Training."
     },
     { 
       year: "2015", 
       titleAr: "بكالوريوس التعليم الأساسي", 
       titleEn: "Bachelor's in Basic Education", 
-      descAr: "القاعدة المعرفية والتربوية لبناء المسارات التعليمية من جامعة القدس المفتوحة." 
+      descAr: "القاعدة المعرفية والتربوية لبناء المسارات التعليمية من جامعة القدس المفتوحة.",
+      descEn: "The cognitive and educational foundation for building educational pathways, from Al-Quds Open University."
     }
   ];
 
@@ -127,21 +142,39 @@ const Certifications = () => {
       <Container maxW="container.xl">
         <VStack spacing={16} align="stretch">
           <VStack spacing={4} textAlign="center">
-            <Heading size="2xl" color="brand.900" fontWeight="900">{isAr ? "الاعتمادات والمحراب العلمي" : "Accreditations & Sanctuary"}</Heading>
+            <Heading size="2xl" color="brand.900" fontWeight="900">
+              {isAr ? "الاعتمادات والمحراب العلمي" : "Accreditations & Sanctuary"}
+            </Heading>
             <Box w="100px" h="5px" bg="brand.500" borderRadius="full" />
           </VStack>
 
           {/* المسار الأكاديمي */}
           <Box>
-            <Heading size="lg" mb={8} display="flex" alignItems="center"><Icon as={FaGraduationCap} mr={3} color="brand.500"/> {isAr ? "المسار الأكاديمي" : "Academic Path"}</Heading>
+            <Heading size="lg" mb={8} display="flex" alignItems="center" gap={3}>
+              <Icon as={FaGraduationCap} color="brand.500" />
+              <Text as="span">{isAr ? "المسار الأكاديمي" : "Academic Path"}</Text>
+            </Heading>
             <VStack align="stretch" spacing={4}>
               {education.map((edu, i) => (
-                <MotionBox key={i} className="glass-card" p={5} bg="whiteAlpha.200" backdropFilter="blur(10px)" borderLeft={edu.isFuture ? "6px solid #805AD5" : "none"} whileHover={{ scale: 1.02, x: isAr ? -10 : 10 }}>
+                <MotionBox 
+                  key={i} 
+                  className="glass-card" 
+                  p={5} 
+                  bg="whiteAlpha.200" 
+                  backdropFilter="blur(10px)" 
+                  borderLeft={!isAr && edu.isFuture ? "6px solid #805AD5" : "none"}
+                  borderRight={isAr && edu.isFuture ? "6px solid #805AD5" : "none"}
+                  whileHover={{ scale: 1.02, x: isAr ? -10 : 10 }}
+                >
                   <HStack justify="space-between" align="start">
                     <VStack align="start" spacing={1}>
                       <Badge colorScheme={edu.isFuture ? "purple" : "teal"}>{edu.year}</Badge>
-                      <Text fontWeight="bold" fontSize="lg">{isAr ? edu.titleAr : edu.titleEn}</Text>
-                      <Text fontSize="xs" opacity={0.8}>{edu.descAr}</Text>
+                      <Text fontWeight="bold" fontSize="lg">
+                        {isAr ? edu.titleAr : edu.titleEn}
+                      </Text>
+                      <Text fontSize="xs" opacity={0.85}>
+                        {isAr ? edu.descAr : edu.descEn}
+                      </Text>
                       
                       {edu.archiveUrl && (
                         <Button 
@@ -166,28 +199,77 @@ const Certifications = () => {
 
           {/* مصفوفة الكفايات التخصصية الشاملة */}
           <Box>
-            <Heading size="lg" mb={8} display="flex" alignItems="center"><Icon as={FaAward} mr={3} color="brand.500"/> {isAr ? "مصفوفة الكفايات التخصصية الشاملة" : "Comprehensive Competency Matrix"}</Heading>
+            <Heading size="lg" mb={8} display="flex" alignItems="center" gap={3}>
+              <Icon as={FaAward} color="brand.500" />
+              <Text as="span">
+                {isAr ? "مصفوفة الكفايات التخصصية الشاملة" : "Comprehensive Competency Matrix"}
+              </Text>
+            </Heading>
             <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8}>
               {[techSection, psychSection, leadershipSection].map((sec, idx) => (
-                <MotionBox key={idx} p={6} bg="whiteAlpha.200" backdropFilter="blur(10px)" borderRadius="xl" border="1px solid white" whileHover={{ y: -10, boxShadow: "2xl" }}>
+                <MotionBox 
+                  key={idx} 
+                  p={6} 
+                  bg="whiteAlpha.200" 
+                  backdropFilter="blur(10px)" 
+                  borderRadius="xl" 
+                  border="1px solid white" 
+                  whileHover={{ y: -8, boxShadow: "2xl" }}
+                >
                   <HStack mb={4} justify="space-between">
-                    <HStack><Icon as={sec.icon} color={sec.color} boxSize={6} /><Heading size="md">{sec.title}</Heading></HStack>
+                    <HStack spacing={3}>
+                      <Icon as={sec.icon} color={sec.color} boxSize={6} />
+                      <Heading size="md">{sec.title}</Heading>
+                    </HStack>
+                    <Badge colorScheme="blue" borderRadius="full" px={2}>
+                      {sec.linkedCerts.length + sec.skills.length}
+                    </Badge>
                   </HStack>
+
                   <VStack align="stretch" spacing={2} mb={6}>
                     {sec.linkedCerts.map((cert, i) => (
-                      <HStack key={i} justify="space-between" bg="whiteAlpha.400" p={2} borderRadius="md">
-                        <Text fontSize="xs" fontWeight="bold">{cert.name}</Text>
-                        <Button as={Link} href={cert.link} isExternal size="2xs" colorScheme="blue" variant="ghost" rightIcon={<FaExternalLinkAlt />}>Verify</Button>
+                      <HStack 
+                        key={i} 
+                        justify="space-between" 
+                        bg="whiteAlpha.500" 
+                        p={2.5} 
+                        borderRadius="md"
+                        _hover={{ bg: "whiteAlpha.800" }}
+                        transition="all 0.2s"
+                      >
+                        <HStack spacing={2}>
+                          <Text fontSize="xs" fontWeight="bold">
+                            {cert.name}
+                          </Text>
+                          {cert.isNew && (
+                            <Badge colorScheme="green" fontSize="9px" borderRadius="full">
+                              {isAr ? "جديد" : "NEW"}
+                            </Badge>
+                          )}
+                        </HStack>
+                        <Button 
+                          as={Link} 
+                          href={cert.link} 
+                          isExternal 
+                          size="2xs" 
+                          colorScheme="blue" 
+                          variant="ghost" 
+                          rightIcon={<FaExternalLinkAlt />}
+                          flexShrink={0}
+                        >
+                          Verify
+                        </Button>
                       </HStack>
                     ))}
                   </VStack>
+
                   <Flex flexWrap="wrap" gap={3}>
                     {sec.skills.map((skill, i) => (
-                      <MotionBox key={i} whileHover={{ scale: 1.25, zIndex: 10 }}>
+                      <MotionBox key={i} whileHover={{ scale: 1.15, zIndex: 10 }}>
                         <Button size="xs" colorScheme={skill.color} borderRadius="full" px={4} py={5} flexDir="column" h="auto">
                           <VStack spacing={0}>
                             <Text fontWeight="bold" fontSize="10px">{skill.name}</Text>
-                            <Text fontSize="8px" opacity={0.8} fontWeight="normal">{skill.issuer}</Text> {/* تم إصلاح الإغلاق المزدوج هنا */}
+                            <Text fontSize="8px" opacity={0.8} fontWeight="normal">{skill.issuer}</Text>
                           </VStack>
                         </Button>
                       </MotionBox>
